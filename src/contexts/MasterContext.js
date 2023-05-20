@@ -14,6 +14,8 @@ export const MasterContextProvider = ({ children }) => {
     const [showWelcomeText, setShowWelcomeText] = useState(true);
     const [showWorkGrid, setShowWorkGrid] = useState(true);
 
+    const [selectedProject, setSelectedProject] = useState(null);
+
     const handleTypingAnimationComplete = () => {
         setIsWelcomeTextTyping(false);
         setShowWorkGrid(true);
@@ -25,6 +27,19 @@ export const MasterContextProvider = ({ children }) => {
         }, 1000);
     };
 
+    const handleHomeSwipeUp = () => {
+        setIsWelcomeTextTyping(false);
+        setShowWorkGrid(true);
+        setShowWelcomeText(false);
+        navigate('/projects');
+    };
+
+    const handleWorkClick = (work) => {
+        setShowWorkGrid(false);
+        setSelectedProject(work);
+        navigate(`/projects/${work.tag}`);
+    };
+
     const value = {
         isWelcomeTextTyping,
         setIsWelcomeTextTyping,
@@ -34,8 +49,13 @@ export const MasterContextProvider = ({ children }) => {
 
         showWorkGrid,
         setShowWorkGrid,
+
+        selectedProject,
+        setSelectedProject,
         
         handleTypingAnimationComplete,
+        handleHomeSwipeUp,
+        handleWorkClick,
     }
 
     return (

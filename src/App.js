@@ -7,6 +7,7 @@ import './App.css';
 
 import Home from './pages/Home';
 import Projects from './pages/Projects';
+import ProjectDetails from './pages/ProjectDetails';
 
 import Header from './components/Header';
 
@@ -33,6 +34,13 @@ const App = () => {
                 <div class="flex flex-col min-h-screen p-4 space-y-4">
                   <Header />
                   <Projects />
+                </div>
+              }
+            />
+            <Route exact path="/projects/:tag" element={
+                <div class="flex flex-col min-h-screen p-4 space-y-4">
+                  <Header />
+                  <ProjectDetails />
                 </div>
               }
             />

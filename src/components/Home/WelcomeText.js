@@ -25,19 +25,19 @@ const WelcomeText = () => {
                 onInit={(typewriter) => {
                     typewriter
                         .typeString("Hello.")
-                        .pauseFor(1000)
+                        .pauseFor(500)
                         .deleteAll()
                         .typeString("I'm Jax.")
-                        .pauseFor(1000)
+                        .pauseFor(500)
                         .deleteAll()
                         .typeString('I like to think.')
-                        .pauseFor(1000)
+                        .pauseFor(500)
                         .deleteAll()
                         .typeString('And to build stuff.')
-                        .pauseFor(1000)
+                        .pauseFor(500)
                         .deleteAll()
                         .typeString("Let me show you.")
-                        .pauseFor(1000)
+                        .pauseFor(500)
                         .callFunction(() => {
                             handleTypingAnimationComplete();
                         })
