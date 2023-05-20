@@ -3,7 +3,7 @@ const works = [
         "id": 1,
         "title": "Sequal",
         "link": "https://sequal.dev",
-        "description": "A top-flight text-to-SQL engine built with React, Express, Postgres.",
+        "description": "A top-flight text-to-SQL engine built with React, Express, Postgres, on EC2 and RDS infrastructure.",
     },
     {
         "id": 2,
