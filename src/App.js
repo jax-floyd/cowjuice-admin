@@ -1,25 +1,54 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import { MasterContextProvider } from './contexts/MasterContext';
+
 import './App.css';
 
-function App() {
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+
+import Header from './components/Header';
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router> 
+      <MasterContextProvider>
+        <div class="bg-white text-black dark:bg-black dark:text-white">
+          <Routes>
+            <Route exact path="/" element={
+                <div class="flex flex-col min-h-screen p-4 space-y-4">
+                  <Home />
+                </div>
+              }
+            />
+            <Route exact path="/ideas" element={
+                <div class="flex flex-col min-h-screen p-4 space-y-4">
+                  <Header />
+                </div>
+              }
+            />
+            <Route exact path="/projects" element={
+                <div class="flex flex-col min-h-screen p-4 space-y-4">
+                  <Header />
+                  <Projects />
+                </div>
+              }
+            />
+            <Route exact path="/more" element={
+                <div class="flex flex-col min-h-screen p-4 space-y-4">
+                  <Header />
+                </div>
+              }
+            />
+          </Routes>
+
+        </div>
+        
+      </MasterContextProvider>
+    </Router>
   );
-}
+};
 
 export default App;
