@@ -9,7 +9,10 @@ const WorkGrid = () => {
     const {  isWelcomeTextTyping, handleWorkClick } = useMasterContext();
 
     const [workHovered, setWorkHovered] = useState(null);
+    const [workButtonHovered, setWorkButtonHovered] = useState(null);
 
+
+    console.log('workButtonHovered', workButtonHovered);
     return (
         <>
             {!isWelcomeTextTyping && (
@@ -36,20 +39,30 @@ const WorkGrid = () => {
                                         <div class="flex flex-row items-center justify-start space-x-2">
                                             <a
                                                 onClick={() => handleWorkClick(work)}
-                                                class="font-mono text-xs animate-fade-left px-2 border border-dashed border-black dark:border-white hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors duration-400 cursor-pointer rounded-full"
+                                                onMouseEnter={() => setWorkButtonHovered(work.id + 'learn')}
+                                                onMouseLeave={() => setWorkButtonHovered(null)}
+                                                class="font-mono text-xs animate-fade-left px-2 border border-dashed border-black dark:border-white transition-colors duration-400 cursor-pointer rounded-full"
                                             >
                                                 <span class="inline-flex flex-wrap items-center">
                                                     Learn <span class="hidden sm:inline">&nbsp;More</span>
+                                                    <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={"w-4 h-4 transition-opacity duration-400" + (workButtonHovered === work.id + 'learn' ? ' opacity-100 animate-fade-right' : ' opacity-0')}>
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                                                    </svg>
                                                 </span>
                                             </a>
 
                                             <a
                                                 href={work.link}
                                                 target="_blank"
-                                                class="font-mono text-xs animate-fade-up px-2 border border-dashed border-black dark:border-white hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors duration-400 cursor-pointer rounded-full"
+                                                onMouseEnter={() => setWorkButtonHovered(work.id + 'view')}
+                                                onMouseLeave={() => setWorkButtonHovered(null)}
+                                                class={`font-mono text-xs animate-fade-up px-2 border border-dashed border-black dark:border-white transition-colors duration-400 cursor-pointer rounded-full`}
                                             >
                                                 <span class="inline-flex flex-wrap items-center">
                                                     View<span class="hidden sm:inline">&nbsp;Project</span>
+                                                    <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={"w-4 h-4 transition-opacity duration-400" + (workButtonHovered === work.id + 'view' ? ' opacity-100 animate-fade-right' : ' opacity-0')}>
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                                                    </svg>
                                                 </span>
                                             </a>
                                         </div>
