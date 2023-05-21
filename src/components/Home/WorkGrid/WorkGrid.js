@@ -39,7 +39,7 @@ const WorkGrid = () => {
                                                 class="font-mono text-xs animate-fade-left px-2 border border-dashed border-black dark:border-white hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors duration-400 cursor-pointer rounded-full"
                                             >
                                                 <span class="inline-flex flex-wrap items-center">
-                                                    Learn More
+                                                    Learn <span class="hidden sm:inline">More</span>
                                                 </span>
                                             </a>
 
@@ -49,7 +49,7 @@ const WorkGrid = () => {
                                                 class="font-mono text-xs animate-fade-up px-2 border border-dashed border-black dark:border-white hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors duration-400 cursor-pointer rounded-full"
                                             >
                                                 <span class="inline-flex flex-wrap items-center">
-                                                    View Project
+                                                    View <span class="hidden sm:inline">Project</span>
                                                 </span>
                                             </a>
                                         </div>
