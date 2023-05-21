@@ -39,7 +39,7 @@ const WorkGrid = () => {
                                                 class="font-mono text-xs animate-fade-left px-2 border border-dashed border-black dark:border-white hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors duration-400 cursor-pointer rounded-full"
                                             >
                                                 <span class="inline-flex flex-wrap items-center">
-                                                    Learn <span class="hidden sm:inline">More</span>
+                                                    Learn <span class="hidden sm:inline">&nbsp;More</span>
                                                 </span>
                                             </a>
 
@@ -49,18 +49,32 @@ const WorkGrid = () => {
                                                 class="font-mono text-xs animate-fade-up px-2 border border-dashed border-black dark:border-white hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors duration-400 cursor-pointer rounded-full"
                                             >
                                                 <span class="inline-flex flex-wrap items-center">
-                                                    View <span class="hidden sm:inline">Project</span>
+                                                    View<span class="hidden sm:inline">&nbsp;Project</span>
                                                 </span>
                                             </a>
                                         </div>
 
                                     ) : (
-                                        <div
-                                                onClick={() => window.open(work.url)}
-                                                class="px-2 border border-transparent"
+                                        <div class="flex flex-row items-center justify-start space-x-2">
+                                            <a
+                                                onClick={() => handleWorkClick(work)}
+                                                class="font-mono text-xs px-2 border border-transparent rounded-full"
                                             >
-                                                <span class="inline-flex flex-wrap items-center"></span>
-                                        </div>  
+                                                <span class="inline-flex flex-wrap items-center">
+                                                    
+                                                </span>
+                                            </a>
+
+                                            <a
+                                                href={work.link}
+                                                target="_blank"
+                                                class="font-mono text-xs px-2 border border-transparent rounded-full"
+                                            >
+                                                <span class="inline-flex flex-wrap items-center">
+                                                    
+                                                </span>
+                                            </a>
+                                        </div>
                                     )}
                                 </div>
                             </div>

@@ -4,7 +4,7 @@ const works = [
         "title": "Financr",
         "tag": "financr",
         "link": "https://financr.co",
-        "description": "A semantic search engine for financial data, built with MongoDB, Express, React, Node.js.",
+        "description": "A semantic search engine for corporate financials, built with MongoDB, Express, React, Node.js.",
         "blurb": "Semantic search engine for corporate financial data.",
         "details": [
             "Financr is a semantic search engine for corporate financial data. Right now, the vast majority of professional financial analysts as well as retail investors find corporate financial data by reading through SEC filings directly. Most of these filing are filled with boilerplate text people aren't interested in. Financr Search allows analysts and retail investors to search through corporate financial data using natural language queries.",
@@ -18,12 +18,11 @@ const works = [
         "title": "Esterify",
         "tag": "esterify",
         "link": "https://esterify.org",
-        "description": "A play for a more sustainable hospitality industry, and more profitable supply chains.",
+        "description": "A recyling venture for a more sustainable hospitality industry, and more profitable industrial oils supply chains.",
         "blurb": "Recycling used toiletries from hotels and resorts.",
         "details": [
-            "Esterify is a proposed venture that would recycle used toiletries from hotels and resorts.",
-            "Every day, something like 10 million bars of soap are discarded by hotels and resorts across the world.",
-            "Esterify would collect these used toiletries, and chemically recyle them, harvesting the value chemicals in soaps, and selling them as an end-use commodity."
+            "Esterify is a venture proposal to recycle used toiletries from hotels and resorts. Every day, upwards of 10 million bars of soap are discarded by hotels and resorts across the world. Esterify would collect these used toiletries, and chemically recyle them, harvesting the value chemicals in soaps, and selling them as an end-use commodity.",
+            "We'll be bulding out Esterify in the coming weeks and months. In the meantime, learn more about Esterify at https://esterify.org."
         ],
     },
     {
