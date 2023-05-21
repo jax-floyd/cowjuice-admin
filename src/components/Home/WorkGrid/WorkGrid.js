@@ -11,8 +11,6 @@ const WorkGrid = () => {
     const [workHovered, setWorkHovered] = useState(null);
     const [workButtonHovered, setWorkButtonHovered] = useState(null);
 
-
-    console.log('workButtonHovered', workButtonHovered);
     return (
         <>
             {!isWelcomeTextTyping && (
@@ -41,7 +39,7 @@ const WorkGrid = () => {
                                                 onClick={() => handleWorkClick(work)}
                                                 onMouseEnter={() => setWorkButtonHovered(work.id + 'learn')}
                                                 onMouseLeave={() => setWorkButtonHovered(null)}
-                                                class="font-mono text-xs animate-fade-left px-2 border border-dashed border-black dark:border-white transition-colors duration-400 cursor-pointer rounded-full"
+                                                class="font-mono text-xs animate-fade-left px-2 pl-5 border border-dashed border-black dark:border-white transition-colors duration-400 cursor-pointer rounded-full"
                                             >
                                                 <span class="inline-flex flex-wrap items-center">
                                                     Learn <span class="hidden sm:inline">&nbsp;More</span>
@@ -56,7 +54,7 @@ const WorkGrid = () => {
                                                 target="_blank"
                                                 onMouseEnter={() => setWorkButtonHovered(work.id + 'view')}
                                                 onMouseLeave={() => setWorkButtonHovered(null)}
-                                                class={`font-mono text-xs animate-fade-up px-2 border border-dashed border-black dark:border-white transition-colors duration-400 cursor-pointer rounded-full`}
+                                                class={`font-mono text-xs animate-fade-up px-2 pl-5 border border-dashed border-black dark:border-white transition-colors duration-400 cursor-pointer rounded-full`}
                                             >
                                                 <span class="inline-flex flex-wrap items-center">
                                                     View<span class="hidden sm:inline">&nbsp;Project</span>
