@@ -43,7 +43,7 @@ const WorkGrid = () => {
                                             >
                                                 <span class="inline-flex flex-wrap items-center">
                                                     Learn <span class="hidden sm:inline">&nbsp;More</span>
-                                                    <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={"w-4 h-4 transition-opacity duration-400" + (workButtonHovered === work.id + 'learn' ? ' opacity-100 animate-fade-right' : ' opacity-0')}>
+                                                    <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={"w-4 h-4" + (workButtonHovered === work.id + 'learn' ? ' opacity-100 animate-fade-right animate-delay-none animate-duration-400' : ' opacity-0')}>
                                                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                                                     </svg>
                                                 </span>
@@ -58,7 +58,7 @@ const WorkGrid = () => {
                                             >
                                                 <span class="inline-flex flex-wrap items-center">
                                                     View<span class="hidden sm:inline">&nbsp;Project</span>
-                                                    <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={"w-4 h-4 transition-opacity duration-400" + (workButtonHovered === work.id + 'view' ? ' opacity-100 animate-fade-right' : ' opacity-0')}>
+                                                    <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={"w-4 h-4 transition-opacity duration-400" + (workButtonHovered === work.id + 'view' ? ' opacity-100 animate-fade-right animate-delay-none animate-duration-400' : ' opacity-0')}>
                                                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                                                     </svg>
                                                 </span>

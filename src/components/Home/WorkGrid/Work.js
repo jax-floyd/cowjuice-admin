@@ -10,7 +10,7 @@ const works = [
             "Financr is a semantic search engine for corporate financial data. Right now, the vast majority of professional financial analysts as well as retail investors find corporate financial data by reading through SEC filings directly. Most of these filing are filled with boilerplate text people aren't interested in. Financr Search allows analysts and retail investors to search through corporate financial data using natural language queries.",
             "It was built with MongoDB, Express, React, Node.js.",
             "Financr was built as a project in informational retrieval.",
-            "It is helping to remedy existing pain points in retrieving financial data and is being used by Wall Street analysts presently."
+            "It is helping to remedy existing pain points in retrieving financial data and is already being used by Wall Street analysts."
         ],
     },    
     {

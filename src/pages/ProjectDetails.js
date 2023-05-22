@@ -6,8 +6,6 @@ const ProjectDetails = () => {
 
     const { selectedProject } = useMasterContext();
 
-    console.log(selectedProject)
-
     return (
         <div class="max-w-3xl mx-auto p-4">
             <div class="flex flex-col items-start justify-start">
