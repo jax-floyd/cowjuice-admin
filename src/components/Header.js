@@ -84,7 +84,7 @@ const Header = () => {
 
                             {hoveredTag === section.name && section.subsections.length > 0 && (
                                 <div
-                                    class="absolute left-auto right-auto top-auto mt-2 z-10 flex flex-col items-center justify-center"
+                                    class="hidden absolute left-auto right-auto top-auto mt-2 z-10 sm:flex flex-col items-center justify-center"
                                     onMouseLeave={() => handleHeaderTagHover(null)}
 
                                 >
