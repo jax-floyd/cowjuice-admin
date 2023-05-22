@@ -6,3 +6,11 @@
     background-color: #000000;
     color: #FFFFFF;
 }
+
+/* If dark mode is enabled, we set ::selection to be inverse of the default. */
+@media (prefers-color-scheme: dark) {
+    ::selection {
+        background-color: #FFFFFF;
+        color: #000000;
+    }
+}

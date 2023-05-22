@@ -35,7 +35,8 @@ const works = [
         "details": [
             "I started building Sequal with a small Stanford team as a spring break project in March 2023.",
             "Since then, Sequal has been used to generate thousands of SQL queries from natural language, used by SQL developers and analysts across the world.",
-            "We have big dreams for where Sequal can go, and we're excited to see where it takes us."
+            "We have big dreams for where Sequal can go, and we're excited to see where it takes us.",
+            "See our work at https://sequal.dev.",
         ],
     },
     {
