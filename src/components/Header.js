@@ -41,8 +41,8 @@ const Header = () => {
             ],
         },
         {
-            name: '/more',
-            href: '/more',
+            name: '/contact',
+            href: '/contact',
             subsections: [],
         },
     ];

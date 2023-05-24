@@ -8,6 +8,7 @@ import './App.css';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import ProjectDetails from './pages/ProjectDetails';
+import Contact from './pages/Contact';
 
 import Header from './components/Header';
 
@@ -44,9 +45,10 @@ const App = () => {
                 </div>
               }
             />
-            <Route exact path="/more" element={
+            <Route exact path="/contact" element={
                 <div class="flex flex-col min-h-screen p-4 space-y-4">
                   <Header />
+                  <Contact />
                 </div>
               }
             />
