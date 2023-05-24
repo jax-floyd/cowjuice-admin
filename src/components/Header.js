@@ -38,6 +38,10 @@ const Header = () => {
                     name: '/sequal',
                     href: '/projects/sequal',
                 },
+                {
+                    name: '/claros',
+                    href: '/projects/claros',
+                },
             ],
         },
         {
