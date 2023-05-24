@@ -16,7 +16,7 @@ const Contact = () => {
                     </p>
 
                     <p class="font-mono text-xs animate-fade-down animate-delay-500">
-                        Send me an email at <span href="mailto: jaxfloyd@stanford.edu" class="font-bold hover:underline cursor-pointer">jaxfloyd@stanford.edu</span> and we can find a time to chat.
+                        Send me an email at <a href="mailto:jaxfloyd@stanford.edu" class="font-bold hover:underline cursor-pointer">jaxfloyd@stanford.edu</a> and we can find a time to chat.
                     </p>
 
                 </div>
