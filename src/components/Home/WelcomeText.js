@@ -24,16 +24,10 @@ const WelcomeText = () => {
                 }}
                 onInit={(typewriter) => {
                     typewriter
-                        .typeString("Hello.")
+                        .typeString("Hi, I'm Jax.")
                         .pauseFor(500)
                         .deleteAll()
-                        .typeString("I'm Jax.")
-                        .pauseFor(500)
-                        .deleteAll()
-                        .typeString('I like to build stuff.')
-                        .pauseFor(500)
-                        .deleteAll()
-                        .typeString("Let me show you.")
+                        .typeString("Let me show you what I've been working on.")
                         .pauseFor(500)
                         .callFunction(() => {
                             handleTypingAnimationComplete();
