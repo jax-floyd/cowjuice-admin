@@ -4,6 +4,8 @@ module.exports = {
     extend: {
       fontFamily: {
         mono: ['Source Code Pro', 'monospace'],
+        sans: ['Belleza', 'sans-serif'],
+        serif: ['Baskerville', 'serif'],
       },
       keyframes: {
         'slide-up-fade-out': {

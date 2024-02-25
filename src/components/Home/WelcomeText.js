@@ -7,10 +7,7 @@ import { useMasterContext } from '../../contexts/MasterContext';
 const WelcomeText = () => {
 
     const { isWelcomeTextTyping, setIsWelcomeTextTyping, handleTypingAnimationComplete } = useMasterContext();
-
-    // on component mount and every re-=render set the welcom text to true
-    // then when the typing animation is complete, set the welcome text to false
-
+    
     useEffect(() => {
         setIsWelcomeTextTyping(true);
     }, []);
@@ -24,10 +21,10 @@ const WelcomeText = () => {
                 }}
                 onInit={(typewriter) => {
                     typewriter
-                        .typeString("Hi, I'm Jax.")
+                        .typeString("jaxfloyd.com")
                         .pauseFor(500)
                         .deleteAll()
-                        .typeString("Let me show you what I've been working on.")
+                        .typeString("welcome.")
                         .pauseFor(500)
                         .callFunction(() => {
                             handleTypingAnimationComplete();

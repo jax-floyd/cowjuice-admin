@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 
 import { useMasterContext } from '../contexts/MasterContext';
 
+import ideas from './Home/IdeasGrid/Ideas';
 import works from './Home/WorkGrid/Work';
 
 const Header = () => {
     const navigate = useNavigate();
     const onHome = window.location.pathname === '/';
 
-    const { handleWorkClick } = useMasterContext();
+    const { handleIdeaClick, handleWorkClick } = useMasterContext();
 
     const sections = [
         {
@@ -20,12 +21,46 @@ const Header = () => {
         {
             name: '/ideas',
             href: '/ideas',
-            subsections: [],
+            subsections: [
+                {
+                    name: '/imbalances-and-innovation',
+                    href: '/ideas/imbalances-and-innovation',
+                },
+                {
+                    name: '/fiscal-theory',
+                    href: '/ideas/fiscal-theory',
+                },
+                {
+                    name: '/rectifying-trade-imbalances',
+                    href: '/ideas/rectifying-trade-imbalances',
+                },
+                
+                // {
+                //     name: '/dividend-discount-pricing',
+                //     href: '/ideas/dividend-discount-pricing',
+                // },
+                // {
+                //     name: '/the-problems-imbalances-pose',
+                //     href: '/ideas/the-problems-imbalances-pose',
+                // },
+                // {
+                //     name: '/on-sticky-prices',
+                //     href: '/ideas/on-sticky-prices',
+                // },
+            ],
         },
         {
             name: '/projects',
             href: '/projects',
             subsections: [
+                {
+                    name: '/chipt-checkout',
+                    href: '/projects/chipt-checkout',
+                },
+                {
+                    name: '/aditus',
+                    href: '/projects/aditus',
+                },
                 {
                     name: '/financr',
                     href: '/projects/financr',
@@ -56,17 +91,19 @@ const Header = () => {
         setHoveredTag(tag);
     };
 
-
     const handleSubsectionClick = (subsection) => {
-        // Find the project that matches the subsection name
-        console.log(subsection.name.substring(1))
         const project = works.find((work) => work.tag === subsection.name.substring(1));
-        
+        const idea = ideas.find((idea) => idea.tag === subsection.name.substring(1));
+        console.log('project', project);
+        console.log('idea', idea);
         if (project) {
             handleWorkClick(project);
         }
+
+        if (idea) {
+            handleIdeaClick(idea);
+        }
     };
-    
 
     return (
         <div class="w-full max-w-7xl mx-auto p-4 animate-slide-down-fade-in">
@@ -92,7 +129,7 @@ const Header = () => {
                                     onMouseLeave={() => handleHeaderTagHover(null)}
 
                                 >
-                                    <div class="z-0 flex flex-col items-start justify-center space-y-2 ml-24 animate-flip-down">
+                                    <div class={`z-0 flex flex-col items-start justify-center space-y-2 ${section.name === '/projects' ? 'ml-24' : 'ml-9'} animate-flip-down`}>
                                         {section.subsections.map((subsection) => {
                                             return (
                                                 <div

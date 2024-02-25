@@ -4,7 +4,14 @@ import { useMasterContext } from '../contexts/MasterContext';
 
 const ProjectDetails = () => {
 
-    const { selectedProject } = useMasterContext();
+    const { selectedProject, fetchWork } = useMasterContext();
+
+    if (!selectedProject) {
+        const tag = window.location.pathname.split('/').pop();
+        fetchWork(tag);
+    };
+
+    if (!selectedProject) return null;
 
     return (
         <div class="max-w-3xl mx-auto p-4">

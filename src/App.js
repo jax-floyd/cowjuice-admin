@@ -5,7 +5,10 @@ import { MasterContextProvider } from './contexts/MasterContext';
 
 import './App.css';
 
+import Error from './pages/Error';
 import Home from './pages/Home';
+import Ideas from './pages/Ideas';
+import IdeaDetails from './pages/IdeaDetails';
 import Projects from './pages/Projects';
 import ProjectDetails from './pages/ProjectDetails';
 import Contact from './pages/Contact';
@@ -19,6 +22,12 @@ const App = () => {
       <MasterContextProvider>
         <div class="bg-white text-black dark:bg-black dark:text-white">
           <Routes>
+            <Route exact path="*" element={
+                <div class="flex flex-col min-h-screen p-4 space-y-4">
+                  <Error />
+                </div>
+              }
+            />
             <Route exact path="/" element={
                 <div class="flex flex-col min-h-screen p-4 space-y-4">
                   <Home />
@@ -28,6 +37,14 @@ const App = () => {
             <Route exact path="/ideas" element={
                 <div class="flex flex-col min-h-screen p-4 space-y-4">
                   <Header />
+                  <Ideas />
+                </div>
+              }
+            />
+            <Route exact path="/ideas/:tag" element={
+                <div class="flex flex-col min-h-screen p-4 space-y-4">
+                  <Header />
+                  <IdeaDetails />
                 </div>
               }
             />

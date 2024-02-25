@@ -1,5 +1,31 @@
 const works = [
     {
+        "id": -1,
+        "title": "Chipt Checkout",
+        "tag": "chipt-checkout",
+        "link": "https://apps.apple.com/us/app/chipt/id6455428247",
+        "description": "A zero-POS, line-less checkout experience for brick-and-mortar retail, with Stripe payments and RF-chipt tech.",
+        "blurb": "A zero-POS, line-less checkout experience for brick-and-mortar retail.",
+        "details": [
+            "When you shop at brick-and-mortar stores checkout lines are far and away the most unpleasent part of the experience. Chipt Checkout wants to do away with the checkout line, making in-person shopping as seamless as e-commerce.",
+            "Chipt - coded in React Native - is built on AWS and Google Cloud infrastructure. It uses Stripe Connect to faciliate a three-party payment flow, and RF-chipt technology for item-level tracking and product-to-device communication.",
+            "Chipt has been demoed by hundreds of SoHo, NYC shoppers, and is available for private beta testing on the iOS App Store.",
+        ],
+    },   
+    {
+        "id": 0,
+        "title": "Aditus",
+        "tag": "aditus",
+        "link": "https://aditus.dev",
+        "description": "A text-to-SQL empowered relational data client available for desktop and web, built on the Azure cloud.",
+        "blurb": "AI-centric relational database client for data professionals.",
+        "details": [
+            "Aditus is a SQL client with natural-language-to-SQL features front and center. It is built on the Sequal text-to-SQL engine, and is available for desktop and web.",
+            "It was built on Azure cloud infrastructure, with React, Electron, and Node.js. All styling was done with Tailwind CSS (we wouldn't have it any other way!).",
+            "You can make Aditus your SQL client today at https://aditus.dev/download. Never write a full SQL query again!"
+        ],
+    },   
+    {
         "id": 1,
         "title": "Financr",
         "tag": "financr",
@@ -35,7 +61,6 @@ const works = [
         "details": [
             "I started building Sequal with a small Stanford team as a spring break project in March 2023.",
             "Since then, Sequal has been used to generate thousands of SQL queries from natural language, used by SQL developers and analysts across the world.",
-            "We have big dreams for where Sequal can go, and we're excited to see where it takes us.",
             "See our work at https://sequal.dev.",
         ],
     },

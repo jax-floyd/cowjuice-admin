@@ -17,9 +17,6 @@ const Projects = () => {
                     <WorkGrid />
                 )}
             </>
-            
-            
-            
         </div>
     );
 };

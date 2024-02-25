@@ -14,7 +14,7 @@ const WorkGrid = () => {
     return (
         <>
             {!isWelcomeTextTyping && (
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-8 animate-slide-up-fade-in">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-8 animate-slide-up-fade-in">
                     {works && works.length > 0 && works.map((work, index) => {
                         return (
                             <div key={index} >
