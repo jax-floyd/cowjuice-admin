@@ -8,7 +8,7 @@ const ideas = [
         "title": "Imbalances & Innovation",
         "tag": "imbalances-and-innovation",
         "link": "/ideas/imbalances-and-innovation",
-        "date": "2024-02-25",
+        "date": "2024-02-26",
         "description": "How do persistent, artificially maintained trade and financial imbalances affect supply-side global economic improvement – the driver of genuine long-term global prosperity?",
         "blurb": "Persistent Artificially Maintained Global Imbalances Place Downward Pressure on Innovation and Prosperity",
         "graphics": [
