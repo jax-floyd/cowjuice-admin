@@ -8,10 +8,35 @@ const IdeaDetails = () => {
 
     const parse = (string) => {
         let parsed = string.replace(/<a([^>]*)>(.*?)<\/a>/g, (match, p1, p2) => `<a${p1} target="_blank" class="custom-link">${p2}</a>`);
-        parsed = parsed.replace(/<sup>(.*?)<\/sup>/g, (match, p1) => `<sup>${p1}</sup>`);
+        parsed = parsed.replace(/<sup>(.*?)<\/sup>/g, (match, p1) => `<sup class="cursor-pointer">${p1}</sup>`);
         parsed = parsed.replace(/<blockquote>(.*?)<\/blockquote>/g, (match, p1) => `<blockquote class="font-mono text-xs py-4 px-0 my-4 border-y-[1px]">${p1}</blockquote>`);
         parsed = parsed.replace(/<i>(.*?)<\/i>/g, (match, p1) => `<span class="italic">${p1}</span>`);
         return parsed;
+    };
+
+    const countWords = (idea) => {
+        // Takes in an idea object and returns the total word count across all sections and subsections in the details array
+        let wordCount = 0;
+        idea.details.forEach(detail => {
+            if (typeof detail === 'object') {
+                detail.content.forEach(content => {
+                    if (typeof content === 'object') {
+                        content.content.forEach(subContent => {
+                            wordCount += subContent.split(' ').length;
+                        });
+                    } else {
+                        wordCount += content.split(' ').length;
+                    }
+                });
+            } else {
+                wordCount += detail.split(' ').length;
+            }
+        });
+
+        // Compute minutes to read based on average reading speed of 200 words per minute
+        const minutesToRead = Math.ceil(wordCount / 200);
+
+        return { "words": wordCount, "minutes": minutesToRead };
     };
 
     if (!selectedIdea) {
@@ -47,12 +72,22 @@ const IdeaDetails = () => {
                                     src={graphic.src}
                                     alt={graphic.alt}
                                     class="w-full h-full cursor-events-none"
-                                    style={{filter: "grayscale(0%)"}}
+                                    style={{filter: "grayscale(100%)"}}
                                 />
                             )}
                         )}
                     </div>
                 )}
+
+                <div class="w-full my-4" />
+
+                <div class="flex flex-row items-start justify-between w-full space-x-4 animate-flip-up">
+                    <p class="font-mono text-xs px-4 border border-dashed border-black dark:border-white transition-colors duration-400 rounded-full">
+                        <span class="uppercase">{countWords(selectedIdea)['words']} words</span>
+                        <span class="mx-2">|</span>
+                        <span class="uppercase">{countWords(selectedIdea)['minutes']} minute read</span>
+                    </p>
+                </div>
 
                 <div class="w-full border-[0.5px] my-4" />
 
@@ -141,7 +176,11 @@ const IdeaDetails = () => {
                         <>
                             <div class="w-full border-[0.5px] my-4" />
                             {selectedIdea.notes.map((note, index) => (
-                                <p class="font-mono text-xs py-2">
+                                <p 
+                                    // Want to us a ref to scroll to the note when clicked
+                                    key={index}
+                                    class="font-mono text-xs py-2"
+                                >
                                     <span>{note.id}: </span>
                                     <span dangerouslySetInnerHTML={{ __html: parse(note.text) }} />
                                 </p>

@@ -26,10 +26,10 @@ const Header = () => {
                     name: '/imbalances-and-innovation',
                     href: '/ideas/imbalances-and-innovation',
                 },
-                {
-                    name: '/fiscal-theory',
-                    href: '/ideas/fiscal-theory',
-                },
+                // {
+                //     name: '/fiscal-theory',
+                //     href: '/ideas/fiscal-theory',
+                // },
                 {
                     name: '/rectifying-trade-imbalances',
                     href: '/ideas/rectifying-trade-imbalances',
