@@ -23,6 +23,10 @@ const Header = () => {
             href: '/ideas',
             subsections: [
                 {
+                    name: '/tax-capital-not-trade',
+                    href: '/ideas/tax-capital-not-trade',
+                },
+                {
                     name: '/imbalances-and-innovation',
                     href: '/ideas/imbalances-and-innovation',
                 },
@@ -34,7 +38,6 @@ const Header = () => {
                     name: '/rectifying-trade-imbalances',
                     href: '/ideas/rectifying-trade-imbalances',
                 },
-                
                 // {
                 //     name: '/dividend-discount-pricing',
                 //     href: '/ideas/dividend-discount-pricing',

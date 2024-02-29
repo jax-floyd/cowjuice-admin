@@ -1,10 +1,50 @@
 import dollar from '../../../assets/ideas/fiscal_theory/dollar.jpg';
 import ship from '../../../assets/ideas/trade_imbalances/ship.jpg';
 import mercantilePort from '../../../assets/ideas/imbalances_and_innovation/mercantile_port.png';
+import capital from '../../../assets/ideas/tax_capital_not_trade/capital.jpg';
 
 const ideas = [
     {
         "id": 0,
+        "title": "Tax Capital, Not Trade",
+        "tag": "tax-capital-not-trade",
+        "link": "/ideas/tax-capital-not-trade",
+        "date": "2024-02-28",
+        "description": "Are capital account restrictions – a tax, say, on capital imports – or trade restrictions – tariffs – fit to correct today’s global trade and financial imbalances?",
+        "blurb": "Capital Barriers Are Apt To Correct Today’s Imbalances",
+        "graphics": [
+            {
+                "id": 0,
+                "src": capital,
+                "alt": "Capital",
+            }
+        ],
+        "questions": "Are capital account restrictions – a tax, say, on capital imports – or trade restrictions – tariffs – fit to correct today’s global trade and financial imbalances?",
+        "summary": "Today’s imbalances stem from surplus countries’ action on their capital account accounts. It follows that capital barriers imposed by deficit countries are apt to facilitate a more balanced global economy.",
+        "details": [
+            "Today’s international trade and financial imbalances are persistent. That persistence owes to their artificial maintenance by surplus countries,<sup>[1]</sup> which depress domestic demand at the expense of depressed global output and prosperity. Surplus countries’ capital account outflows serve to help domestic and foreign asset holders, the former of whom capture a disproportionately large share of national income, and the latter of whom are delivered repeated windfalls in the form of asset price inflation. Rectifying persistent imbalances would promise to deliver a boon to global demand and prosperity at only the immediate expense of global asset owners.<sup>[2]</sup> As it is finance that allows imbalances to persist, capital – not trade – barriers are apt to balance the international order.",
+            "Global imbalances should be temporary and minimal, with trade and financial flows coming roughly into balance. A country runs a trade surplus when it produces more than it consumes, exporting the excess domestically produced goods and services abroad. The country receives net financial inflows – it runs a capital account deficit – which, as is all income, is either spent or saved. If spent, domestic consumption rises, from which it follows that the trade surplus falls; the country must source less foreign demand for its smaller production glut (equivalently, the country’s consumption-production gap has fallen). If saved, those savings may be used to fund domestic investment or to purchase financial assets from abroad, the former of which drives employment and consumption and thereby reduces the trade surplus. Exporting savings abroad, however, leads to no strengthening of domestic demand – foreign asset purchases delivering no boon to domestic investment or consumption – and therefore no reduction in the trade surplus. A <i>persistent</i> global imbalance – the country’s trade, i.e., current account surplus and capital account deficit – follows. <i>The persistent imbalance is the condition of artificially maintained high saving relative to domestic investment as the surplus country continually saves more of its export-driven income than it can make use of at home.</i>",
+            "The natural question is <i>why</i> and <i>how</i> a country would over-save its income relative to the level of savings it can make use of at home. There is a plausible answer to both: domestic income inequality. Income inequality by definition allows those at the top of the country’s income bracket to capture a disproportionate share of national income. Inequality is, of course, advantageous to them, from which high-saving relative to domestic savings-need, a saving-investment gap, and current account surplus – those are all the same things – follow as similarly advantageous. That answers <i>why</i> trade surpluses – again, equivalent to outflow of saving-turned-capital because of a saving-investment gap – become persistent. Domestic income inequality is also <i>how</i> the country saves more than it can make use of at home, i.e., runs a persistent trade surplus. A marginal increment of income is used for consumption by all but the wealthy, for whom the income is used to purchase financial assets, i.e., to save. As the surplus country definitionally has a saving-investment gap, those financial assets are foreign ones, from which the export of savings-turned-capital follows. High saving for these surplus countries is thus a condition of domestic income inequality; inequality is how the surplus country makes its surplus persistent.",
+            "If surplus country domestic inequality is responsible for persistent imbalances, and those imbalances are granted to be undesirable, it might be wondered, with an eye towards prohibiting the behavior, how surplus countries manage to engender domestic income inequality. An answer here is entirely unnecessary.<sup>[3]</sup> Capital barriers imposed by deficit countries would force the redistribution of surplus country income to workers ready to consume, surplus country consumption-production gaps would narrow, and imbalances would thus be corrected. This is an immediate rectification that trade barriers, mostly bilateral in nature, could likely not foster.",
+            "As soon as deficit countries – the United States, namely – would enact barriers on capital imports – taxes on foreign purchases of U.S. financial assets – would surplus countries be forced to (a) accept a lower net return on their foreign investments or (b) find a more productive use for their savings at home. Since surplus countries have a saving-investment gap (they have maxed out productive investment), the savings can only productively be used to strengthen domestic consumption – by paying spend-thrifty workers closer to the value of what they produce. Effectively, deficit countries enacting barriers to capital inflows would force a reduction in surplus country inequality, or specifically those policies which distribute export-fueled income from consumption-ready workers to wealthy savers. In as much as those surplus country high-saving imbalances hinder global growth and prosperity, those barriers would stand to benefit us all.",
+        ],
+        "notes": [
+            {
+                "id": "[1]",
+                "text": "Accurately, it would be to say, “that persistence owes to their artificial maintenance by surplus countries <i>and deficit countries’ continued willingness to sustain them.</i>” The argument I’m presenting is expressly that deficit countries should change that attitude by enacting capital import taxes."
+            },
+            {
+                "id": "[2]",
+                "text": "It is not to be argued here, but only in the short-run would rectifying imbalances with capital barriers downwardly pressure asset prices. In the long run, a balanced global economy would deliver a boon to global demand and output, the ultimate driver of sustainable asset price appreciation."
+            },
+            {
+                "id": "[3]",
+                "text": "Thorough analyses are found in the work of China-expert Michael Pettis."
+            },
+        ]
+    },
+    {
+        "id": 1,
         "title": "Imbalances & Innovation",
         "tag": "imbalances-and-innovation",
         "link": "/ideas/imbalances-and-innovation",
@@ -76,7 +116,7 @@ const ideas = [
         ]
     },
     // {
-    //     "id": 1,
+    //     "id": 2,
     //     "title": "Fiscal Theory",
     //     "tag": "fiscal-theory",
     //     "link": "/ideas/fiscal-theory",
@@ -123,13 +163,13 @@ const ideas = [
     //     ]
     // },
     {
-        "id": 2,
+        "id": 3,
         "title": "Rectifying Trade Imbalances",
         "tag": "rectifying-trade-imbalances",
         "link": "/ideas/rectifying-trade-imbalances",
         "date": "2024-02-22",
         "description": "How are international trade and financial imbalances best remedied? Are surplus or deficit countries better suited to make the necessary changes? What political barriers prohibit their adoption?",
-        "blurb": "Capital Account Restrictions Are As Unrealistic As They Would Be Effective",
+        "blurb": "Capital Barriers Are As Unrealistic As They Would Be Effective",
         "graphics": [
             {
                 "id": 0,
@@ -156,138 +196,6 @@ const ideas = [
             },
         ]
     }
-    // {
-    //     "id": 2,
-    //     "title": "Dividend Discount Pricing",
-    //     "tag": "dividend-discount-pricing",
-    //     "link": "/ideas/dividend-discount-pricing",
-    //     "description": "Share price should be the sum of discounted future dividends. Price-to-dividend ratio has little informational content about company fundamentals but rather forecasts future returns. High prices today suggest low future returns.",
-    //     "blurb": "Dividend Yields Suggest Low Future Returns",
-    //     "graphics": [
-    //         {
-    //             "id": 0,
-    //             "src": dividends,
-    //             "alt": "Dividends",
-    //         }
-    //     ],
-    //     "questions": "What do historically high prices relative to dividend on American equities suggests about future returns?",
-    //     "summary": "A company’s share price should be the sum of discounted future dividends. We may therefore read dividend yield as the inverse of price. Price-to-dividend ratio has little informational content about company fundamentals but rather forecasts future returns. High prices today suggest low future returns.",
-    //     "details": [
-    //         "We begin from the (canonical) assumption that a company can be fairly valued as the present value of future cash flows, i.e, the sum of discounted cash flows (dividends and share price appreciation). It follows that price-to-dividend ratio – dividend yield – may be read as the inverse of price. Prices are high relative to dividends when dividend yield is low, and stocks are cheap to dividends when dividend yields are high.",
-    //         "The above figure shows the dividend yield of the S&P 500 over time. Dividend yields at historic lows under this framework suggest record prices.",
-    //         "The asset pricing literature attempts to make sense of the predictive power of equity price-to-dividend ratios. It finds almost no informational content in dividend yield: High prices relative to dividend do not forecast dividend, or earnings, growth. Similarly, low prices do not forecast dividend or earnings cuts. Rather, dividend yields forecast periods of medium-term returns. High price relative to dividends suggests a period of low returns ex post, and low prices a period of high returns.",
-    //         "Depending on the sincerity of our reading, this understanding from asset pricing spells medium-term trouble for equities circa 2024. Dividend yields are at record lows. Other valuation measures suggest this to be a result of high pricing relative to cash flows, not merely low dividend payments on account of other transfers to shareholders (buybacks are often cited). Price to earnings, price to book, and price to cash flow ratios are all historically elevated.",
-    //     ],
-    // },
-    // {
-    //     "id": 3,
-    //     "title": "The Problems Imbalances Pose",
-    //     "tag": "the-problems-imbalances-pose",
-    //     "link": "/ideas/the-problems-imbalances-pose",
-    //     "date": "2024-02-22",
-    //     "description": "Are persistent trade surpluses and deficits and corresponding financial imbalances bad? If so, for whom?",
-    //     "blurb": "How Persistent Trade Imbalances Hinder Global Prosperity, and Nearly All Domestic Constituencies",
-    //     "graphics": [],
-    //     "questions": "Are persistent trade surpluses and deficits and corresponding financial imbalances bad? If so, for whom?",
-    //     "summary": "Persistent trade and financial imbalances chiefly hinder global growth. They also harm both trade deficit and surplus countries. Imbalances unquestionably – but perhaps only in the short term – only help wealthy elites in both.",
-    //     "details": [
-    //         "I explore the effects of persistent global trade and financial imbalances on the global economy and its various blocks. I advance four arguments about the unique effects of these imbalances on four different groups.",
-    //         "The arguments are as follows. First, imbalances undermine the mission of global development and prosperity, as they place downward pressure of global demand. Second, imbalances hurt deficit countries more than they realize, as they are forced to absorb corresponding surplus countries’ weak domestic demand. Importantly, in my view these harms offset the benefits consumers in deficit countries derive from cheaper goods, probably the chiefly cited argument for sustained global imbalances. Third, most obviously imbalances acutely detriment workers in surplus countries, as they are necessarily underpaid for the fruits of their labor, and surplus countries more broadly which have historically poor track records of making the eventual transition from industrializing to industrialized nations which imbalances require. Fourth, imbalances are beneficial for – and pretty much only for – elites (wealth asset holders and corporations) in surplus and deficit countries, as they have benefitted from asset price inflation these imbalances have helped cause, and globalized capital in general. Still, to see those benefits as genuine requires short-sighted consideration. We will take on these arguments in turn.",
-    //         {
-    //             "section": "[a] Persistent Imbalances Hinder Global Demand, Growth, and Prosperity",
-    //             content: [
-    //                 "We begin by assessing the effect of imbalanced trade on the global economy. Artificially persistent trade imbalances – a country’s deliberate maintenance of a persistent current account deficit or surplus – places direct downward pressure on global demand, in turn hindering the important mission of global prosperity by constraining output growth.",
-    //                 "First, consider the claim that imbalances lower global demand. A country must save or consume every dollar of its income. If a country consumes less than it saves – i.e., it is a net saver – it must do one of two things with the saving excess: it may use those savings to invest at home – in plants, manufacturing equipment, infrastructure, etc., all of which drive employment and domestic demand – or export the savings abroad. Naturally, every country at any point in history has a certain amount of investment capacity and therefore a corresponding ability to absorb savings. Beyond a point, of course, there are only so many roads, bridges, and plants that you can reasonably build. If a country saves more than it consumes, and those savings are higher than can be used to fund domestic investment, the country must send its savings abroad – it must run a capital account deficit as it exports more savings than it imports. Those savings facilitate cheap borrowing in the capital-recipient, the current account deficit, country.",
-    //                 "By the balance of payments (a capital account deficit is matched by an equal and opposite current account surplus), the country runs a current account surplus by definition equal to the gap between its saving and investments. And by running a current account surplus, the country produces more than it consumes – its demand is weak relative to its production; it exports this weakness to the rest of the world.",
-    //                 "Since trade must net out across the entire global economy, for every country running a current account surplus, there is one running an equivalent current account deficit.<sup>[1]</sup> To see the effect of the surplus countries’ weak demand on global demand, consider the current account dynamics in the corresponding (trade) deficit country. By running a current account deficit, this country imports more than it exports, equivalent to consuming more than it produces. It finances this excess spending with asset sales to and borrowing from foreigners. Critically, the deficit countries spending – which, to be clear, makes up for the surplus country’s low consumption and weak domestic demand – is debt-financed. It is fundamentally unsustainable domestic demand for the deficit country and correspondingly unsustainable foreign demand for the matching surplus country. The upshot: Else equal, compared to the world without these imbalances – one in which the surplus country can consume what it produces, global demand is weak debt-financed.",
-    //                 "Finally, seeing the effect of weak global demand on prosperity is not hard. Economic and prosperity, in the long-run, is entirely driven by supply-side improvements – innovations and new ideas more broadly.<sup>[2]</sup> Production and supply-side improvements are, at the end of the day, entirely motivated by consumption. If that global consumption is weak relative to what it could be, those supply-side improvements are wanting relative to what they could be. Productivity growth – making more with less – and prosperity is hindered.",
-    //             ]
-    //         },
-    //         {
-    //             "section": "[b] Imbalances Detriment Deficit Countries – Despite Cheap Goods – As They Import Weak Foreign Demand With Debt",
-    //             content: [
-    //                 "It’s far simpler to see the effects of imbalances on individual countries than on the globe as a whole. We consider deficit countries first. A deficit country – one which spends more than it produces – necessarily finances this excess spending with debt.",
-    //                 "Now, as with any consumption, the country receives goods and services – in theory to get marginal utility.<sup>[3]</sup>  An admitted and often cited upshot of imbalances is that consuming these goods is relatively cheap for consumers in deficit countries. Foreign exports are in fact cheap, both absolutely because of comparatively cheap labor in surplus countries, and favorable exchange rates encouraged by surplus countries’ capital exports. In theory that allows consumers to gain marginal utility while incurring a lower cost of consumption. Indeed, the cheap acquisition of marginal utility for deficit country consumers is a benefit of trade imbalances.",
-    //                 "There are, however, high prices deficit countries pay for sustained imbalances. First, the “cheap” consumption is fundamentally unsustainable; it is debt-financed. Second and more importantly, the country’s demand – even if propped up by foreign saving inflows – is weak relative to what it could be. A blighted manufacturing sector, and blighted regions which once housed the same obviously means depressed exports, but it also means foregone domestic consumption of domestically produced goods on the part of those would-be export earners. Third, rapid capital inflows have a terrible tendency to distort economies, transitioning entire societies from industrial capitalist to financial capitalist orders. That transition may not alone be a bad one. In as much as it’s fueled by, foundational for, or encouraging of rampant financial speculation, however, – which, to be clear, has and continues to characterize dynamics in nearly every Anglo-American asset class for the past 30 years – it is. Finally, the growth resulting from debt-fueled consumption of cheap goods cannot be reasonably said to be high quality, at least in comparison to that which is derived from consumption and production of genuinely novel widgets and methods of producing them. The conventional wisdom may lead one to recoil from judging the objects of consumption.<sup>[4]</sup> In my appraisal, it is beyond reasonable to compare genuine growth from supply-side improvements with that derived from the debt-financed consumption of cheap gadgets.",
-    //                 "The upshot is a tradeoff between cheap consumption fueled by importing weak foreign – indeed global – demand and temporarily higher prices with a more structurally sound domestic and global economy. The upshot are questions, really – ones deficit countries should explicitly pose to the various domestic constituencies within them: On which model should the society’s prosperity engine rely? On which can it sustainably in the long run? A once in a century proliferation of populism and what seems to be genuinely unique discontent in these same countries suggest a certain answer to that question. Or at any rate, prevalent gripes with the way it has been.",
-    //             ]
-    //         },
-    //         {
-    //             "section": "[c] Imbalances detriment surplus countries, and not just workers within them who are necessarily underpaid for what they produce",
-    //             content: [
-    //                 "As we have seen, a country which runs a current account surplus produces more than it consumes. We want to understand how this condition of underconsumption comes into being.",
-    //                 "Domestic private sector consumers should be delineated into two groups: wealthy asset holders, and relatively poor workers. Only workers use additional income to spend. The wealthy use marginal increments to income to purchase more assets. The condition of underconsumption, to a first approximation, comes about from increasing domestic income inequality. Regressive taxation and subsidization – with currency manipulation or government incentives to private sector businesses – engender this inequality, perhaps purposefully, to push up the country’s savings rate. Recall where those savings end up: abroad, in the corresponding deficit countries, leaving the high-saving country with its current account surplus.",
-    //                 "The high-saving model, if short-term advantageous, is long-run detrimental to both workers and the surplus country more broadly. Let’s consider this short-term upside. The protection of domestic industry fosters employment and concomitant wealth, even at the expense of wages. This works for a time. Eventually, the country’s chronically weak domestic demand – which it only offsets with foreign demand –",
-    //                 "",
-    //             ]
-    //         },
-    //         {
-    //             "section": "[d] An imbalanced capital account delivers benefits to investors in surplus countries as they export savings from higher returns abroad, and a boon to deficit country elites, as asset values are artificially inflated by foreign capital inflows",
-    //             content: [
-    //                 "One group has ex post seemed to benefit from financial imbalances: elites across both surplus and deficit countries, the latter more so than the former. Let us begin with the case of the surplus countries.",
-    //                 "Of course, the corporations and politically connected have benefitted from surplus countries’ policies which have artificially held down the compensation of workers in the same – that extra share of income has, after all, been capture by them. And globalized capital – their ability to send that extra share of income abroad in light of insufficient investment absorption at home – has allowed them to capture returns capital export. Somewhat surprisingly perhaps, work has been done to explore the historical record on surplus countries’ investments performance – and the results are striking. Klein and Pettis (2020) tell of the remarkably poor track record of German lending and investment abroad, a record so poor that they point out that ex post it would have behooved those German investors to keep their money at home. While the potential to globalize their excess savings is an undoubtable theoretical benefit to surplus country elites, their past experience with doing so suggests capturing that advantage is harder than it might seem. Regardless, their excess savings is ipso facto a boon to those elites.",
-    //                 "Onto deficit countries, the benefit here is more striking. Asset holding elites here have seen perhaps an unexpected windfall in the form of a historic 40-year bull market across nearly all – including novel! – asset classes, a bull market which just so happened (?) to correspond with the rise of globalized capital and trade. The presence of the world’s most developed capital markets, and the position of the dollar as the world’s reserve currency attracts remarkable capital flows to U.S. debt, equity, and real estate markets, not to mention the U.S. Treasury market in particular. The insatiable demand for U.S. government debt is supported by foreign savings; indeed, bond prices took off right as did globalized capital and trade. This pushed real interest rate to historically unprecedented lows, delivering further gains across asset classes. In short, foreign capital inflows – only possible to the degree observed in a fundamentally imbalanced world – have delivered an unquestionable boon to investors.",
-    //             ]
-    //         }
-            
-    //     ],
-    //     "notes": [
-    //         {
-    //             "id": "[1]",
-    //             "text": "“[T]here is one running an equivalent current account deficit.” This is a bit simplistic, if not helpful for understanding. There need not be exactly one deficit country to match the surplus country; there may be a collection. Still, there must be a gross current account deficit belonging to the rest of the world opposing the surplus country’s current account surplus."
-    //         },
-    //         {
-    //             "id": "[2]",
-    //             "text": "See Jones, C., “The Outlook for Long-Term Economic Growth,” 29 August 2023."
-    //         },
-    //         {
-    //             "id": "[3]",
-    //             "text": "Marginal utility is the ultimate aim of consumption. We consume to get utility, consuming more when utility is low, and less when it’s high. Marginal utility is the ultimate measure of how we feel.",
-    //         },
-    //         {
-    //             "id": "[4]",
-    //             "text": "John Kenneth Galbraith commented on this. As did Karl Marx. See The Affluent Society for the former’s and Capital: Volume I for the latter’s."
-    //         },
-    //     ]
-    // },
-    // {
-    //     "id": 4,
-    //     "title": "On Sticky Prices",
-    //     "tag": "on-sticky-prices",
-    //     "link": "/ideas/on-sticky-prices",
-    //     "description": "Are the conventional New-Keynesian understandings about price stickiness intuitively reasonable? Should we believe that firms have an easier time making more stuff at the same price than raising prices?",
-    //     "blurb": "Intuitions About the Difficulty of Price and Real Output Changes Contradict New-Keynesian Assumptions",
-    //     "graphics": [],
-    //     "questions": "Are the conventional New-Keynesian understandings about price stickiness intuitively reasonable? Should we believe that firms have an easier time making more stuff at the same price than raising prices?",
-    //     "summary": "I explore intuitions about the ease of price movements and production movements for firms, comparing these intuitions with the conventional New-Keynesian wisdom on the matter. In short: Intuitions and the economic assumptions diverge. ",
-    //     "details": [
-    //         "Sticky prices – the belief that prices show at least a modicum of resistance to change – is at the core of the conventional economic wisdom. Specifically, sticky prices enable monetary policy makers to effect real economic quantities – jobs, production, and firm behavior more broadly – by making mere changes to the money supply. Here, I consider the intuitive strength of the price stickiness assumption. I conclude that, to a degree, it doesn’t jibe with commonsensical understandings of the difficulties of running a company.",
-    //         "First, let’s understand the sticky price assumption by examining its relevance in the place it features most prominently: monetary policy.",
-    //         "A (The ?) chiefly important question in economics is how changes to monetary phenomena – interest rates, the money supply, and the like – affect the real economy. Remarkably, we still do not know, and shockingly it is rather underexplored, whether raising nominal interest rates raises or lowers inflation. In any case, most economists, and almost all policy makers, understand the changes they make to have the important real-world impact they seem to have because of price stickiness.",
-    //         "Sticky prices, namely, mean rising nominal interest rates increase real interest rates. Since higher real interest rates are understood to make it more desirable to save and less desirable to spend and invest as borrowing becomes more expensive, raising nominal rates slows down the economy.",
-    //         "Why do sticky prices allow higher nominal interest rates to pass through to higher real rates? Because companies find it hard to change prices – prices are sticky – they meet more demand for their products by producing more products at the same price rather than the same number of products at a higher price.",
-    //         "",
-    //     ],
-    // },
-    // {
-    //     "id": 4,
-    //     "title": "The Managerial Revolution in American … Education?",
-    //     "tag": "managerial-revolution-in-american-education",
-    //     "link": "/ideas/managerial-revolution-in-american-eduction",
-    //     "description": "Are the conventional New-Keynesian understandings about price stickiness intuitively reasonable? Should we believe that firms have an easier time making more stuff at the same price than raising prices?",
-    //     "blurb": "Intuitions About the Difficulty of Price and Real Output Changes Contradict New-Keynesian Assumptions",
-    //     "graphics": [],
-    //     "questions": "Are the conventional New-Keynesian understandings about price stickiness intuitively reasonable? Should we believe that firms have an easier time making more stuff at the same price than raising prices?",
-    //     "summary": "I explore intuitions about the ease of price movements and production movements for firms, comparing these intuitions with the conventional New-Keynesian wisdom on the matter. In short: Intuitions and the economic assumptions diverge. ",
-    //     "details": [
-    //         "Sticky prices – the belief that prices show at least a modicum of resistance to change – is at the core of the conventional economic wisdom. Specifically, sticky prices enable monetary policy makers to effect real economic quantities – jobs, production, and firm behavior more broadly – by making mere changes to the money supply. Here, I consider the intuitive strength of the price stickiness assumption. I conclude that, to a degree, it doesn’t jibe with commonsensical understandings of the difficulties of running a company.",
-    //         "First, let’s understand the sticky price assumption by examining its relevance in the place it features most prominently: monetary policy.",
-    //         "A (The ?) chiefly important question in economics is how changes to monetary phenomena – interest rates, the money supply, and the like – affect the real economy. Remarkably, we still do not know, and shockingly it is rather underexplored, whether raising nominal interest rates raises or lowers inflation. In any case, most economists, and almost all policy makers, understand the changes they make to have the important real-world impact they seem to have because of price stickiness.",
-    //         "Sticky prices, namely, mean rising nominal interest rates increase real interest rates. Since higher real interest rates are understood to make it more desirable to save and less desirable to spend and invest as borrowing becomes more expensive, raising nominal rates slows down the economy.",
-    //         "Why do sticky prices allow higher nominal interest rates to pass through to higher real rates? Because companies find it hard to change prices – prices are sticky – they meet more demand for their products by producing more products at the same price rather than the same number of products at a higher price.",
-    //         "",
-    //     ],
-    // },
 ];
 
 export default ideas;
