@@ -6,8 +6,8 @@ const Error = () => {
         <div 
             class="w-full flex flex-col flex-1 max-w-7xl mx-auto p-4 items-center justify-center animate-fade"
         >
-            <p class="font-mono text-xs">Uh oh. Error 404</p>
-            <a href="/" class="font-mono text-xs">Go Home</a>
+            <p class="font-mono text-xs">page not found.</p>
+            <a href="/" class="px-1 font-mono text-xs rounded-sm bg-black text-white font-bold uppercase animate-pulse">go home</a>
         </div>
     );
 };

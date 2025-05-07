@@ -1,81 +1,243 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { MasterContextProvider } from './contexts/MasterContext';
+import { MasterContextProvider }   from "./contexts/MasterContext";
+import { AnalyticsContextProvider } from "./contexts/AnalyticsContext";
 
-import './App.css';
+import Header         from "./components/Header";
+import Footer         from "./components/Footer";
 
-import Error from './pages/Error';
-import Home from './pages/Home';
-import Ideas from './pages/Ideas';
-import IdeaDetails from './pages/IdeaDetails';
-import Projects from './pages/Projects';
-import ProjectDetails from './pages/ProjectDetails';
-import Contact from './pages/Contact';
+import Error          from "./pages/Error";
+import Home           from "./pages/Home";
+// import Preorder       from "./pages/Preorder";
+// import Thanks         from "./pages/Thanks";
+// import Welcome        from "./pages/Welcome";
+import Order          from "./pages/Order";
+// import Products       from "./pages/Products";
+// import ProductDetails from "./pages/ProductDetails";
+// import Bag            from "./pages/Bag";
+import About          from "./pages/About";
+import Contact        from "./pages/Contact";
 
-import Header from './components/Header';
 
-const App = () => {
+/* Checkout */
+import ContactEntry        from "./pages/checkouts/ContactEntry";
+import Payment from "./pages/checkouts/Payment";
 
-  return (
-    <Router> 
-      <MasterContextProvider>
-        <div class="bg-white text-black dark:bg-black dark:text-white">
+// import Status         from "./pages/orders/Status";
+
+import Products        from "./pages/shopify/Products";
+import ProductDetails  from "./pages/shopify/ProductDetails";
+import Bag        from "./pages/shopify/Bag";
+
+/* Orders i.e., post-payment, order-placement handling */
+import Confirmation from "./pages/orders/Confirmation";
+import Status       from "./pages/orders/Status";
+
+const App = () => (
+  <Router>
+    <MasterContextProvider>
+      <AnalyticsContextProvider>
+        <div class="bg-white text-black dark:bg-black dark:text-white overflow-hidden">
+
+          {/* ─────────────── all non-checkout pages ─────────────── */}
           <Routes>
-            <Route exact path="*" element={
+            <Route
+              path="*"
+              element={
                 <div class="flex flex-col min-h-screen p-4 space-y-4">
                   <Error />
                 </div>
               }
             />
-            <Route exact path="/" element={
-                <div class="flex flex-col min-h-screen p-4 space-y-4">
+
+            <Route
+              path="/"
+              element={
+                <div class="flex flex-col w-screen h-screen">
                   <Home />
                 </div>
               }
             />
-            <Route exact path="/ideas" element={
-                <div class="flex flex-col min-h-screen p-4 space-y-4">
-                  <Header />
-                  <Ideas />
+
+            {/* <Route
+              path="/preorder"
+              element={
+                <div class="flex flex-col min-h-screen p-4 space-y-4 overflow-hidden">
+                  <Preorder />
                 </div>
               }
             />
-            <Route exact path="/ideas/:tag" element={
+
+            <Route
+              path="/thanks"
+              element={
                 <div class="flex flex-col min-h-screen p-4 space-y-4">
-                  <Header />
-                  <IdeaDetails />
+                  <Thanks />
                 </div>
               }
             />
-            <Route exact path="/projects" element={
+
+            <Route
+              path="/welcome"
+              element={
                 <div class="flex flex-col min-h-screen p-4 space-y-4">
+                  <Welcome />
+                </div>
+              }
+            /> */}
+
+            {/* ---------- storefront ---------- */}
+            <Route
+              path="/order"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
                   <Header />
-                  <Projects />
+                  <Order />
+                  <Footer />
                 </div>
               }
             />
-            <Route exact path="/projects/:tag" element={
-                <div class="flex flex-col min-h-screen p-4 space-y-4">
+
+            {/* <Route
+              path="/products"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
                   <Header />
-                  <ProjectDetails />
+                  <Products />
+                </div>
+              }
+            /> */}
+
+            {/* <Route
+              path="/products/:productId"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Header />
+                  <ProductDetails />
+                </div>
+              }
+            /> */}
+
+            {/* <Route
+              path="/bag"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Header />
+                  <Bag />
+                </div>
+              }
+            /> */}
+
+            {/* ---------- static ---------- */}
+            <Route
+              path="/about"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Header />
+                  <About />
+                  <Footer />
                 </div>
               }
             />
-            <Route exact path="/contact" element={
-                <div class="flex flex-col min-h-screen p-4 space-y-4">
+            <Route
+              path="/contact"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
                   <Header />
                   <Contact />
+                  <Footer />
                 </div>
               }
             />
+
+            {/* ---------- checkout, payment handling ---------- */}
+          
+            <Route 
+              path={`/checkouts/:checkoutId/contact-entry/:consumptionCharacterization`}
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Header />
+                  <ContactEntry />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route 
+              path="/checkouts/:checkoutId/payment/:paymentId"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Header />
+                  <Payment />
+                  <Footer />
+                </div>
+              }
+            />
+
+            {/* ---------- order, post-payment handling ---------- */}
+            <Route
+              path="/orders/:orderId/confirmation"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Header />
+                  <Confirmation />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route 
+              path="/orders/status/:confirmationNumber?"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Header />
+                  <Status />
+                  <Footer />
+                </div>
+              }
+            />
+
+            {/* ---------- the beginning of the shopify transition, perhaps ---------- */}
+            <Route 
+              path="/shopify/products"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Header />
+                  <Products />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route 
+              path="/shopify/products/:productId"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Header />
+                  <ProductDetails />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route 
+              path="/shopify/bag"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Header />
+                  <Bag />
+                  <Footer />
+                </div>
+              }
+            />
+            
           </Routes>
 
+          
+          
+
         </div>
-        
-      </MasterContextProvider>
-    </Router>
-  );
-};
+      </AnalyticsContextProvider>
+    </MasterContextProvider>
+  </Router>
+);
 
 export default App;

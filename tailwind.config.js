@@ -4,17 +4,42 @@ module.exports = {
     extend: {
       fontFamily: {
         mono: ['Source Code Pro', 'monospace'],
-        sans: ['Belleza', 'sans-serif'],
-        serif: ['Baskerville', 'serif'],
+        sans: ['Custard Condensed', 'sans-serif'],
+        serif: ['Galliard', 'serif'],
+      },
+      colors: {
+        'cowjuice-brown': "#4E2817",
+        'cowjuice-bronze': "#B15A33",
+        'cowjuice-gold': "#E3B27E",
+        'cowjuice-red': "#BF0A30",
+        'cowjuice-blue': "#002868"
       },
       keyframes: {
+        'fade-out': {
+          '0%': {
+            opacity: 1,
+          },
+          '100%': {
+            opacity: 0,
+          },
+        },
         'slide-up-fade-out': {
           '0%': {
             transform: 'translateY(0)',
             opacity: 1,
           },
           '100%': {
-            transform: 'translateY(-1600%)',
+            transform: 'translateY(-800%)',
+            opacity: 0,
+          },
+        },
+        'slide-left-fade-out': {
+          '0%': {
+            transform: 'translateX(0)',
+            opacity: 1,
+          },
+          '100%': {
+            transform: 'translateX(-50%)',
             opacity: 0,
           },
         },
@@ -40,7 +65,9 @@ module.exports = {
         },
       },
       animation: {
+        'fade-out': 'fade-out 0.2s ease-out',
         'slide-up-fade-out': 'slide-up-fade-out 1s ease-out',
+        'slide-left-fade-out': 'slide-left-fade-out 1s ease-out',
         'slide-down-fade-in': 'slide-down-fade-in 1s ease-out',
         'slide-up-fade-in': 'slide-up-fade-in 1s ease-out',
       },
@@ -49,5 +76,5 @@ module.exports = {
   plugins: [
     require('tailwindcss-animated'),
   ],
-  darkMode: 'media',
+  darkMode: 'class',
 };

@@ -1,1 +1,1 @@
-# This is Jax F. Floyd's website.
+# This is the official website of Cow Juice, the world's first can of milk.
