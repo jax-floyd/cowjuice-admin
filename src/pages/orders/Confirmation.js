@@ -42,7 +42,7 @@ const OrderConfirmation = () => {
     /* ---------- copy ---------- */
     const firstMessageSet = [
         `And just like that, <span class="font-bold">${getCustomerName()}</span>, you have successfully ordered the world's first can of milk.`,
-        `Your confirmation number is <span class='font-bold'>#${order.confirmation_number}</span>, which you should save to <a href="/orders/status/'${order.confirmation_number}" class="px-1 rounded-sm bg-black text-white font-bold uppercase animate-pulse">track your order at any time</a>.`,
+        `Your confirmation number is <span class='font-bold'>#${order.confirmation_number}</span>, which you should save to <a href="/orders/status/'${order.confirmation_number}" target=_blank class="px-1 rounded-sm bg-black text-white font-bold uppercase animate-pulse">track your order at any time</a>.`,
     ];
 
     const secondMessageSet = [
@@ -80,7 +80,6 @@ const OrderConfirmation = () => {
     /* ---------- share handler ---------- */
     const handleShare = async () => {
         const shareData = {
-            title: 'Cow Juice',
             text: "You've gotta see the world’s first can of milk 🐄🥛",
             url: window.location.origin,
         };
@@ -96,7 +95,7 @@ const OrderConfirmation = () => {
     };
 
     return (
-        <div className="inset-0 flex flex-1 max-w-3xl mx-auto px-6 pb-6 pt-24 w-full h-full overflow-hidden">
+        <div className="inset-0 flex flex-1 min-h-screen max-w-3xl mx-auto px-6 pb-6 pt-24 w-full h-full overflow-hidden">
             <div className="flex flex-col items-center justify-start space-y-4 w-full animate-fade">
 
                 {/* ---------- 1️⃣ first message set ---------- */}

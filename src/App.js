@@ -8,6 +8,12 @@ import { AnalyticsContextProvider } from "./contexts/AnalyticsContext";
 import Header         from "./components/Header";
 import Footer         from "./components/Footer";
 
+import Interstitial   from "./pages/Interstitial";
+import Transitory     from "./pages/Transitory";
+
+import Retort         from "./components/Retort";
+
+import Scroller       from "./pages/Scroller";
 import Error          from "./pages/Error";
 import Home           from "./pages/Home";
 // import Preorder       from "./pages/Preorder";
@@ -39,6 +45,7 @@ const App = () => (
   <Router>
     <MasterContextProvider>
       <AnalyticsContextProvider>
+        <Scroller />   {/* helper component to catch all navs & scroll to top of each newly navigated to page */}
         <div class="bg-white text-black dark:bg-black dark:text-white overflow-hidden">
 
           {/* ─────────────── all non-checkout pages ─────────────── */}
@@ -51,7 +58,6 @@ const App = () => (
                 </div>
               }
             />
-
             <Route
               path="/"
               element={
@@ -60,6 +66,14 @@ const App = () => (
                 </div>
               }
             />
+            {/* <Route
+              path="/"
+              element={
+                <div class="flex flex-col w-screen h-screen">
+                  <Transitory />
+                </div>
+              }
+            /> */}
 
             {/* <Route
               path="/preorder"
@@ -95,6 +109,7 @@ const App = () => (
                 <div class="flex flex-col min-h-screen p-0 space-y-4">
                   <Header />
                   <Order />
+                  <Retort />
                   <Footer />
                 </div>
               }

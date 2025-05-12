@@ -104,7 +104,7 @@ const CheckoutForm = ({ clientSecret, paymentIntent, product, user, loading, set
                 </svg>
               ) : (
                 <p class="font-[Arial] font-bold uppercase text-white text-xs">
-                  Pay ${paymentIntent.amount / 100}
+                  Pay Now
                 </p>
               )
             }            

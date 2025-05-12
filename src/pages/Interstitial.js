@@ -17,7 +17,7 @@ const Interstitial = () => {
   /* hop to /order 600 ms after the exit animation starts */
   useEffect(() => {
     if (!exit) return;
-    const navId = setTimeout(() => navigate('/order'), 600);
+    const navId = setTimeout(() => navigate('/temporal-existentialism'), 600);
     return () => clearTimeout(navId);
   }, [exit, navigate]);
 

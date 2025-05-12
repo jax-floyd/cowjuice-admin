@@ -14,11 +14,13 @@ const Header = () => {
         {
             name: '/home',
             href: '/',
+            delay: '125ms',
             subsections: [],
         },
         {
             name: '/about',
             href: '/about',
+            delay: '250ms',
             subsections: [
                 // {
                 //     name: '/retort',
@@ -29,6 +31,7 @@ const Header = () => {
         {
             name: '/products',
             href: '/shopify/products',
+            delay: '375ms',
             subsections: [
                 
             ],
@@ -41,6 +44,7 @@ const Header = () => {
         {
             name: '/contact',
             href: '/contact',
+            delay: '500ms',
             subsections: [],
         },
     ];
@@ -73,7 +77,7 @@ const Header = () => {
         case '/shopify/products':
             return 'animate-delay-[0ms]';         // medium
         case '/order':
-            return 'animate-delay-[10000ms]';         // current special
+            return 'animate-delay-[8500ms]';         // current special
         case '/contact':
             return 'animate-delay-[500ms]';          
         default:
@@ -83,12 +87,9 @@ const Header = () => {
   
     const delay = getDelayClass(page);
 
-    
-
-
     return (
         <div class={`absolute w-full bg-white text-black uppercase border-b-[0.5px] border-black items-center justify-center flex px-6 py-6 animate-flip-down ${delay}`}>
-            <div class={`flex w-full max-w-5xl mx-auot flex-flow items-center ${page != '/' ? 'justify-between' : 'justify-end'}`}>
+            <div class={`flex w-full max-w-6xl mx-auto flex-flow items-center ${page != '/' ? 'justify-between' : 'justify-end'}`}>
                 <div class="flex flex-row items-center justify-start space-x-4">
                     <a onClick={() => navigate(-1)} class="text-xs font-mono cursor-pointer">&lt;&lt; </a>
                 </div>
@@ -100,7 +101,7 @@ const Header = () => {
                                     key={index}
                                     href={section.href}
                                     onMouseEnter={() => handleHeaderTagHover(section.name)}
-                                    class={`text-xs font-mono active:bg-cowjuice-red active:font-bold active:text-white rounded-sm px-[2px] transition-all duration-300 ${window.location.pathname === section.name && 'font-bold'}`}
+                                    class={`text-xs font-mono active:bg-cowjuice-red active:font-bold active:text-white rounded-sm px-[2px] transition-all duration-300 ${window.location.pathname === section.name && 'font-bold'} animate-fade-down animate-delay-${section.delay}`}
                                 >
                                     {section.name}
                                 </a>
@@ -127,6 +128,7 @@ const Header = () => {
                                 )}
                             </>
                         ))}
+                        
                     </div>
                     <div class="flex flex-row items-center justify-start space-x-4">
                         <a href={`/shopify/bag`} class={`relative text-xs font-mono text-black cursor-pointer`}>
