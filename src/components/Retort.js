@@ -37,7 +37,7 @@ const Retort = () => {
       <div className="flex flex-col w-full max-w-6xl mx-auto space-y-6 px-6">
         {/* Headline strip */}
         <div className={anim('flex w-full text-xs font-mono uppercase text-black font-bold bg-white p-2 sm:py-4 rounded-sm animate-flip-up animate-duration-1000 animate-delay-[0ms]')}>
-          <p> The <span className="text-white bg-cowjuice-red rounded-sm px-[2px]">retortation</span> of milk</p>
+          <p> The <span className="text-cowjuice-red bg-white border-[0.5px] border-cowjuice-red rounded-sm px-[2px]">retortation™</span> of milk</p>
         </div>
 
         {/* One‑liner */}
@@ -52,11 +52,11 @@ const Retort = () => {
           </p>
 
           <p className={anim('text-xs uppercase text-white font-mono animate-fade-up animate-delay-[450ms]')}>
-              Milk is pasteurized; Cow Juice is <span class="bg-white text-black  px-[2px] rounded-sm font-bold uppercase">retorted</span>.
+              Milk is pasteurized; Cow Juice is <span class="">retorted</span>.
           </p>
 
           <p className={anim('text-xs uppercase text-white font-mono animate-fade-up animate-delay-[600ms]')}>
-            <span class="bg-white text-black  px-[2px] rounded-sm font-bold uppercase">Retortation</span> is a high‑heat, high‑pressure pasteurization process that caramelizes milk’s natural sugars to produce a naturally sweeter can of lactose‑free Cow Juice.
+            <span class="">Retortation</span> is a high‑heat, high‑pressure pasteurization process that caramelizes milk’s natural sugars to produce a naturally sweeter can of lactose‑free Cow Juice.
           </p>
           <div class={anim("flex w-full border-[0.5px] border-white animate-fade-up animate-delay-[700ms]")} />
 
@@ -79,7 +79,7 @@ const Retort = () => {
             </div>
             <div class={anim("flex flex-col items-center justify-start space-y-2 animate-fade-down animate-delay-[900ms]")}>
               <p class="w-full font-mono text-xs uppercase font-bold text-black bg-white rounded-sm p-2 sm:px-2 sm:py-4">Extended Shelf-Life</p>
-              <p class="font-mono text-xs text-white w-full text-left">Ultra-Retort Pasteurization — namely the tremendous, insurmountable, & downright unbelievable heat and pressure the can of milk is subjected to in the Retort chamber — creates a shelf-stable milk with a 365-day shelf-life. Absolutely no preservatives, emulfiers, stabilizers, carrageenans or other unpronounceable ingredients are required for this result. The Cow Juice is just milk in every can.</p>
+              <p class="font-mono text-xs text-white w-full text-left">Ultra-Retort Pasteurization — because of the tremendous, insurmountable, & downright unbelievable heat and pressure the milk is subjected to in the Retort chamber — creates a shelf-stable milk with a 365-day shelf-life. Absolutely no preservatives, emulfiers, stabilizers, carrageenans or other unpronounceable ingredients are required for this result. Cow Juice is just milk in every can.</p>
             </div>
           </div>
         </div>

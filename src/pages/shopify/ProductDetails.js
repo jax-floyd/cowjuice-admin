@@ -5,10 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 import mockup_2 from "../../assets/250ml_mockup_2.png";
 import mockup_4 from "../../assets/250ml_mockup_4.png";
 import mockup_5 from "../../assets/250ml_mockup_5.png";
-import mockup_6 from "../../assets/250ml_mockup_6.png";
 import rack_2 from "../../assets/rack_2.png";
 import rack_3 from "../../assets/rack_3.png";
-import nutrition from "../../assets/nutrition.svg";
 
 import AmericanFlag from "../../components/icons/AmericanFlag";
 
@@ -59,7 +57,7 @@ const ProductDetails = () => {
     const next  = () => setSlide((i) => (i + 1) % images.length);
     const prev  = () => setSlide((i) => (i - 1 + images.length) % images.length);
 
-    const handleBuyCowJuice = async ( product ) => {
+    const handleBuyNowClick = async ( product ) => {
 
         const numericId = product.id;
         const uniqueSuffix = uuidv4().replace(/-/g, '');
@@ -76,35 +74,35 @@ const ProductDetails = () => {
                     <div className="flex flex-col flex-1 w-full h-full border-[0.0px] sm:border-[0.5px] border-black rounded-sm items-start justify-between space-y-2 p-0 sm:p-4 animate-fade-up lg:animate-fade-left">
                         <div className="flex flex-1 flex-col items-start w-full space-y-2">
                             <p class="text-[10px] uppercase font-mono font-bold text-left leading-3">A selection of very important footnotes pertaining to the world's first can of milk which absolutely must be read to understand the ultra-retortation of milk.</p>
-                            <p className="text-xs font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[125ms]">
+                            <p className="text-[10px] leading-3 sm:text-xs sm:leading-normal font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[125ms]">
                                 <sup>[1]</sup> Cow Juice will soon release a 19.2oz tallboy version of this, the same Ultra-Retorted Milk. These smallboys to be available only for a limited time.
                             </p>
-                            <p className="text-xs font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[250ms]">
+                            <p className="text-[10px] leading-3 sm:text-xs sm:leading-normal font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[250ms]">
                                 <sup>[2]</sup> Cow Juice's Ultra-Retorted Milk is in no way intended for the weak-boned individuals who can't stomach the thought of drinking the purest protein on planet earth.
                             </p>
-                            <p className="text-xs font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[375ms]">
+                            <p className="text-[10px] leading-3 sm:text-xs sm:leading-normal font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[375ms]">
                                 <sup>[3]</sup> Cow Juice Inc. has secured only the highest-quality milk for the production of this Ultra-Retorted Cow Juice. Our milk supply comes entirely from Upper Midwestern dairy cows, raised by hard-working, dedicated, and all-around amazing American Dairy Farmers, whom Cow Juice Inc. is immensely proud to support.
                             </p>
-                            <p className="text-xs font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[500ms]">
+                            <p className="text-[10px] leading-3 sm:text-xs sm:leading-normal font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[500ms]">
                                 <sup>[4]</sup> Ultra-Retortation™ is Cow Juice Inc.'s proprietary pasteurization process that makes this can of milk last longer than your houseplants and taste the like caramelized Cow Juice you never knew planet milk needed.
                             </p>
                             {/* ─── Nutrition accordion ─────────────────────────────────────── */}
                             <details className="flex flex-col w-full mt-6 border-t-[0.5px] border-dashed border-black pt-4">
-                                <summary className="cursor-pointer font-semibold font-mono text-xs">
+                                <summary className="cursor-pointer font-semibold font-mono text-[10px] leading-3 uppercase sm:text-xs sm:leading-normal">
                                     Nutrition Facts &amp; Ingredients<sup class=""></sup>
                                 </summary>
-                                <div className="mt-4 font-mono text-xs space-y-1 animate-fade-down">
+                                <div className="mt-4 font-mono text-[10px] leading-3 sm:text-xs sm:leading-normal space-y-1 animate-fade-down">
                                     <p>Serving Size: 1 can (8oz) (250 ml)</p>
                                     <p>
                                     Calories: 120 • Protein: 8 g • Fat: 5 g • Carbs: 11 g • Sugars:
                                     12 g [Including 0g Added Sugars]
                                     </p>
-                                    <p className="pt-2">
+                                    <p className="pt-2 text-[10px] leading-3 sm:text-xs sm:leading-normal">
                                     <span className="font-semibold">Ingredients:</span> Ultra-Retorted Reduced Fat Milk,
                                     Lactase Enzyme, Vitamin A, Vitamin D3.
                                     </p>
-                                    <p className="pt-2 font-bold">Best enjoyed refrigerated</p>
-                                    <p className="opacity-60">
+                                    <p className="pt-2 font-bold text-[10px] leading-3 sm:text-xs sm:leading-normal">Best enjoyed refrigerated</p>
+                                    <p className="opacity-60 text-[10px] leading-3 sm:text-xs sm:leading-normal">
                                     Contains: Milk (duh). Produced in a facility that also processes milk (double duh).
                                     </p>
                                 </div>
@@ -170,10 +168,10 @@ const ProductDetails = () => {
 
                         <div class="flex flex-col items-start justify-center w-full space-y-1">
                             <p class="text-[10px] font-mono font-bold uppercase leading-3 text-left">[What's included?]</p>
-                            <li className="font-mono text-xs">
+                            <li className="font-mono text-xs uppercase">
                                 {product.title.includes('6') ? '6' : product.title.includes('8') ? '8' : product.title.includes('12') ? '12' : ''}x stone‑cold 8.0oz cans of Cow Juice's Ultra-Retorted Milk public beta product.<sup>[2]</sup>
                             </li>
-                            <li className="font-mono text-xs">
+                            <li className="font-mono text-xs uppercase">
                                 1x beta-testing certificate of entry to the wonderful world of retortation (a.k.a., retort-land).
                             </li>
                              
@@ -213,10 +211,10 @@ const ProductDetails = () => {
 
                             <button
                                 type="button"
-                                onClick={() => handleBuyCowJuice(product)}
-                                className="text-xs bg-black hover:bg-white text-white hover:text-black border-[0.5px] border-black flex w-full font-mono p-2 sm:px-2 sm:py-4 rounded-sm font-bold uppercase transiiton-colors duration-500"
+                                onClick={() => handleBuyNowClick(product)}
+                                className="text-xs bg-black hover:bg-cowjuice-gold/50 text-white border-[0.5px] border-black flex w-full font-mono p-2 sm:px-2 sm:py-4 rounded-sm font-bold uppercase transiiton-colors duration-500"
                             >
-                                Buy the juice
+                                Buy Now
                             </button>
                         </div>
                     </div>

@@ -19,11 +19,12 @@ import Home           from "./pages/Home";
 // import Preorder       from "./pages/Preorder";
 // import Thanks         from "./pages/Thanks";
 // import Welcome        from "./pages/Welcome";
-import Order          from "./pages/Order";
+import HomeNew          from "./pages/HomeNew";
 // import Products       from "./pages/Products";
 // import ProductDetails from "./pages/ProductDetails";
 // import Bag            from "./pages/Bag";
-import About          from "./pages/About";
+import Press          from "./pages/Press";
+import Questions      from "./pages/Questions";
 import Contact        from "./pages/Contact";
 
 
@@ -58,14 +59,14 @@ const App = () => (
                 </div>
               }
             />
-            <Route
+            {/* <Route
               path="/"
               element={
                 <div class="flex flex-col w-screen h-screen">
                   <Home />
                 </div>
               }
-            />
+            /> */}
             {/* <Route
               path="/"
               element={
@@ -104,11 +105,11 @@ const App = () => (
 
             {/* ---------- storefront ---------- */}
             <Route
-              path="/order"
+              path="/"
               element={
                 <div class="flex flex-col min-h-screen p-0 space-y-4">
                   <Header />
-                  <Order />
+                  <HomeNew />
                   <Retort />
                   <Footer />
                 </div>
@@ -147,11 +148,21 @@ const App = () => (
 
             {/* ---------- static ---------- */}
             <Route
-              path="/about"
+              path="/press"
               element={
                 <div class="flex flex-col min-h-screen p-0 space-y-4">
                   <Header />
-                  <About />
+                  <Press />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route
+              path="/questions"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Header />
+                  <Questions />
                   <Footer />
                 </div>
               }
@@ -168,7 +179,6 @@ const App = () => (
             />
 
             {/* ---------- checkout, payment handling ---------- */}
-          
             <Route 
               path={`/checkouts/:checkoutId/contact-entry/:consumptionCharacterization`}
               element={

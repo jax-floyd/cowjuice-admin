@@ -75,16 +75,16 @@ export const MasterContextProvider = ({ children }) => {
 
     const [isWelcomeTextTyping, setIsWelcomeTextTyping] = useState(false);
     const [showWelcomeText, setShowWelcomeText] = useState(true);
+    const [readyForSplash, setReadyForSplash] = useState(false);
     const handleTypingAnimationComplete = () => {
       setIsWelcomeTextTyping(false);
 
       setTimeout(() => {
           setShowWelcomeText(false);
+          setReadyForSplash(true)
           navigate('/order');
       }, 1000);
-  };
-
-
+    };
 
     const value = {
         user,
@@ -98,6 +98,8 @@ export const MasterContextProvider = ({ children }) => {
         setShowWelcomeText,
         isWelcomeTextTyping,
         setIsWelcomeTextTyping,
+        readyForSplash,
+        setReadyForSplash,
         handleTypingAnimationComplete,
     }
 

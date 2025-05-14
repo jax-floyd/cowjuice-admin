@@ -139,7 +139,7 @@ const Products = () => {
                             <img src={rack_1} alt="Cow Juice Rack" className="w-full sm:w-1/2 animate-fade-down border-[0.0px] border-black/50 rounded-sm" />
                         </div>
                         
-                        <p class={`w-full font-mono text-xs rounded-sm border-black dark:bg-white dark:border-white dark:text-black animate-flip-down animate-delay-500`} >
+                        <p class={`w-full font-mono text-xs uppercase rounded-sm border-black dark:bg-white dark:border-white dark:text-black animate-flip-down animate-delay-500`} >
                             Since variety is the spice of life, we're offering three revolutionary ways to get the exact same Cow Juice into your daily existence.<sup>[1]</sup>
                         </p>
                         {/* errors / loading */}
@@ -176,6 +176,11 @@ const Products = () => {
                                             </div>
                                         ) : (
                                             <></>
+                                            // <div class="absolute inset-0 flex items-center justify-center bg-transparent z-0">
+                                            //     <div class="flex w-full h-full items-start justify-end">
+                                            //         <a class="flex rotate-[20deg] font-mono uppercase border-[0.5px] border-transparent text-xs text-transparent font-bold px-2 rounded-md bg-transparent cursor-default">Coming soon</a>
+                                            //     </div>
+                                            // </div>
                                         )}
                                         {/* <a class="absolute flex rotate-[30deg] -right-4 -top-2 w-auto h-auto font-mono uppercase border-[0.5px] border-black text-xs px-2 rounded-xl bg-black text-white animate-fade animate-delay-1000" onClick={() => navigate(`/shopify/product/${p.id}`)}>View</a> */}
 
@@ -187,14 +192,14 @@ const Products = () => {
                                         {/* add button */}
                                         <button
                                             onClick={() => handleBuyNow(p)}
-                                            className={`group flex w-full items-center justify-center text-[10px] font-mono uppercase ${!available ? 'bg-neutral-100' : 'bg-white'} border-[0.5px] border-black dark:border-white hover:bg-neutral-100 rounded-md px-1 py-1.5 sm:py-4 sm:px-2 h-7 transition-all duration-300`}
+                                            className={`group flex w-full items-center justify-center text-[10px] font-mono uppercase ${!available ? 'bg-neutral-100' : 'bg-white'} border-[0.5px] border-black dark:border-white hover:bg-cowjuice-gold/50 rounded-md px-1 py-1.5 sm:py-4 sm:px-2 h-7 transition-all duration-300`}
                                         >
                                                 <p class=""><span className=" font-bold">${p.variants[0].price} </span>| Buy Now</p>
                                         
                                         </button>
                                         <button
                                             onClick={() => handleViewProduct(p)}
-                                            className={`group flex w-full items-center justify-center text-[10px] font-mono uppercase ${!available ? 'bg-neutral-100' : 'bg-white'} border-[0.5px] border-black dark:border-white hover:bg-neutral-100 rounded-md px-1 py-1.5 sm:py-4 h-7 transition-all duration-300`}
+                                            className={`group flex w-full items-center justify-center text-[10px] font-mono uppercase ${!available ? 'bg-neutral-100' : 'bg-white'} border-[0.5px] border-black dark:border-white hover:bg-cowjuice-gold/50 rounded-md px-1 py-1.5 sm:py-4 h-7 transition-all duration-300`}
                                         >
                                                 <p class="">View Product Details</p>
                                         

@@ -12,7 +12,7 @@ import React, { useEffect, useState } from 'react';
  * Tuned defaults result in ~150 moos over 2 s. Crank `burst` or shrink
  * `interval` for still denser chaos.
  */
-const MooSplash = ({ duration = 2000, interval = 30, burst = 3, direct = '/order' }) => {
+const MooSplash = ({ duration = 2000, interval = 30, burst = 18, direct = '/order' }) => {
   const [moos, setMoos] = useState([]);
   
   // 'merican color palette — whites (#ffffff, #f1f1f1) intentionally omitted.
@@ -39,7 +39,7 @@ const MooSplash = ({ duration = 2000, interval = 30, burst = 3, direct = '/order
       clearInterval(spawner);
       // brief pause for last moos to animate
       setTimeout(() => {
-        // window.location.href = direct;
+        window.location.href = direct;
         
       }, 100);
     }, duration);

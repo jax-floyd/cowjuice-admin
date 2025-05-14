@@ -274,7 +274,7 @@ const ContactEntry = () => {
           <div class={`hidden sm:flex w-full items-center justify-end col-span-2 animate-flip-down`}>
             <div class="flex h-full items-start justify-end">
                 {/* The actual logo's SVG */}
-                <svg class="flex text-cowjuice-gold w-full z-20" id="Layer_2" data-name="Layer 2" viewBox="0 0 119.06 300.64">
+                <svg class="flex text-cowjuice-gold/50 w-full z-20" id="Layer_2" data-name="Layer 2" viewBox="0 0 119.06 300.64">
                     <g id="Layer_1-2" data-name="Layer 1">
                         <g>
                             <path class={"fill-current animate-fade-right animate-delay-[350ms]"} d="M66.88,292.71c18.83,0,22.64-4.86,22.81-23.57h25.57c-.17,24.28-8.12,31.5-57.02,31.5s-55.29-8.76-55.47-32.92h42.68c.17,21.67,2.94,24.99,21.43,24.99Z"/>

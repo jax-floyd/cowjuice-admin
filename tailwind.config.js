@@ -71,12 +71,15 @@ module.exports = {
             width: "100%" 
           },
         },
-       
         'color-cycle': {
           '0%,100%' : { color: '#000000' },   // start / reset
           '25%'     : { color: '#000000' },   // red
-          '50%'     : { color: '#BF0A30' },   // teal‑ish
-          '75%'     : { color: '#BF0A30' },   // indigo
+          '50%'     : { color: '#FFF' },   // teal‑ish
+          '75%'     : { color: '#FFF' },   // indigo
+        },
+        ticker: {
+          '0%':   { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
         },
       },
       animation: {
@@ -87,6 +90,7 @@ module.exports = {
         'slide-up-fade-in': 'slide-up-fade-in 1s ease-out',
         'progress': 'progress 5s linear forwards',
         'color-cycle': 'color-cycle 8s linear infinite',
+        'ticker': 'ticker 28s linear infinite'
       },
     },
   },

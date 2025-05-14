@@ -32,7 +32,7 @@ const Footer = () => {
 
     return (
         <footer ref={footerRef} className="flex flex-col space-x-2 sm:flex-col sm:space-y-0 justify-start sm:items-center w-full bg-black text-white px-4 space-y-8 py-16 sm:py-0 sm:pb-16">
-            <div class="flex flex-row sm:flex-col space-x-2 sm:flexcol sm:space-y-0 justify-start sm:items-center w-full max-w-6xl mx-auto bg-black text-white">
+            <div class="flex flex-row sm:flex-col space-x-2 sm:flexcol sm:space-y-0 justify-start sm:items-center w-full max-w-6xl mx-auto bg-transparent text-white">
                 {/* h-32 classed div with transparency to allow for better display of sm:> COW JUICE animation */}
                 {/* <div class="flex w-full h-32 bg-white" /> */}
                 <div class="sm flex flex-1 h-full items-center">
@@ -75,7 +75,7 @@ const Footer = () => {
                 <div className="flex flex-1 w-full max-w-6xl p-2 sm:p-0 sm:py-8 rounded-sm h-full mx-auto flex-col sm:flex-row items-end sm:items-start justify-between space-y-4 sm:space-y-0 sm:space-x-4">
 
                     {/* ── Left: Brand + tagline ───────────────────────── */}
-                    <div className="flex flex-col items-end sm:items-start leading-tight sm:space-y-2">
+                    <div className="flex flex-col items-end sm:items-start leading-tight">
                         <span className={anim("text-[10px] leading-3 font-mono uppercase font-bold animate-fade-left sm:animate-fade-down animate-delay-[0ms] sm:animate-delay-[1000ms]")}>
                             <span class="text-md">©</span> {new Date().getFullYear()} Cow Juice Inc.
                         </span>
@@ -88,9 +88,9 @@ const Footer = () => {
                     <nav className="flex sm:hidden flex-col space-y-2 items-end font-bold uppercase">
                         {[
                         { name: 'Home', href: '/', delay: '250ms' },
-                        { name: 'About', href: '/about', delay: '375ms' },
+                        { name: 'About', href: '/press', delay: '375ms' },
                         { name: 'Shop', href: '/shopify/products', delay: '500ms' },
-                        { name: 'Retort', href: '/shopify/products', delay: '625ms' },
+                        { name: 'FAQ', href: '/questions', delay: '625ms' },
                         { name: 'Orders', href: '/orders/status', delay: '750ms' },
                         { name: 'Contact', href: '/contact', delay: '1000ms' },
                         ].map((link) => (
