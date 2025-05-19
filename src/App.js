@@ -26,6 +26,7 @@ import HomeNew          from "./pages/HomeNew";
 import Press          from "./pages/Press";
 import Questions      from "./pages/Questions";
 import Contact        from "./pages/Contact";
+import QR             from "./pages/QR";
 
 
 /* Checkout */
@@ -59,52 +60,18 @@ const App = () => (
                 </div>
               }
             />
-            {/* <Route
+            <Route
               path="/"
               element={
                 <div class="flex flex-col w-screen h-screen">
-                  <Home />
-                </div>
-              }
-            /> */}
-            {/* <Route
-              path="/"
-              element={
-                <div class="flex flex-col w-screen h-screen">
+                  <Header />
                   <Transitory />
                 </div>
               }
-            /> */}
-
-            {/* <Route
-              path="/preorder"
-              element={
-                <div class="flex flex-col min-h-screen p-4 space-y-4 overflow-hidden">
-                  <Preorder />
-                </div>
-              }
             />
-
-            <Route
-              path="/thanks"
-              element={
-                <div class="flex flex-col min-h-screen p-4 space-y-4">
-                  <Thanks />
-                </div>
-              }
-            />
-
-            <Route
-              path="/welcome"
-              element={
-                <div class="flex flex-col min-h-screen p-4 space-y-4">
-                  <Welcome />
-                </div>
-              }
-            /> */}
 
             {/* ---------- storefront ---------- */}
-            <Route
+            {/* <Route
               path="/"
               element={
                 <div class="flex flex-col min-h-screen p-0 space-y-4">
@@ -114,40 +81,10 @@ const App = () => (
                   <Footer />
                 </div>
               }
-            />
-
-            {/* <Route
-              path="/products"
-              element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
-                  <Header />
-                  <Products />
-                </div>
-              }
-            /> */}
-
-            {/* <Route
-              path="/products/:productId"
-              element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
-                  <Header />
-                  <ProductDetails />
-                </div>
-              }
-            /> */}
-
-            {/* <Route
-              path="/bag"
-              element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
-                  <Header />
-                  <Bag />
-                </div>
-              }
             /> */}
 
             {/* ---------- static ---------- */}
-            <Route
+            {/* <Route
               path="/press"
               element={
                 <div class="flex flex-col min-h-screen p-0 space-y-4">
@@ -156,7 +93,7 @@ const App = () => (
                   <Footer />
                 </div>
               }
-            />
+            /> */}
             <Route
               path="/questions"
               element={
@@ -167,7 +104,7 @@ const App = () => (
                 </div>
               }
             />
-            <Route
+            {/* <Route
               path="/contact"
               element={
                 <div class="flex flex-col min-h-screen p-0 space-y-4">
@@ -176,10 +113,18 @@ const App = () => (
                   <Footer />
                 </div>
               }
+            /> */}
+            <Route
+              path="/qr"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <QR />
+                </div>
+              }
             />
 
             {/* ---------- checkout, payment handling ---------- */}
-            <Route 
+            {/* <Route 
               path={`/checkouts/:checkoutId/contact-entry/:consumptionCharacterization`}
               element={
                 <div class="flex flex-col min-h-screen p-0 space-y-4">
@@ -198,10 +143,10 @@ const App = () => (
                   <Footer />
                 </div>
               }
-            />
+            /> */}
 
             {/* ---------- order, post-payment handling ---------- */}
-            <Route
+            {/* <Route
               path="/orders/:orderId/confirmation"
               element={
                 <div class="flex flex-col min-h-screen p-0 space-y-4">
@@ -220,10 +165,10 @@ const App = () => (
                   <Footer />
                 </div>
               }
-            />
+            /> */}
 
             {/* ---------- the beginning of the shopify transition, perhaps ---------- */}
-            <Route 
+            {/* <Route 
               path="/shopify/products"
               element={
                 <div class="flex flex-col min-h-screen p-0 space-y-4">
@@ -252,13 +197,9 @@ const App = () => (
                   <Footer />
                 </div>
               }
-            />
+            /> */}
             
           </Routes>
-
-          
-          
-
         </div>
       </AnalyticsContextProvider>
     </MasterContextProvider>

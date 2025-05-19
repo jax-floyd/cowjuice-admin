@@ -23,7 +23,7 @@ const Press = () => {
                 .pauseFor(175)
                 .typeString("Cow Juice launches a revolution in dairy processing: ")
                 .pauseFor(625)
-                .typeString("<span class='bg-cowjuice-red text-white rounded-sm px-[2px]'>ultra-retorted milk™</span>.")
+                .typeString("<span class='border-[0.5px] border-cowjuice-red text-cowjuice-red rounded-sm px-[2px]'>ultra-retorted milk™</span>.")
                 .start();
             }}
           />

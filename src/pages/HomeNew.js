@@ -80,13 +80,9 @@ const HomeNew = () => {
                       </div>
                     </div>
                   </div>
-                  
-                  {/* <div class="flex w-full h-full items-center justify-center animate-fade animate-delay[250ms]">
-                    <img src={mockup_2a} alt="Cow Juice Mockup" className={`flex w-full ${!typingComplete ? 'opacity-0' : 'opacity-100'} transition-opacity duration-[2000ms] border-[0.5px] border-black rounded-sm select-none`} />
-                  </div> */}
 
                   <div 
-                      className={`relative flex-1 h-full w-full rounded-sm overflow-hidden ${!typingComplete ? 'opacity-0' : 'animate-fade opacity-100 border-[0.5px] border-black'} transition-opacity duration-[2000ms] select-none`}
+                      className={`relative flex-1 h-full w-full rounded-sm overflow-hidden ${!typingComplete ? 'opacity-0' : ' opacity-100 border-[0.5px] border-black'} transition-opacity duration-[2000ms] select-none`}
                       onTouchStart={handleTouchStart}
                       onTouchEnd={handleTouchEnd}
                   >
@@ -153,7 +149,7 @@ const HomeNew = () => {
                         onInit={(typewriter) => {
                           typewriter
                             .pauseFor(1000)
-                            .typeString("The world's first can of <span class='uppercase font-bold border-[0.5px] border-cowjuice-red text-cowjuice-red rounded-sm px-[2px]'>ultra-retorted</span> milk™.")
+                            .typeString("The world's first can of <span class='text-cowjuice-red border-[0.5px] border-cowjuice-red rounded-sm px-[2px]'>Ultra-Retorted</span> milk™.")
                             .callFunction(() => {
                               setReadyForNextTyping(true);
                             })
@@ -161,14 +157,6 @@ const HomeNew = () => {
                         }}
                       />
                     </p>
-                    {/* {readyForNextTyping && (
-                      <div className="flex w-auto items-start justify-start mt-2 bg-white text-[10px] leading-3 font-mono">
-                        <div class="flex flex-col space-y-1 text-left bg-white rounded-md border-[0.5px] border-black p-1 animate-flip-down animate-delay-[125ms]">
-                          <p class="uppercase font-bold max-w-sm">"Ultra‑Retorted Milk", def. (1a):</p>
-                          <p class="uppercase font-light max-w-sm">"Ultra-Retort™ is a high-heat pasteurization process which caramelizes milk's natural sugars to produce a naturally sweeter, lactose-free, shelf-stable can of milk."</p>
-                        </div>
-                      </div>
-                    )} */}
                     {readyForNextTyping && (
                       <div class="flex w-auto items-start justify-start mt-2 bg-white text-[10px] sm:text-xs leading-3 sm:leading-normal uppercase font-mono">
                         <p class="flex flex-col space-y-1 text-left bg-white rounded-sm border-[0.5px] border-black text-black p-1 animate-flip-down animate-delay-[375ms]">
@@ -180,8 +168,10 @@ const HomeNew = () => {
                             }}
                             onInit={(typewriter) => {
                               typewriter
-                                .pauseFor(500)
-                                .typeString("<span class=''>Ultra-Retort™</span> is the high-heat pasteurization process which caramelizes milk's natural sugars to create this naturally sweeter, lactose-free, shelf-stable can of Cow Juice.<sup>[1]</sup>")
+                                .pauseFor(750)
+                                .typeString("This milk is <span class='text-cowjuice-red border-[0.5px] border-cowjuice-red rounded-sm px-[2px]'>retorted</span>. ")
+                                .pauseFor(1000)
+                                .typeString("Retortation™ is a our proprietary pasteurization process which caramelizes milk to create a naturally sweeter, lactose-free can of cow juice.<sup>[1]</sup>")
                                 .callFunction(() => {
                                   setTypingComplete(true);
                                 })
@@ -204,18 +194,18 @@ const HomeNew = () => {
                         <p class="font-bold text-xs font-mono uppercase">Order the world's first can of milk <sup>[2]</sup></p>
                       </button>
                       <button
-                        onClick={() => window.location.href = '/press'} 
+                        onClick={() => window.location.href = '/questions'} 
                         class="flex w-full p-2 sm:p-4 rounded-sm bg-white text-black hover:bg-neutral-200 border-[0.5px] border-black animate-flip-down animate-delay-[250ms] transition-colors duration-500"
                       >
-                        <p class="font-bold text-xs font-mono uppercase">Explore the <span class="text-cowjuice-gol">ultra-retorted™</span> revolution</p>
+                        <p class="font-bold text-xs font-mono uppercase">Explore <span class="text-cowjuice-red border-cowjuice-red border-[0.5px] rounded-sm px-[2px]">ultra-retortation™</span>.</p>
                       </button>
                     </div>
 
                   {/* Footnotes below. */}
                   <div class="flex flex-1 flex-col w-full h-full items-center justify-end space-y-2 animate-fade">
                     <div class="flex flex-col w-full items-center justify-center space-y-2 py-2 border-t-[0.5px] border-black opacity-60">
-                      <p class="text-[10px] leading-3 font-mono text-left w-full inline animate-flip-up uppercase"><sup>[1]</sup> This marks phase I of the retort revolution, which you can join by purchasing the Cow Juice Public Beta product. Every order includes an entry certificate into the wonderful world of <span class="text-cowjuice-rd">retortation</span>, commonly known as <span class="text-cowjuice-ed">retort-land</span>.</p>
-                      <p class="text-[10px] leading-3 font-mono text-left w-full inline animate-flip-down uppercase"><sup>[2]</sup> Available now in public-beta. Orders ship immediately, hand-packed by Cow Juice Man himself.</p>
+                      <p class="text-[10px] leading-3 font-mono text-left w-full inline animate-flip-up uppercase"><sup>[1]</sup> This marks phase I of the retort revolution, which you can join by purchasing the Cow Juice Public Beta product. Every order includes an entry certificate into the wonderful world of <span class="text-cowjuice-rd">retortation</span>, known as <span class="text-cowjuice-ed">retort-land</span>.</p>
+                      <p class="text-[10px] leading-3 font-mono text-left w-full inline animate-flip-down uppercase"><sup>[2]</sup> Selectively available now in public-beta. Orders ship immediately, hand-packed by Cow Juice Man himself.</p>
                     </div>
                   </div>
 

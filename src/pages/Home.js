@@ -10,9 +10,7 @@ const Home = () => {
     const { showWelcomeText, readyForSplash } = useMasterContext();
     
     return (
-        <div 
-            class="w-full flex flex-col flex-1 max-w-7xl mx-auto p-4 items-center justify-center"
-        >
+        <div class="w-full flex flex-col flex-1 max-w-7xl mx-auto p-4 items-center justify-center">
           {/* {readyForSplash && (
             <MooSplash />
           )} */}
@@ -21,7 +19,6 @@ const Home = () => {
                   <WelcomeText />
             )}
           </div>
-            
         </div>
     );
 };

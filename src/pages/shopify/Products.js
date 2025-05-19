@@ -8,6 +8,7 @@ import { useMasterContext } from '../../contexts/MasterContext';
 import triggerPostToListProducts from '../../functions/shopify/triggerPostToListProducts';
 
 import rack_1 from '../../assets/rack_1.png';
+import buy_mark from '../../assets/buy_mark.svg';
 
 const Products = () => {
 
@@ -129,11 +130,12 @@ const Products = () => {
             <div class="flex flex-1 max-w-6xl mx-auto w-full h-full">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 h-full items-start justify-center animate-fade">
                     <div class="flex flex-col col-span-2 justify-start items-center space-y-4 w-full animate-fade">
+                       
                         <p class={`w-full font-mono text-xs font-bold uppercase rounded-sm border-black dark:bg-white dark:border-white dark:text-black animate-flip-down`} >
                             Good things come in 3s. Except the world's first cans of milk, which comes in a 6s, 8s, or 12s. And one day soon ... in 7s. Choose wisely.
                         </p>
                         <p class={`w-full font-mono text-xs uppercase rounded-sm border-black dark:bg-white dark:border-white dark:text-black animate-flip-down`} >
-                            Available now in public beta.
+                            Selectively available in public beta.
                         </p>
                         <div class="flex flex-row w-full">
                             <img src={rack_1} alt="Cow Juice Rack" className="w-full sm:w-1/2 animate-fade-down border-[0.0px] border-black/50 rounded-sm" />

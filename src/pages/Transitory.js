@@ -122,7 +122,7 @@ const Order = () => {
             {typingComplete && (
                 <div class="flex flex-1 flex-col w-full h-full space-y-2 items-start justify-end">
                     <div class="flex border-t-[0.5px] border-black w-full animate-fade animate-delay-[250ms]"></div>
-                    <p class="text-[10px] sm:text-xs font-mono leading-3 sm:leading-normal animate-flip-up animate-delay-[250ms]"><sup>[I]</sup> Production 2025-05-15. Beta release to immediately follow.</p>
+                    <p class="text-[10px] sm:text-xs font-mono leading-3 sm:leading-normal animate-flip-up animate-delay-[250ms]"><sup>[I]</sup> Production completed 2025-05-15. Beta release to immediately follow.</p>
                 </div>
             )}
             </div>

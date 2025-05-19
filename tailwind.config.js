@@ -78,8 +78,8 @@ module.exports = {
           '75%'     : { color: '#FFF' },   // indigo
         },
         ticker: {
-          '0%':   { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(-100%)' },
+          '0%':   { transform: 'translateX(0)'   },
+          '100%': { transform: 'translateX(-50%)' }, // slide half-way (two copies!)
         },
       },
       animation: {
@@ -90,7 +90,7 @@ module.exports = {
         'slide-up-fade-in': 'slide-up-fade-in 1s ease-out',
         'progress': 'progress 5s linear forwards',
         'color-cycle': 'color-cycle 8s linear infinite',
-        'ticker': 'ticker 28s linear infinite'
+        'ticker': 'ticker linear infinite'
       },
     },
   },

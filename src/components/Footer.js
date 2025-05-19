@@ -21,7 +21,7 @@ const Footer = () => {
             observer.disconnect();          // run only once
             }
         },
-        { threshold: 0.15 }                 // tweak as you like
+        { threshold: 0.05 }                 // tweak as you like
         );
 
         observer.observe(el);
@@ -76,10 +76,10 @@ const Footer = () => {
 
                     {/* ── Left: Brand + tagline ───────────────────────── */}
                     <div className="flex flex-col items-end sm:items-start leading-tight">
-                        <span className={anim("text-[10px] leading-3 font-mono uppercase font-bold animate-fade-left sm:animate-fade-down animate-delay-[0ms] sm:animate-delay-[1000ms]")}>
+                        <span className={anim("text-[11px] sm:text-[10px] leading-3 font-mono uppercase font-bold animate-fade-left sm:animate-fade-down animate-delay-[0ms] sm:animate-delay-[1000ms]")}>
                             <span class="text-md">©</span> {new Date().getFullYear()} Cow Juice Inc.
                         </span>
-                        <span className={anim("text-[10px] leading-3 font-mono uppercase font-bold animate-fade-left sm:animate-fade-down animate-delay-[125ms] sm:animate-delay-[1125ms]")}>
+                        <span className={anim("text-[11px] sm:text-[10px] leading-3 font-mono text-right uppercase font-bold animate-fade-left sm:animate-fade-down animate-delay-[125ms] sm:animate-delay-[1125ms]")}>
                             The world's first can of milk.™
                         </span>
                     </div>
@@ -106,10 +106,10 @@ const Footer = () => {
 
                     {/* ── Right: Legal blurb ─────────────────────────── */}
                     <div className="flex w-full sm:w-1/4 flex-col items-end text-right sm:items-end leading-tight space-y-2">
-                        <span className={anim("text-[10px] font-mono uppercase font-bold animate-fade-left sm:animate-fade-down animate-delay-[1000ms] sm:animate-delay-[1000ms]")}>
+                        <span className={anim("text-[11px] sm:text-[10px] font-mono uppercase font-bold animate-fade-left sm:animate-fade-down animate-delay-[1000ms] sm:animate-delay-[1000ms]")}>
                             Ultra‑Retort™, Retortation™, and Cow Juice™ are trademarks of Cow Juice Inc. Dare to rip these are Cow Juice man personally will juice you.
                         </span>
-                        <span className={anim("text-[10px] font-mono text-white uppercase font-bold animate-fade-left sm:animate-fade-down animate-delay-[1125ms] sm:animate-delay-[1125ms]")}>
+                        <span className={anim("text-[11px] sm:text-[10px] font-mono text-white uppercase font-bold animate-fade-left sm:animate-fade-down animate-delay-[1125ms] sm:animate-delay-[1125ms]")}>
                             One Question Remains: Got Cow Juice?
                         </span>
                     </div>
@@ -117,25 +117,25 @@ const Footer = () => {
             </div>
 
             {/* ── Legal disclaimer grid ─────────────────────────────── */}
-            <div className="relative flex flex-col sm:grid sm:grid-cols-3 sm:gap-16 w-full h-auto space-y-4 sm:space-y-0 max-w-6xl mx-auto">
+            <div className="relative text-white uppercase text-[11px] sm:text-[10px] font-mono font-semibold sm:font-light flex flex-col sm:grid sm:grid-cols-3 sm:gap-16 w-full h-auto space-y-4 sm:space-y-0 max-w-6xl mx-auto">
 
                 {/* 1 */}
-                <p className={anim("text-white uppercase text-[10px] font-mono animate-flip-down animate-delay-[1200ms]")}>
+                <p className={anim("animate-flip-down animate-delay-[1200ms]")}>
                     Since it is effectively impossible to describe the degree of retortation packed into every aluminum can of Moo‑Nectar, Cow Juice Inc. — which naturally includes its wholly‑owned and partially‑owned subsidiaries, pet projects, spirit animals, and alter egos (<span className="font-bold">"Cow Juice Entities"</span>) — has been advised by its impossibly distinguished team of corporate attorneys to slap the following legal novella on this site and every extant piece of Cow Juice paraphernalia.
                 </p>
 
                 {/* 2 */}
-                <p className={anim("text-white uppercase text-[10px] font-mono animate-flip-down animate-delay-[1325ms]")}>
+                <p className={anim("animate-flip-down animate-delay-[1325ms]")}>
                     Drinking Ultra‑Retorted Milk™ may cause sudden confidence, unexpected refrigerator apathy, and the sort of milk‑mustache superiority that ends friendships. The Cow Juice Entities™ make no medical, nutritional, or metaphysical guarantees—other than promising your dairy has been retorted to oblivion, caramelized for pleasure, and stripped of every last languishing lactose molecule, leaving nothing but pure bovine bravado in a can.
                 </p>
 
                 {/* 3 — extended */}
-                <p className={anim("text-white uppercase text-[10px] font-mono animate-flip-down animate-delay-[1450ms]")}>
+                <p className={anim("animate-flip-down animate-delay-[1450ms]")}>
                     By merely allowing your retinas to graze this sentence, you — for reasons known only to ancient dairy oracles — hereby acknowledge the following terms, waive all claims, and forfeit the right to whine about literally any consequence arising on this gloriously calcium‑soaked planet we call Planet Milk (including, but not limited to, rogue milk tides and existential dread brought on by dairy enlightenment).
                 </p>
 
                 {/* 4 — list stays the same */}
-                <ul className={anim("w-full flex flex-col space-y-1 text-[10px] leading-3 font-mono uppercase")}>
+                <ul className={anim("w-full flex flex-col space-y-1")}>
                     <li className={anim("animate-flip-down animate-delay-[1575ms]")}>
                     1. “Retortation” is a totally legitimate word, entirely fabricated by Cow Juice Entities because we said so and the dictionary cried in the corner.
                     </li>
@@ -148,12 +148,12 @@ const Footer = () => {
                 </ul>
 
                 {/* 5 — padded */}
-                <p className={anim("text-white uppercase text-[10px] font-mono animate-flip-down animate-delay-[1950ms]")}>
+                <p className={anim("animate-flip-down animate-delay-[1950ms]")}>
                     Cow Juice Entities thank you for your unwavering bravery, salute your adventurous palate, and bid you tidings of great Cow Juice. May your days be frothy, your nights ultra‑retorted, and your emails forever lactose‑free.
                 </p>
 
                 {/* 6 — NEW cell */}
-                <p className={anim("text-white uppercase text-[10px] font-mono animate-flip-down animate-delay-[2075ms]")}>
+                <p className={anim("animate-flip-down animate-delay-[2075ms]")}>
                     P.S. Federal regulators insist we remind you that Ultra‑Retorted Milk™ is literally just “milk,” contains exactly 0.00 % unicorn tears and 100% milk, and has not been evaluated by philosophers for its ability to spark spontaneous existential breakthroughs — though early anecdotal evidence looks promising. Thank you again for listening.
                 </p>
             </div>
