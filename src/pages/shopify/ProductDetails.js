@@ -72,7 +72,7 @@ const ProductDetails = () => {
                 <div className="flex flex-col-reverse sm:grid sm:grid-cols-1 gap-8 lg:grid-cols-3 h-full items-start justify-center animate-fade">
                     {/* Footnotes side tab to be shown on md+ */}
                     <div className="flex flex-col flex-1 w-full h-full border-[0.0px] sm:border-[0.5px] border-black rounded-sm items-start justify-between space-y-2 p-0 sm:p-4 animate-fade-up lg:animate-fade-left">
-                        <div className="flex flex-1 flex-col items-start w-full space-y-2">
+                        <div className="flex flex-1 flex-col items-start w-full space-y-2 uppercase">
                             <p class="text-[10px] uppercase font-mono font-bold text-left leading-3">A selection of very important footnotes pertaining to the world's first can of milk which absolutely must be read to understand the ultra-retortation of milk.</p>
                             <p className="text-[10px] leading-3 sm:text-xs sm:leading-normal font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[125ms]">
                                 <sup>[1]</sup> Cow Juice will soon release a 19.2oz tallboy version of this, the same Ultra-Retorted Milk. These smallboys to be available only for a limited time.
@@ -114,7 +114,7 @@ const ProductDetails = () => {
                     </div>
                     <div class="flex flex-col col-span-2 justify-start items-center space-y-4 w-full animate-fade">
                         <p class={`w-full font-mono text-xs font-bold uppercase rounded-sm border-black dark:bg-white dark:border-white dark:text-black animate-flip-down`} >
-                            This <span class="font-bold text-white bg-cowjuice-gold px-[2px] rounded-sm">{product.title.includes('6') ? '6' : product.title.includes('8') ? '8' : product.title.includes('12') ? '12' : ''}-pack</span> of Ultra-Retorted Cow Juice will leave you wondering why it took until 2025 for milk to come in a can.<sup>[1]</sup>
+                            This <span class="font-bold text-cowjuice-gold border-[0.5px] border-cowjuice-gold px-[2px] rounded-sm">{product.title.includes('6') ? '6' : product.title.includes('8') ? '8' : product.title.includes('12') ? '12' : ''}-pack</span> of Ultra-Retorted Cow Juice will leave you wondering why it took until 2025 for milk to come in a can.<sup>[1]</sup>
                         </p>
                         <div 
                             className="relative flex-1 h-full w-full rounded-sm animate-fade-up overflow-hidden"
@@ -178,7 +178,7 @@ const ProductDetails = () => {
                         </div>
 
                         {/* ─── Feature list ──────────────────────────────────────────────── */}
-                        <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-y-2 text-xs font-semibold font-mono">
+                        <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-y-2 text-xs font-semibold font-mono uppercase">
                             <li>✔ 100 % dairy cow milk</li>
                             <li>✔ Ultra-Retort Pasteurized, Homogenized, Fortified</li>
                             <li>✔ Grade A Product of USA<sup>[3]</sup></li>

@@ -3,46 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 import { useMasterContext } from '../contexts/MasterContext';
 
-import vertical_wordmark from '../assets/vertical_wordmark.svg';
-
-/* 1️⃣  Tiny helper so Header stays readable   */
-const Ticker = () => {
-  const track   = useRef(null);
-  const [dur, setDur] = useState(30);          // fallback
-
-  useLayoutEffect(() => {
-    if (!track.current) return;
-    const W = track.current.getBoundingClientRect().width / 2; // single copy
-    const pxPerSec = 60;                                       // tweak to taste
-    setDur(W / pxPerSec);
-  }, []);
-
-  return (
-    <div className="relative flex flex-1 items-center justify-center overflow-hidden h-5">
-      <div
-        ref={track}
-        className="flex items-center justify-center animate-ticker whitespace-nowrap"
-        style={{ animationDuration: `${dur}s` }}
-      >
-        <TickerText />
-        <TickerText />   {/* 2nd copy for seamless loop */}
-      </div>
-    </div>
-  );
-};
-
-const TickerText = () => (
-  <span className="px-8 text-[11px] leading-3 sm:text-xs sm:leading-normal
-                   font-mono uppercase text-black">
-    Breaking News from&nbsp;
-    <span className="text-cowjuice-gold border border-cowjuice-gold font-bold rounded-sm px-[2px]">
-      Moo-land
-    </span>:&nbsp;
-    Cow Juice Inc. releases the world’s first can of milk.
-    • Follow <span class="border-[0.5px] border-cowjuice-gold rounded-sm px-[2px] lowercase text-cowjuice-gold font-bold">@juiceofacow</span> on TikTok →
-  </span>
-);
-
 const Header = () => {
   const navigate = useNavigate();
   const [page]           = useState(window.location.pathname);
@@ -51,7 +11,8 @@ const Header = () => {
   /* Your existing delay logic, unchanged  */
   const getDelayClass = (pathname) => {
     switch (pathname) {
-      case '/':                  return 'animate-delay-[4125ms]'; //'animate-delay-[8500ms]' for actual HomeNew
+      case '/':                  return 'animate-delay-[4000ms]'; //'animate-delay-[8500ms]' for actual HomeNew
+      // case '/':                  return 'animate-delay-[10500ms]';
       case '/order':             return 'animate-delay-[8500ms]';
       case '/contact':           return 'animate-delay-[500ms]';
       
@@ -84,7 +45,7 @@ const Header = () => {
   return (
     <>
       {showMenu && (
-        <div class="fixed inset-0 z-30 bg-white text-black flex flex-col items-end justify-start p-6 space-y-4 animate-fade animate-duration-500">
+        <div class="fixed flex-col inset-0 z-30 w-full bg-white text-black uppercase border-b-[0.5px] border-black px-6 py-6 flex items-end justify-start overflow-hidden animate-flip-down ${delay}">
           {/* Close button */}
           <button
             onClick={() => setShowMenu(false)}
@@ -118,7 +79,7 @@ const Header = () => {
                 <button onClick={() => handlePageClick('/orders/status')} className="text-xs uppercase font-mono opacity-60 pointer-events-none">
                   Check Order Status
                 </button>
-                <button onClick={() => handlePageClick('/contact')} className="text-xs uppercase font-mono opacity-60 pointer-events-none">
+                <button onClick={() => handlePageClick('/contact')} className="text-xs uppercase font-mono">
                   Contact Cow Juice Inc.
                 </button>
               </div>
@@ -144,9 +105,8 @@ const Header = () => {
           <p class="font-mono text-xs border-[0.5px] border-cowjuice-gold text-cowjuice-gold px-[2px] uppercase font-bold rounded-sm animate-pulse">Full site coming soon</p>
         </div>
       )}
-      <header className={`absolute z-20 w-full bg-white text-black uppercase border-b-[0.5px] border-black px-6 py-6 flex items-center justify-center overflow-hidden animate-flip-down ${delay}`}>
+      <header className={`flex w-full bg-white text-black uppercase border-b-[0.5px] border-black px-6 py-6 items-center justify-center overflow-hidden animate-flip-down ${delay}`}>
         <div className="flex w-full flex-1 max-w-6xl mx-auto items-center justify-between">
-          {/* 2️⃣ Back icon (z‑10 so ticker slides under) */}
           <button
             onClick={() => navigate(-1)}
             className="relative z-10 bg-transparent text-xs font-mono mr-0 cursor-pointer"
@@ -154,12 +114,6 @@ const Header = () => {
             &lt;&lt;
           </button>
 
-          {/* 3️⃣ The ticker lives right here */}
-          {/* <Ticker /> */}
-          {/* <p class="font-mono text-[8px] uppercase text-neutral-400 absolute -rotate-[30deg]">The world's first can of milk.™</p> */}
-          
-
-          {/* 4️⃣ Bag icon (also z‑10) */}
           <button
             onClick={() => setShowMenu(true)}
             className="relative z-10 bg-transparent text-xs text-black font-mono ml-0 cursor-pointer"

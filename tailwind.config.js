@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
@@ -92,10 +94,27 @@ module.exports = {
         'color-cycle': 'color-cycle 8s linear infinite',
         'ticker': 'ticker linear infinite'
       },
+      animationDuration: {
+        200:  '200ms',
+        300:  '300ms',
+        400:  '400ms',
+        600:  '600ms',
+        800:  '800ms',
+        1000: '1000ms',
+        1200: '1200ms',
+      },
     },
   },
   plugins: [
     require('tailwindcss-animated'),
+
+    /* 🆕 duration utility generator */
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        { 'animate-duration': (value) => ({ '--tw-animate-duration': value }) },
+        { values: theme('animationDuration') }
+      );
+    }),
   ],
   darkMode: 'class',
 };

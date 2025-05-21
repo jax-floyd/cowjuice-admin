@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MasterContextProvider }   from "./contexts/MasterContext";
 import { AnalyticsContextProvider } from "./contexts/AnalyticsContext";
 
+import Ticker         from "./components/Ticker";
 import Header         from "./components/Header";
 import Footer         from "./components/Footer";
 
@@ -37,11 +38,15 @@ import Payment from "./pages/checkouts/Payment";
 
 import Products        from "./pages/shopify/Products";
 import ProductDetails  from "./pages/shopify/ProductDetails";
-import Bag        from "./pages/shopify/Bag";
+import Bag             from "./pages/shopify/Bag";
 
 /* Orders i.e., post-payment, order-placement handling */
 import Confirmation from "./pages/orders/Confirmation";
 import Status       from "./pages/orders/Status";
+
+/* Internal Cow Juice Inc. Control Panel */
+import Login from "./pages/portal/Login";
+import Panel from "./pages/portal/Panel";
 
 const App = () => (
   <Router>
@@ -49,7 +54,7 @@ const App = () => (
       <AnalyticsContextProvider>
         <Scroller />   {/* helper component to catch all navs & scroll to top of each newly navigated to page */}
         <div class="bg-white text-black dark:bg-black dark:text-white overflow-hidden">
-
+   
           {/* ─────────────── all non-checkout pages ─────────────── */}
           <Routes>
             <Route
@@ -63,9 +68,11 @@ const App = () => (
             <Route
               path="/"
               element={
-                <div class="flex flex-col w-screen h-screen">
+                <div class="flex flex-col min-h-screen p-0">
+                  <Ticker />
                   <Header />
                   <Transitory />
+                  <Footer />
                 </div>
               }
             />
@@ -98,22 +105,24 @@ const App = () => (
               path="/questions"
               element={
                 <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Ticker />
                   <Header />
                   <Questions />
                   <Footer />
                 </div>
               }
             />
-            {/* <Route
+            <Route
               path="/contact"
               element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                <div class="flex flex-col min-h-screen p-0">
+                  <Ticker />
                   <Header />
                   <Contact />
                   <Footer />
                 </div>
               }
-            /> */}
+            />
             <Route
               path="/qr"
               element={
@@ -198,7 +207,29 @@ const App = () => (
                 </div>
               }
             /> */}
-            
+
+            {/* ---------- internal Cow Juice Inc. control portal ---------- */}
+            {/* <Route 
+              path="/beta/private/cow-juice-mans-super-secret-internal-control-panel/login"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Header />
+                  <Login />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route 
+              path="/beta/private/cow-juice-mans-super-secret-internal-control-panel/portal"
+              element={
+                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                  <Header />
+                  <Panel />
+                  <Footer />
+                </div>
+              }
+            /> */}
+
           </Routes>
         </div>
       </AnalyticsContextProvider>

@@ -16,16 +16,16 @@ const Questions = () => {
         },
         {
             q: "What is Ultra‑Retorted Milk™?",
-            a: "Ultra‑Retortation™ is our proprietary high‑heat pasteurization sorcery that caramelizes milk’s natural sugars, creating a naturally sweeter, shelf‑stable, lactose‑free can of glory.\n                  ",
+            a: "Ultra‑Retortation™ is our proprietary high‑heat pasteurization process that caramelizes milk’s natural sugars, creating a naturally sweeter, lactose‑free can of milk.\n                  ",
             delay: "300ms",
         },
         {
             q: "Is Cow Juice really lactose‑free?",
-            a: "Absolutely. Lactase enzyme is added to our milk to hydrolyze every last lactose molecule, granting you the gift of Lactose‑Freedom™.",
+            a: "Yes — 100%. Lactase enzyme is added to our milk to hydrolyze every last lactose molecule, granting you the gift of Lactose‑Freedom™.",
             delay: "400ms",
         },
         {
-            q: "What is Lactose-Freedom™?",
+            q: "What is Lactose-Freedom™?<sup>[6]</sup>",
             a: "Lactose‑Freedom™ is the quality of being lactose-free. Because liberty is important, we've freed milk from its heinous lactosey ways. Cow Juice's lactose freedom means you can drink as much Cow Juice as you can possibly guzzle down in one sitting.",
             delay: "450ms",
         },
@@ -83,24 +83,27 @@ const Questions = () => {
                 <div className="flex flex-col-reverse sm:grid sm:grid-cols-1 gap-8 lg:grid-cols-3 h-full items-start justify-center animate-fade">
                     {/* ─── Right‑hand Footnotes panel (md+) ─────────────────────────── */}
                     <div className="flex flex-col flex-1 w-full h-full border-[0.5px] border-black rounded-sm items-start justify-between space-y-2 p-2 sm:p-4 animate-fade-up sm:animate-fade-left">
-                        <div className="flex flex-1 flex-col items-start w-full space-y-2 opacity-60">
+                        <div className="flex flex-1 flex-col items-start w-full space-y-1 opacity-60">
                             <p className="text-[10px] leading-3 font-mono uppercase font-bold text-left animate-flip-down animate-delay-[250ms]">
                                 A necessary novella of footnotes and legalese, because Ultra‑Retortation™ is too glorious for a single asterisk.
                             </p>
-                            <p className="p-1 text-[10px] leading-3 font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[375ms]">
+                            <p className="p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[375ms]">
                                 <sup>[1]</sup> Ultra‑Retorted Milk™ ships happily unrefrigerated but lives its best life chilled — like your ex, but sweeter.
                             </p>
-                            <p className="p-1 text-[10px] leading-3 font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[500ms]">
+                            <p className="p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[500ms]">
                                 <sup>[2]</sup> Lactose‑Freedom™ achieved via the almighty lactase enzyme. Your stomach may now rejoice in polyphonic harmony.
                             </p>
-                            <p className="p-1 text-[10px] leading-3 font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[625ms]">
+                            <p className="p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[625ms]">
                                 <sup>[3]</sup> Aluminum cans are infinitely recyclable; please don’t turn them into pencil holders unless you recycle the pencil holder later.
                             </p>
-                            <p className="p-1 text-[10px] leading-3 font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[750ms]">
+                            <p className="p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[750ms]">
                                 <sup>[4]</sup> Contains: Milk (obviously). Not suitable for those who think almond “milk” counts as real milk.
                             </p>
+                            <p className="p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[750ms]">
+                                <sup>[5]</sup> In the words of a great American: "Free at last, Free at last, Thank God almightly Cow Juice is lactose-free at last!"
+                            </p>
                         </div>
-                        <p className="font-mono py-2 text-[10px] leading-3 uppercase opacity-60 border-t-[0.5px] border-black">
+                        <p className="font-mono py-2 text-[10px] leading-3  uppercase opacity-60 border-t-[0.5px] border-black">
                             Ultra‑Retorted™, Retortation™, &amp; Cow Juice™ are trademarks of Cow Juice Inc. Rip ’em and we’ll retort you with the next batch of Cow Juice.
                         </p>
                     </div>

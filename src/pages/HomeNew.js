@@ -13,6 +13,7 @@ import AmericanFlag from '../components/icons/AmericanFlag.js';
 const HomeNew = () => {
 
     const [readyForNextTyping, setReadyForNextTyping] = useState(false);
+    const [firstTypingComplete, setFirstTypingComplete] = useState(false);
     const [typingComplete, setTypingComplete] = useState(false);
 
     const intervalRef = useRef(null);
@@ -158,7 +159,7 @@ const HomeNew = () => {
                       />
                     </p>
                     {readyForNextTyping && (
-                      <div class="flex w-auto items-start justify-start mt-2 bg-white text-[10px] sm:text-xs leading-3 sm:leading-normal uppercase font-mono">
+                      <div class="flex flex-col w-auto items-start justify-start mt-2 space-y-2 bg-white text-[10px] sm:text-xs leading-3 sm:leading-normal uppercase font-mono">
                         <p class="flex flex-col space-y-1 text-left bg-white rounded-sm border-[0.5px] border-black text-black p-1 animate-flip-down animate-delay-[375ms]">
                           <Typewriter
                             options={{
@@ -170,15 +171,35 @@ const HomeNew = () => {
                               typewriter
                                 .pauseFor(750)
                                 .typeString("This milk is <span class='text-cowjuice-red border-[0.5px] border-cowjuice-red rounded-sm px-[2px]'>retorted</span>. ")
-                                .pauseFor(1000)
-                                .typeString("Retortation™ is a our proprietary pasteurization process which caramelizes milk to create a naturally sweeter, lactose-free can of cow juice.<sup>[1]</sup>")
+                                .pauseFor(375)
+                                // .typeString("Retortation™ is a our proprietary pasteurization process which caramelizes milk to create a naturally sweeter, lactose-free can of cow juice.<sup>[1]</sup>")
                                 .callFunction(() => {
-                                  setTypingComplete(true);
+                                  setFirstTypingComplete(true);
                                 })
                                 .start();
                             }}
                           />
                         </p>
+                        {firstTypingComplete && (
+                          <p class="flex flex-col space-y-1 text-left bg-white rounded-sm border-[0.5px] border-black text-black p-1 animate-flip-down animate-delay-[375ms]">
+                            <Typewriter
+                              options={{
+                                delay: 30,
+                                cursor: '',
+                                autoStart: true,
+                              }}
+                              onInit={(typewriter) => {
+                                typewriter
+                                  .pauseFor(250)
+                                  .typeString("<span class='text-cowjuice-red border-[0.5px] border-cowjuice-red rounded-sm px-[2px]'>Retortation™</span> is a our proprietary pasteurization process which caramelizes milk to create a naturally sweeter, lactose-free can of cow juice.<sup>[1]</sup>")
+                                  .callFunction(() => {
+                                    setTypingComplete(true);
+                                  })
+                                  .start();
+                              }}
+                            />
+                          </p>
+                        )}
                       </div>
                     )}
                     
@@ -204,8 +225,8 @@ const HomeNew = () => {
                   {/* Footnotes below. */}
                   <div class="flex flex-1 flex-col w-full h-full items-center justify-end space-y-2 animate-fade">
                     <div class="flex flex-col w-full items-center justify-center space-y-2 py-2 border-t-[0.5px] border-black opacity-60">
-                      <p class="text-[10px] leading-3 font-mono text-left w-full inline animate-flip-up uppercase"><sup>[1]</sup> This marks phase I of the retort revolution, which you can join by purchasing the Cow Juice Public Beta product. Every order includes an entry certificate into the wonderful world of <span class="text-cowjuice-rd">retortation</span>, known as <span class="text-cowjuice-ed">retort-land</span>.</p>
-                      <p class="text-[10px] leading-3 font-mono text-left w-full inline animate-flip-down uppercase"><sup>[2]</sup> Selectively available now in public-beta. Orders ship immediately, hand-packed by Cow Juice Man himself.</p>
+                      <p class="text-[10px] leading-3 font-mono text-left w-full inline animate-flip-up uppercase"><sup>[1]</sup> This marks phase I of the retort revolution, which you can join by purchasing the Cow Juice Beta product. Every order includes an entry certificate into the wonderful world of <span class="text-cowjuice-rd">retortation</span>, known as <span class="text-cowjuice-ed">retort-land</span>.</p>
+                      <p class="text-[10px] leading-3 font-mono text-left w-full inline animate-flip-down uppercase"><sup>[2]</sup> Selectively available now in private-beta. Orders ship immediately, hand-packed by Cow Juice Man himself.</p>
                     </div>
                   </div>
 
