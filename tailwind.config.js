@@ -2,6 +2,7 @@ const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
+  
   theme: {
     extend: {
       fontFamily: {
@@ -10,8 +11,9 @@ module.exports = {
         serif: ['Galliard', 'serif'],
       },
       colors: {
+        'cowjuice-white': "#F5EEE7",
         'cowjuice-brown': "#4E2817",
-        'cowjuice-bronze': "#B15A33",
+        'cowjuice-bronze': "#A84F2B",
         'cowjuice-gold': "#E3B27E",
         'cowjuice-red': "#BF0A30",
         'cowjuice-blue': "#002868"
@@ -103,6 +105,7 @@ module.exports = {
         1000: '1000ms',
         1200: '1200ms',
       },
+      
     },
   },
   plugins: [

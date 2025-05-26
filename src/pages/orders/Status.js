@@ -95,7 +95,7 @@ const Status = () => {
   }, [confirmationParam]);
 
   return (
-    <div className="flex flex-1 min-h-screen max-w-3xl mx-auto px-6 pb-6 pt-24 w-full h-full">
+    <div className="flex flex-1 min-h-screen max-w-3xl mx-auto px-6 pb-6 pt-6 w-full h-full">
       <div className="flex flex-col w-full items-center justify-start space-y-4 animate-fade">
         {/* Heading */}
         <p className="font-mono w-full text-left text-xs uppercase font-bold animate-flip-down">
@@ -268,7 +268,7 @@ const Status = () => {
             </p>
             <button
               type="button"
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/shopify/products')}
               className="font-mono text-xs w-full bg-white border-[0.5px] border-black text-black p-2 rounded-sm animate-flip-up animate-delay-300"
             >
               Buy the world's first can of milk

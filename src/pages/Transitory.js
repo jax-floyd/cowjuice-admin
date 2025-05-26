@@ -12,7 +12,7 @@ const Order = () => {
 
   return (
     <div className="inset-0 flex flex-1 flex-col min-h-screen max-w-6xl mx-auto px-6 pb-6 pt-24 w-full h-full overflow-hidden">
-      <div className="flex flex-col sm:flex-row sm:space-x-16 items-start justify-start space-y-4 sm:space-y-0 w-full h-full">
+      <div className="flex flex-col sm:flex-row sm:space-x-16 items-start justify-start space-y-4 sm:space-y-0 -mt-16 w-full h-full">
             
             <div class="flex flex-row w-full h-full items-start justify-center space-x-2">
               <div class="relative flex w-full items-center justify-start">

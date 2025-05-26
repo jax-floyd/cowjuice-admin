@@ -80,7 +80,7 @@ const OrderConfirmation = () => {
     /* ---------- share handler ---------- */
     const handleShare = async () => {
         const shareData = {
-            text: "You've gotta see the world’s first can of milk 🐄🥛",
+            text: "You've gotta see the world’s first can of milk 🐄🥛 ...",
             url: window.location.origin,
         };
         try {
@@ -95,7 +95,7 @@ const OrderConfirmation = () => {
     };
 
     return (
-        <div className="inset-0 flex flex-1 min-h-screen max-w-3xl mx-auto px-6 pb-6 pt-24 w-full h-full overflow-hidden">
+        <div className="inset-0 flex flex-1 min-h-screen max-w-3xl mx-auto px-6 pb-6 pt-6 w-full h-full overflow-hidden">
             <div className="flex flex-col items-center justify-start space-y-4 w-full animate-fade">
 
                 {/* ---------- 1️⃣ first message set ---------- */}
@@ -146,13 +146,13 @@ const OrderConfirmation = () => {
                 {showBtns && (
                 <div className="flex flex-col w-full space-y-2 animate-fade-up">
                     <button
-                        onClick={() => navigate(`/orders/status/'${order.confirmation_number}`)}
+                        onClick={() => window.open(`/orders/status/'${order.confirmation_number}`)}
                         className="flex w-full p-2 text-xs font-mono font- border-[0.5px] border-black rounded-sm animate-fade-down animate-delay-100"
                     >
                         Check order status ->
                     </button>
                     <button
-                        onClick={() => navigate('/order')}
+                        onClick={() => navigate('/shopify/products')}
                         className="flex w-full bg-black text-white p-2 text-xs font-mono font-bold border-[0.5px] border-black rounded-smm animate-fade-right animate-delay-200"
                     >
                         Keep shopping
@@ -164,7 +164,7 @@ const OrderConfirmation = () => {
                         Share the world’s first can of milk
                     </button>
                     <a
-                        href={`sms:+19178631395?&body=${encodeURIComponent("Hey Cow Juice Man — just tried the world's first can of milk! 🐄🥛 [P.S., Please don't abuse this # as it is Cow Juice Man's personal cell!]" )}`}
+                        href={`sms:+19178631395?&body=${encodeURIComponent("Hey Cow Juice Man — just ordered the world's first can of milk! 🐄🥛 [P.S., Please don't abuse this # as it is Cow Juice Man's personal cell!]" )}`}
                         class="flex w-full bg-black text-white p-2 text-xs font-mono font-bold border-[0.5px] border-black rounded-sm animate-fade-up animate-delay-500"
                     >
                         Reach out to Cow Juice Man

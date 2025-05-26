@@ -126,16 +126,16 @@ const Products = () => {
     }, [bag]);
 
     return (
-        <div className="inset-0 flex flex-row items-start justify-center flex-1 min-h-screen pt-24  px-6 pb-6 w-full h-full overflow-hidden">
+        <div className="inset-0 flex flex-row items-start justify-center flex-1 min-h-screen pt-6  px-6 pb-6 w-full h-full overflow-hidden">
             <div class="flex flex-1 max-w-6xl mx-auto w-full h-full">
-                <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 h-full items-start justify-center animate-fade">
+                <div className="flex flex-col lg:grid grid-cols-1 gap-8 lg:grid-cols-3 h-full items-start justify-center animate-fade">
                     <div class="flex flex-col col-span-2 justify-start items-center space-y-4 w-full animate-fade">
                        
                         <p class={`w-full font-mono text-xs font-bold uppercase rounded-sm border-black dark:bg-white dark:border-white dark:text-black animate-flip-down`} >
                             Good things come in 3s. Except the world's first cans of milk, which comes in a 6s, 8s, or 12s. And one day soon ... in 7s. Choose wisely.
                         </p>
                         <p class={`w-full font-mono text-xs uppercase rounded-sm border-black dark:bg-white dark:border-white dark:text-black animate-flip-down`} >
-                            Selectively available in public beta.
+                            Selectively available in private beta.
                         </p>
                         <div class="flex flex-row w-full">
                             <img src={rack_1} alt="Cow Juice Rack" className="w-full sm:w-1/2 animate-fade-down border-[0.0px] border-black/50 rounded-sm" />
@@ -275,25 +275,25 @@ const Products = () => {
 
                     {/* Footnotes side tab to be shown on md+ */}
                     {products.length > 0 && (
-                        <div className="hidden md:flex flex-col flex-1 w-full h-full border-[0.5px] border-black rounded-sm items-start justify-between space-y-2 p-4 animate-fade-left">
-                            <div className="flex flex-1 flex-col items-start w-full space-y-2">
-                                <p className="text-xs font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-1 animate-flip-down animate-delay-[125ms]">
-                                    <sup>[1]</sup> It's the exact same Cow Juice in different size packs. Don't spend a lifetime deciding.
+                        <div className="flex flex-col flex-1 w-full h-full border-[0.0px] sm:border-[0.5px] border-black rounded-sm items-start justify-between space-y-2 p-0 sm:p-4 animate-flip-down sm:animate-fade-left">
+                            <div className="flex flex-1 flex-col items-start w-full space-y-2 uppercase">
+                                <p className="text-[10px] sm:text-[11px] leading-3 font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-1 animate-flip-down animate-delay-[125ms]">
+                                    <sup>[1]</sup> It's the exact same Cow Juice in different size packs. You'll spend a lifetime deciding and a split second chugging. This is known as the paradox of Cow Juicean choice.
                                 </p>
-                                <p className="text-xs font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-1 animate-flip-down animate-delay-[250ms]">
-                                    <sup>[2]</sup> Shipping takes 2–4 business days, unless of course your postman stops for extra cheese.
+                                <p className="text-[10px] sm:text-[11px] leading-3 font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-1 animate-flip-down animate-delay-[250ms]">
+                                    <sup>[2]</sup> Shipping takes 2–4 business days, unless of course your postman stops for extra ch**se.
                                 </p>
-                                <p className="text-xs font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-1 animate-flip-down animate-delay-[375ms]">
-                                    <sup>[3]</sup> All cows are consenting adults (obviously since baby cows don't produce juice) and have signed their own waiver forms — there'll be no barnyard lawsuits here.
+                                <p className="text-[10px] sm:text-[11px] leading-3 font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-1 animate-flip-down animate-delay-[375ms]">
+                                    <sup>[3]</sup> All juiced cows are consenting adults (obviously since baby cows don't produce juice) and have signed waiver forms following an unimaginably ambiguous consent decree. Cow Juice Inc. will tolerate no barnyard lawsuits of any kind, ever.
                                 </p>
-                                <p className="text-xs font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-1 animate-flip-down animate-delay-[500ms]">
-                                    <sup>[4]</sup>Because it's been retort pasteurized, Cow Juice will ship to your door just as any package would. After it arrives, you should refrigerate it right away. That way you'll be able to shotgun the milk ASAP. You should never drink Cow Juice unrefrigerated - not so much because you'll be dissapointed but rather because it would just be an odd thing to do.
+                                <p className="text-[10px] sm:text-[11px] leading-3 font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-1 animate-flip-down animate-delay-[500ms]">
+                                    <sup>[4]</sup> Because it's retorted, Cow Juice will ship to your door just as any package would. After it arrives, you should refrigerate it right away. That way you'll be able to shotgun the milk directly. You should never drink Cow Juice unrefrigerated - not so much because you'll be dissapointed but rather because it would just be an odd thing to do.
                                 </p>
-                                <p className="text-xs font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-1 animate-flip-down animate-delay-[625ms]">
-                                    <sup>[5]</sup> Prices include a generous contribution to the cow wellness fund and payment for the hospital bills incurred fromthe treatment of Cow Juice Man’s continual <a href="https://www.tiktok.com/@juiceofacow/video/7462960320370380078" target="_blank" class="border-[0.5px] border-black font-bold uppercase px-[2px] rounded-sm cursor-pointer animate-pulse">irradiation on TikTok</a>.
+                                <p className="text-[10px] sm:text-[11px] leading-3 font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-1 animate-flip-down animate-delay-[625ms]">
+                                    <sup>[5]</sup> Prices include a generous contribution to the cow wellness fund and payment for the hospital bills incurred from the treatment of Cow Juice Man’s continual <a href="https://www.tiktok.com/@juiceofacow/video/7462960320370380078" target="_blank" class="border-[0.5px] border-black font-bold uppercase px-[2px] rounded-sm cursor-pointer animate-pulse">irradiation</a>.
                                 </p>
-                                <p className="text-xs font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-1 animate-flip-down animate-delay-[750ms]">
-                                    <sup>[6]</sup> There are no bags on this website - yet. While we're in Beta, you can buy one and only case of Cow Juice. We're sorry if this disappoints you.
+                                <p className="text-[10px] sm:text-[11px] leading-3 font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-1 animate-flip-down animate-delay-[750ms]">
+                                    <sup>[6]</sup> There are no bags on this website - yet. While we're in Beta, you can buy one and only case of Cow Juice. We're sorry if this disappoints you and offer any of these cases of Cow Juice as consulation.
                                 </p>
                             </div>
                             <p className="font-mono py-2 text-[10px] leading-3 uppercase opacity-60 border-t-[0.5px] border-black">

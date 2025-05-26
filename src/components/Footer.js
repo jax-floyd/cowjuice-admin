@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import vertical_wordmark from '../assets/vertical_wordmark.svg';
-import horizontal_wordmark from '../assets/horizontal_wordmark.svg';
+import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
+
+    const location = useLocation();
     
     const footerRef = useRef(null);
     const [visible, setVisible] = useState(false);   // ← fire once
 
-
-    /* When 15 % of footer is visible, flip `visible` to true */
+    /* When 5 % of footer is visible, flip `visible` to true */
     useEffect(() => {
         const el = footerRef.current;
         if (!el) return;
@@ -31,10 +31,9 @@ const Footer = () => {
     const anim = (cls) => (visible ? cls : 'opacity-0');   // or 'animate-none'
 
     return (
-        <footer ref={footerRef} className="flex flex-col space-x-2 sm:flex-col sm:space-y-0 justify-start sm:items-center w-full bg-black text-white px-4 space-y-8 py-16 sm:py-0 sm:pb-16">
+        <footer ref={footerRef} className={`${location.pathname = '/' && 'mt-6'} flex flex-col space-x-2 sm:flex-col sm:space-y-16 justify-start sm:items-center w-full bg-black text-white px-6 space-y-8 py-16 sm:py-0 sm:pb-16`}>
             <div class="flex flex-row sm:flex-col space-x-2 sm:flexcol sm:space-y-0 justify-start sm:items-center w-full max-w-6xl mx-auto bg-transparent text-white">
                 {/* h-32 classed div with transparency to allow for better display of sm:> COW JUICE animation */}
-                {/* <div class="flex w-full h-32 bg-white" /> */}
                 <div class="sm flex flex-1 h-full items-center">
                     {/* The actual logo's SVG */}
                     <svg class="w-full sm:hidden text-white" id="Layer_2" data-name="Layer 2" viewBox="0 0 119.06 300.64">
@@ -72,7 +71,7 @@ const Footer = () => {
                         </g>
                     </svg>
                 </div>
-                <div className="flex flex-1 w-full max-w-6xl p-2 sm:p-0 sm:py-8 rounded-sm h-full mx-auto flex-col sm:flex-row items-end sm:items-start justify-between space-y-4 sm:space-y-0 sm:space-x-4">
+                <div className="flex flex-1 w-full max-w-6xl rounded-sm h-full mx-auto flex-col sm:flex-row items-end sm:items-start justify-between space-y-4 sm:space-y-0 sm:space-x-4 pt-0 sm:pt-16">
 
                     {/* ── Left: Brand + tagline ───────────────────────── */}
                     <div className="flex flex-col items-end sm:items-start leading-tight">
@@ -85,19 +84,20 @@ const Footer = () => {
                     </div>
 
                     {/* ── Center: Nav links ──────────────────────────── */}
-                    <nav className="flex sm:hidden flex-col space-y-2 items-end font-bold uppercase">
+                    <nav className="flex  flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 items-end font-bold uppercase">
                         {[
-                        { name: 'Home', href: '/', delay: '250ms' },
-                        { name: 'About', href: '/press', delay: '375ms' },
-                        { name: 'Shop', href: '/shopify/products', delay: '500ms' },
-                        { name: 'FAQ', href: '/questions', delay: '625ms' },
-                        { name: 'Orders', href: '/orders/status', delay: '750ms' },
-                        { name: 'Contact', href: '/contact', delay: '1000ms' },
+                        { name: 'Home', href: '/', delay: 'animate-delay-[250ms] sm:animate-delay-[750ms]' },
+                        { name: 'Press', href: '/press', delay: 'animate-delay-[375ms] sm:animate-delay-[875ms]' },
+                        { name: 'Shop', href: '/shopify/products', delay: 'animate-delay-[500ms] sm:animate-delay-[1000ms]' },
+                        { name: 'Retort', href: '/ultra-retorted-milk', delay: 'animate-delay-[625ms] sm:animate-delay-[1125ms]' },
+                        { name: 'FAQ', href: '/questions', delay: 'animate-delay-[750ms] sm:animate-delay-[1350ms]' },
+                        { name: 'Orders', href: '/orders/status', delay: 'animate-delay-[800ms] sm:animate-delay-[1500ms]' },
+                        { name: 'Contact', href: '/contact', delay: 'animate-delay-[1000ms] sm:animate-delay-[1650ms]' },
                         ].map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
-                            className={anim(`text-xs font-mono uppercase text-white rounded-[1px] pl-2 transition-colors animate-fade-left animate-delay-[${link.delay}]`)}
+                            className={anim(`text-xs sm:text-[10px] font-mono uppercase text-white hover:text-black hover:bg-white rounded-[1px] px-[2px] transition-colors duration-300 animate-fade-left sm:animate-fade-down ${link.delay}`)}
                         >
                             {link.name}
                         </a>
@@ -107,7 +107,7 @@ const Footer = () => {
                     {/* ── Right: Legal blurb ─────────────────────────── */}
                     <div className="flex w-full sm:w-1/4 flex-col items-end text-right sm:items-end leading-tight space-y-2">
                         <span className={anim("text-[11px] sm:text-[10px] font-mono uppercase font-bold animate-fade-left sm:animate-fade-down animate-delay-[1000ms] sm:animate-delay-[1000ms]")}>
-                            Ultra‑Retort™, Retortation™, and Cow Juice™ are trademarks of Cow Juice Inc. Dare to rip these are Cow Juice man personally will juice you.
+                            Ultra‑Retort™, Retortation™, and Cow Juice™ are trademarks of Cow Juice Inc. Dare to rip these and you will be juiced.
                         </span>
                         <span className={anim("text-[11px] sm:text-[10px] font-mono text-white uppercase font-bold animate-fade-left sm:animate-fade-down animate-delay-[1125ms] sm:animate-delay-[1125ms]")}>
                             One Question Remains: Got Cow Juice?
@@ -117,25 +117,25 @@ const Footer = () => {
             </div>
 
             {/* ── Legal disclaimer grid ─────────────────────────────── */}
-            <div className="relative text-white uppercase text-[11px] sm:text-[10px] font-mono font-semibold sm:font-light flex flex-col sm:grid sm:grid-cols-3 sm:gap-16 w-full h-auto space-y-4 sm:space-y-0 max-w-6xl mx-auto">
+            <div className="relative text-white uppercase text-[11px] sm:text-[10px] font-mono font-semibold sm:font-light flex flex-col sm:grid sm:grid-cols-3 sm:gap-12 w-full h-auto space-y-4 sm:space-y-0 max-w-6xl mx-auto">
 
                 {/* 1 */}
-                <p className={anim("animate-flip-down animate-delay-[1200ms]")}>
+                <p className={anim("text-left sm:text-justify animate-flip-down animate-delay-[1200ms]")}>
                     Since it is effectively impossible to describe the degree of retortation packed into every aluminum can of Moo‑Nectar, Cow Juice Inc. — which naturally includes its wholly‑owned and partially‑owned subsidiaries, pet projects, spirit animals, and alter egos (<span className="font-bold">"Cow Juice Entities"</span>) — has been advised by its impossibly distinguished team of corporate attorneys to slap the following legal novella on this site and every extant piece of Cow Juice paraphernalia.
                 </p>
 
                 {/* 2 */}
-                <p className={anim("animate-flip-down animate-delay-[1325ms]")}>
+                <p className={anim("text-left sm:text-justify animate-flip-down animate-delay-[1325ms]")}>
                     Drinking Ultra‑Retorted Milk™ may cause sudden confidence, unexpected refrigerator apathy, and the sort of milk‑mustache superiority that ends friendships. The Cow Juice Entities™ make no medical, nutritional, or metaphysical guarantees—other than promising your dairy has been retorted to oblivion, caramelized for pleasure, and stripped of every last languishing lactose molecule, leaving nothing but pure bovine bravado in a can.
                 </p>
 
                 {/* 3 — extended */}
-                <p className={anim("animate-flip-down animate-delay-[1450ms]")}>
+                <p className={anim("text-left sm:text-justify animate-flip-down animate-delay-[1450ms]")}>
                     By merely allowing your retinas to graze this sentence, you — for reasons known only to ancient dairy oracles — hereby acknowledge the following terms, waive all claims, and forfeit the right to whine about literally any consequence arising on this gloriously calcium‑soaked planet we call Planet Milk (including, but not limited to, rogue milk tides and existential dread brought on by dairy enlightenment).
                 </p>
 
                 {/* 4 — list stays the same */}
-                <ul className={anim("w-full flex flex-col space-y-1")}>
+                <ul className={anim("text-left sm:text-justify  w-full flex flex-col space-y-1")}>
                     <li className={anim("animate-flip-down animate-delay-[1575ms]")}>
                     1. “Retortation” is a totally legitimate word, entirely fabricated by Cow Juice Entities because we said so and the dictionary cried in the corner.
                     </li>
@@ -148,18 +148,43 @@ const Footer = () => {
                 </ul>
 
                 {/* 5 — padded */}
-                <p className={anim("animate-flip-down animate-delay-[1950ms]")}>
+                <p className={anim("text-left sm:text-justify animate-flip-down animate-delay-[1950ms]")}>
                     Cow Juice Entities thank you for your unwavering bravery, salute your adventurous palate, and bid you tidings of great Cow Juice. May your days be frothy, your nights ultra‑retorted, and your emails forever lactose‑free.
                 </p>
 
                 {/* 6 — NEW cell */}
-                <p className={anim("animate-flip-down animate-delay-[2075ms]")}>
+                <p className={anim("text-left sm:text-justify animate-flip-down animate-delay-[2075ms]")}>
                     P.S. Federal regulators insist we remind you that Ultra‑Retorted Milk™ is literally just “milk,” contains exactly 0.00 % unicorn tears and 100% milk, and has not been evaluated by philosophers for its ability to spark spontaneous existential breakthroughs — though early anecdotal evidence looks promising. Thank you again for listening.
                 </p>
             </div>
 
-
-           
+            {/* ── Footer Bottom Links ─────────────────────────────────── */}
+            <div className={anim("flex w-full flex-col sm:flex-row items-center justify-start sm:justify-between mx-auto max-w-6xl border-t-[0.5px] border-white pt-6 mt-6 text-center uppercase font-light text-[11px] sm:text-[10px] font-mono space-x-0 space-y-4 sm:space-x-4 sm:space-y-0 animate-fade animate-delay-[2200ms]")}>
+                <div class={anim("flex w-full flex-row items-center justify-center sm:justify-start space-x-2 animate-flip-down animate-delay-[2200ms]")}>
+                    <a href="/terms" className="cursor-pointer px-[2px] rounded-sm hover:text-black hover:bg-white transition-all duration-300">
+                        Terms
+                    </a>
+                    <span>|</span>
+                    <a href="/privacy" className="cursor-pointer px-[2px] rounded-sm hover:text-black hover:bg-white transition-all duration-300">
+                        Privacy
+                    </a>
+                    <span>|</span>
+                    <a href="/cookies" className="cursor-pointer px-[2px] rounded-sm hover:text-black hover:bg-white transition-all duration-300">
+                        Cookies <span class="hidden sm:inline">[What Felicity!]</span>
+                    </a>
+                </div>
+                <div class="flex sm:hidden w-48 border-t-[0.5px] border-white"/>
+                <div class={anim("flex w-full items-center justify-center sm:justify-end flex-col sm:flex-row space-x-0 space-y-1 sm:space-x-4 sm:space-y-0 animate-flip-down animate-delay-[2325ms]")}>
+                    <p className="flex justify-center cursor-pointer px-[2px] rounded-sm hover:text-black hover:bg-white transition-all duration-300">
+                        Because cows are not milked – they're juiced™
+                    </p>
+                    <span class="hidden sm:block">|</span>
+                    {/* <div class="flex sm:hidden w-24 border-t-[0.5px] border-white"/> */}
+                    <p className="flex justify-center cursor-pointer px-[2px] rounded-sm hover:text-black hover:bg-white transition-all duration-300">
+                        #DrinkTheTruth™
+                    </p>
+                </div>
+            </div>
         </footer>
     );
 };

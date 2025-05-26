@@ -11,8 +11,8 @@ const Header = () => {
   /* Your existing delay logic, unchanged  */
   const getDelayClass = (pathname) => {
     switch (pathname) {
-      case '/':                  return 'animate-delay-[4000ms]'; //'animate-delay-[8500ms]' for actual HomeNew
-      // case '/':                  return 'animate-delay-[10500ms]';
+      // case '/':                  return 'animate-delay-[4000ms]'; //'animate-delay-[8500ms]' for actual HomeNew
+      case '/':                  return 'animate-delay-[500ms]';
       case '/order':             return 'animate-delay-[8500ms]';
       case '/contact':           return 'animate-delay-[500ms]';
       
@@ -45,7 +45,7 @@ const Header = () => {
   return (
     <>
       {showMenu && (
-        <div class="fixed flex-col inset-0 z-30 w-full bg-white text-black uppercase border-b-[0.5px] border-black px-6 py-6 flex items-end justify-start overflow-hidden animate-flip-down ${delay}">
+        <div class="fixed flex-col -top-0 inset-0 z-30 w-full bg-white text-black uppercase border-b-[0.5px] border-black px-6 py-6 flex items-end justify-start overflow-hidden animate-flip-down ${delay}">
           {/* Close button */}
           <button
             onClick={() => setShowMenu(false)}
@@ -54,29 +54,31 @@ const Header = () => {
             <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5 text-black">
               <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
-
           </button>
 
           {/* Menu links — add whatever you like */}
           <nav className="flex flex-col w-full items-end space-y-4 ">
-            <div class="flex flex-col flex-1 w-full sm:w-1/3 space-y-2">
-              <div class="flex w-full flex-col items-start justify-start opacity-40 ">
+            <div class="flex flex-col flex-1 w-full md:w-1/2 lg:w-1/3 space-y-2">
+              <div class="flex w-full flex-col items-start justify-start ">
                 <p class="font-mono text-[10px] font-bold uppercase">[Navigate this site]</p>
               </div>
               <div class="flex flex-col items-center justify-center space-y-0">
                 <button onClick={() => handlePageClick('/')} className="text-xs uppercase font-mono ">
                   Home
                 </button>
-                <button onClick={() => handlePageClick('/shopify/products')} className="text-xs uppercase font-mono opacity-60 pointer-events-none">
-                  Buy Now
+                <button onClick={() => handlePageClick('/shopify/products')} className="text-xs uppercase font-mono">
+                  Buy Cow Juice
                 </button>
-                <button onClick={() => handlePageClick('/press')} className="text-xs uppercase font-mono opacity-60 pointer-events-none">
-                  Explore Retortation
+                <button onClick={() => handlePageClick('/ultra-retorted-milk')} className="text-xs uppercase font-mono">
+                  Ultra-Retorted Milk
+                </button>
+                <button onClick={() => handlePageClick('/press')} className="text-xs uppercase font-mono">
+                  Retortation Press Release
                 </button>
                 <button onClick={() => handlePageClick('/questions')} className="text-xs uppercase font-mono">
                   Frequently Asked Questions
                 </button>
-                <button onClick={() => handlePageClick('/orders/status')} className="text-xs uppercase font-mono opacity-60 pointer-events-none">
+                <button onClick={() => handlePageClick('/orders/status')} className="text-xs uppercase font-mono">
                   Check Order Status
                 </button>
                 <button onClick={() => handlePageClick('/contact')} className="text-xs uppercase font-mono">
@@ -84,8 +86,8 @@ const Header = () => {
                 </button>
               </div>
             </div>
-            <div class="flex w-full sm:w-1/3 border-b-[0.5px] border-black opacity-60 pointer-events-none"/>
-            <div class="flex flex-col flex-1 w-full sm:w-1/3 space-y-2 opacity-60 pointer-events-none ">
+            <div class="flex w-full md:w-1/2 lg:w-1/3 border-b-[0.5px] border-black"/>
+            <div class="flex flex-col flex-1 w-full md:w-1/2 lg:w-1/3 space-y-2">
               <div class="flex w-full flex-col items-start justify-start ">
                 <p class="font-mono text-[10px] font-bold uppercase">[External links]</p>
               </div>
@@ -102,7 +104,12 @@ const Header = () => {
             </div>
             
           </nav>
-          <p class="font-mono text-xs border-[0.5px] border-cowjuice-gold text-cowjuice-gold px-[2px] uppercase font-bold rounded-sm animate-pulse">Full site coming soon</p>
+          <button 
+            onClick={() => window.location.href = 'mailto:cowjuiceman@gotcowjuice.com?subject=Hi%20Cow%20Juice%20Man%20—%20I%20Have%20a%20Question%20about%20Cow%20Juice%20&body=Dear%20Cow%20Juice%20Man%2C%0A%0A'}
+            class="font-mono text-xs border-[0.5px] border-cowjuice-gold text-cowjuice-gold px-[2px] mt-2 uppercase font-bold rounded-sm animate-pulse"
+          >
+            Site newly released | Help us debug
+          </button>
         </div>
       )}
       <header className={`flex w-full bg-white text-black uppercase border-b-[0.5px] border-black px-6 py-6 items-center justify-center overflow-hidden animate-flip-down ${delay}`}>

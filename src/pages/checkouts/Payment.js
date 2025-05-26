@@ -53,7 +53,7 @@ const Payment = () => {
   
   const amount = product?.variants[0].price * 100;
 
-  const shipping = 499; // flat rate shipping
+  const shipping = product.id === 9976043864353 ? 0 : 499 // flat rate shipping unless 12-pack when we comp, ever so generously
   const estimatedTax = amount * 0.00; // no tax on food — right ... ?
   const total = amount + shipping + estimatedTax;
 
@@ -91,7 +91,7 @@ const Payment = () => {
 
 
   return (
-    <div className="inset-0 flex flex-row items-start justify-center flex-1 min-h-screen pt-24  px-6 pb-6 w-full h-full overflow-hidden">
+    <div className="inset-0 flex flex-row items-start justify-center flex-1 min-h-screen pt-6  px-6 pb-6 w-full h-full overflow-hidden">
       <div class="flex flex-1 max-w-6xl mx-auto w-full h-full">
         <div className="flex relative flex-col space-y-6 lg:grid lg:grid-cols-5 lg:gap-8 lg:space-y-0">
           <div className="flex flex-col w-full items-start justify-start lg:col-span-3 space-y-2">

@@ -16,7 +16,7 @@ const Questions = () => {
         },
         {
             q: "What is Ultra‑Retorted Milk™?",
-            a: "Ultra‑Retortation™ is our proprietary high‑heat pasteurization process that caramelizes milk’s natural sugars, creating a naturally sweeter, lactose‑free can of milk.\n                  ",
+            a: "Ultra‑Retortation™ is our proprietary high‑heat pasteurization sorcery that caramelizes milk’s natural sugars, creating a slightly sweeter, flavor enhanced, lactose‑free can of milk.\n                  ",
             delay: "300ms",
         },
         {
@@ -25,8 +25,8 @@ const Questions = () => {
             delay: "400ms",
         },
         {
-            q: "What is Lactose-Freedom™?<sup>[6]</sup>",
-            a: "Lactose‑Freedom™ is the quality of being lactose-free. Because liberty is important, we've freed milk from its heinous lactosey ways. Cow Juice's lactose freedom means you can drink as much Cow Juice as you can possibly guzzle down in one sitting.",
+            q: "What is Lactose-Freedom™?",
+            a: "Lactose‑Freedom™ is the quality of being lactose-free. Because liberty is important, we've freed milk from the abject heinousness of lactose. Cow Juice's lactose freedom means you can drink as much Cow Juice as you can possibly guzzle down in one sitting.",
             delay: "450ms",
         },
         {
@@ -55,32 +55,42 @@ const Questions = () => {
             delay: "700ms",
         },
         {
-            q: "Why does the milk taste like caramel?",
+            q: "Why does the milk taste like butterscotch?",
             a: "Because it's retorted. The high heat of retortation is optimized to caramelize the natural sugars in milk.",
             delay: "750ms",
         },
         {
-            q: "Does Ultra‑Retorted Milk™ contain preservatives?",
-            a: "Zero. Nada. The retort process itself locks in freshness — like cryogenic sleep, but tastier.",
+            q: "Why is the milk caramel colored?",
+            a: "Because it's retorted. The high heat of retortation is optimized to caramelize the natural sugars in milk.",
             delay: "800ms",
+        },
+        {
+            q: "How long does Cow Juice last?",
+            a: "Cow Juice has a 365-day shelf life. This is 100% due to its Ultra-Retorted nature. The high heat of retortation destroys any and all pathogens which could possibly destroy the deliciousness that is this can of bovine gold.",
+            delay: "850ms",
+        },
+        {
+            q: "Does Ultra‑Retorted Milk™ contain preservatives?",
+            a: "Absolutely not — never. It is just milk, in a can. The retortation process itself locks in freshness — like cryogenic sleep, but tastier.",
+            delay: "850ms",
         },
         {
             q: "Why hasn’t milk been canned before?",
             a: "Because destiny waited for 2025 and the audacity of Cow Juice. You’re welcome, planet milk.",
-            delay: "850ms",
+            delay: "900ms",
         },
         {
             q: "Where is Cow Juice made?",
             a: "Cow Juice is proudly made in America, with the juice of American dairy cows.",
-            delay: "900ms",
+            delay: "950ms",
         },
     ];
     
     return (
-        <div className="inset-0 flex flex-row items-start justify-center flex-1 min-h-screen pt-24 px-6 pb-6 w-full h-full overflow-hidden">
+        <div className="inset-0 flex flex-row items-start justify-center flex-1 min-h-screen pt-12 px-6 pb-6 w-full h-full overflow-hidden">
             <div className="flex flex-1 max-w-6xl mx-auto w-full h-full">
                 {/* ── 3‑col grid on lg+, stacked on sm ─────────────────────────────── */}
-                <div className="flex flex-col-reverse sm:grid sm:grid-cols-1 gap-8 lg:grid-cols-3 h-full items-start justify-center animate-fade">
+                <div className="flex flex-col-reverse sm:grid gap-8 sm:grid-cols-3 h-full items-start justify-center animate-fade">
                     {/* ─── Right‑hand Footnotes panel (md+) ─────────────────────────── */}
                     <div className="flex flex-col flex-1 w-full h-full border-[0.5px] border-black rounded-sm items-start justify-between space-y-2 p-2 sm:p-4 animate-fade-up sm:animate-fade-left">
                         <div className="flex flex-1 flex-col items-start w-full space-y-1 opacity-60">
@@ -101,6 +111,9 @@ const Questions = () => {
                             </p>
                             <p className="p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[750ms]">
                                 <sup>[5]</sup> In the words of a great American: "Free at last, Free at last, Thank God almightly Cow Juice is lactose-free at last!"
+                            </p>
+                            <p className="p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[750ms]">
+                                <sup>[6]</sup> In the words of another: "Give me liberty — or give me lactose."
                             </p>
                         </div>
                         <p className="font-mono py-2 text-[10px] leading-3  uppercase opacity-60 border-t-[0.5px] border-black">
@@ -125,7 +138,7 @@ const Questions = () => {
 
                         {/* Page intro */}
                         <p className="w-full font-mono text-xs font-bold uppercase rounded-sm border-black dark:bg-white dark:border-white dark:text-black animate-flip-down">
-                            Everything you never knew you needed to know about the juice of a cow — organized & answered.
+                            Everything you'll ever need to know about the juice of a cow — and a good bit you won't.
                         </p>
 
                         {/* FAQ list */}

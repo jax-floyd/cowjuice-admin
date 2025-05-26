@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+import Typewriter from 'typewriter-effect';
+
 import rack_1 from '../../assets/rack_1.png';
 import mockup_2 from '../../assets/250ml_mockup_2.png';
 import mockup_7 from '../../assets/250ml_mockup_7.png';
@@ -8,18 +10,19 @@ import mockup_8 from '../../assets/250ml_mockup_8.png';
 
 import ExclusivityModal from '../../components/ExclusivityModal.js';
 
-
+import validateAddress from '../../functions/utils/validateAddress.js';
 
 const ContactEntry = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
 
   const product = state?.product;
+  console.log(product);
   const price = product?.variants[0].price * 100;
   const checkoutId = window.location.pathname.split('/')[2];
 
   const estimatedTax = price * 0.00; // no tax on food — right ... ?
-  const shipping = 499 // flat rate shipping
+  const shipping = product.id === 9976043864353 ? 0 : 499 // flat rate shipping unless 12-pack when we comp, ever so generously
   const amount = price + estimatedTax + shipping;
 
   const [formData, setFormData] = useState({
@@ -104,7 +107,7 @@ const ContactEntry = () => {
       setError(err.message);
     } finally {
       setLoading(false);
-    }
+    };
   };
 
   const intervalRef = useRef(null);
@@ -153,17 +156,17 @@ const ContactEntry = () => {
           {/* modal itself has higher z-index */}
           <ExclusivityModal
             onUnlock={() => setUnlocked(true)}
-            className="z-50"          // give the modal a higher z if needed
+            class="z-50"          // give the modal a higher z if needed
           />
         </>
       )}
 
-      <div className="inset-0 flex flex-row items-start justify-center flex-1 min-h-screen pt-24  px-6 pb-6 w-full h-full overflow-hidden">
+      <div className="inset-0 flex flex-row items-start justify-center flex-1 min-h-screen pt-6  px-6 pb-6 w-full h-full overflow-hidden">
         <div class="flex flex-1 max-w-6xl mx-auto w-full relative h-full">
           <div className="flex relative flex-col space-y-6 lg:grid lg:grid-cols-5 lg:gap-8 lg:space-y-0">
             <div className="flex flex-col w-full items-start justify-start lg:col-span-3 space-y-2">
               <p className="font-mono text-xs uppercase font-bold animate-flip-down animate-delay-200">
-                The world's first can of milk is three clicks away.
+                Cow Juice is three clicks away.<sup>[1]</sup>
               </p>
 
               <div 
@@ -218,7 +221,7 @@ const ContactEntry = () => {
               {/* ─────────── FORM ─────────── */}
               <form onSubmit={step === 1 ? handleNext : handleSubmit} className="flex flex-col w-full items-center justify-start col-span-3 space-y-4 animate-fade">
                 <p className="font-mono text-xs uppercase animate-flip-up animate-delay-300">
-                  {product.title.includes('6') ? '6' : product.title.includes('8') ? '8' : product.title.includes('12') ? '12' : ''} stone-cold cans of ultra-retorted™ lactose-free Cow Juice can be on your doorstep within days.
+                  {product.title.includes('6') ? '6' : product.title.includes('8') ? '8' : product.title.includes('12') ? '12' : ''} stone-cold cans of ultra-retorted™ lactose-free Cow Juice can be on your doorstep within days.<sup>[2]</sup>
                 </p>
 
                 <div className="flex flex-col w-full space-y-2 animate-fade-up animate-delay-500">
@@ -291,8 +294,21 @@ const ContactEntry = () => {
                   </div>
                 </div>
               </form>
+              {/* Footnotes explaining CJPRBTP, eventually CJPBTP & product release; only show post closure of Exclusivity */}
+              {unlocked && (
+                <>
+                  <div class="flex w-full pt-12 pb-1 sm:py-4 animate-fade animate-delay-[0ms]">
+                    <div class="flex w-full border-t-[0.5px] border-black opacity-60 "/>
+                  </div>
+                  <div class="flex w-full flex-col items-center justify-center space-y-2">
+                      <p class="inline w-full text-[10px] text-left sm:text-xs uppercase font-mono leading-3 text-zinc-500 animate-flip-down animate-delay-[0ms]"><sup>[1]</sup> Cow Juice has been released in <span class="text-cowjuice-gold border-[0.5px] border-cowjuice-gold rounded-sm px-[2px] font-bold">private beta</span>. If you're viewing this page, Cow Juice Man has personally decided — after carefully reasoning under a special logical system called moo-rationality — to include you in this super exclusive, all around stupendous group of milk enthusiasts known only as the Cow Juice Private Beta Testing Program [CJPRBTP].</p>
+                      <p class="inline w-full text-[10px] text-left sm:text-xs uppercase font-mono leading-3 text-zinc-500 animate-flip-down animate-delay-[125ms]"><sup>[2]</sup> Participation in CJPRBTP comes with strings wholly, tightly, and unambiguously attached. Namely: upon receipt of the cow juice, you must communicate to Cow Juice Man a 100% no-glaze, radically honest review of this bovine delight we call <span class="text-cowjuice-red border-[0.5px] border-cowjuice-red rounded-sm px-[2px] font-bold ">Ultra-Retorted Milk™</span>. Consider yourself advised.</p>
+                     
+                  </div>
+                </>
+              )}
             </div>
-            <div class={`hidden sm:flex w-full items-center justify-end col-span-2 animate-flip-down`}>
+            <div class={`hidden lg:flex w-full items-center justify-end col-span-2 animate-flip-down`}>
               <div class="flex h-full items-start justify-end">
                   {/* The actual logo's SVG */}
                   <svg class="flex text-cowjuice-gold/50 w-full z-20" id="Layer_2" data-name="Layer 2" viewBox="0 0 119.06 300.64">

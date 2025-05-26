@@ -35,7 +35,6 @@ const CheckoutForm = ({ clientSecret, paymentIntent, product, user, loading, set
     });
 
     if (error) {
-      console.log("Oh my lord an error occurred")
       setError(error.message);
       setProcessing(false);
     } else if (paymentIntent && paymentIntent.status === 'succeeded') {
@@ -62,6 +61,8 @@ const CheckoutForm = ({ clientSecret, paymentIntent, product, user, loading, set
             shipping: user.shipping, // Ensure this exists in user object
           })
         });
+
+        
 
         // Only case of success
         const orderResponse = await response.json();

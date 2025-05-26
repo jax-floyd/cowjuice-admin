@@ -51,7 +51,7 @@ const ProductDetails = () => {
     const increment = () => setQty((q) => Math.min(q + 1, 10));
     const decrement = () => setQty((q) => Math.max(q - 1, 1));
 
-    const images = [mockup_5, rack_3, mockup_2, rack_2, mockup_4];
+    const images = [rack_3, mockup_2, rack_2, mockup_4];
     const [slide, setSlide] = useState(0);
 
     const next  = () => setSlide((i) => (i + 1) % images.length);
@@ -67,23 +67,23 @@ const ProductDetails = () => {
     };
 
     return (
-        <div className="inset-0 flex flex-row items-start justify-center flex-1 min-h-screen pt-24  px-6 pb-6 w-full h-full overflow-hidden">
+        <div className="inset-0 flex flex-row items-start justify-center flex-1 min-h-screen pt-6  px-6 pb-6 w-full h-full overflow-hidden">
             <div class="flex flex-1 max-w-6xl mx-auto w-full h-full">
-                <div className="flex flex-col-reverse sm:grid sm:grid-cols-1 gap-8 lg:grid-cols-3 h-full items-start justify-center animate-fade">
+                <div className="flex flex-col-reverse lg:grid gap-8 sm:grid-cols-3 h-full items-start justify-center animate-fade">
                     {/* Footnotes side tab to be shown on md+ */}
                     <div className="flex flex-col flex-1 w-full h-full border-[0.0px] sm:border-[0.5px] border-black rounded-sm items-start justify-between space-y-2 p-0 sm:p-4 animate-fade-up lg:animate-fade-left">
                         <div className="flex flex-1 flex-col items-start w-full space-y-2 uppercase">
-                            <p class="text-[10px] uppercase font-mono font-bold text-left leading-3">A selection of very important footnotes pertaining to the world's first can of milk which absolutely must be read to understand the ultra-retortation of milk.</p>
-                            <p className="text-[10px] leading-3 sm:text-xs sm:leading-normal font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[125ms]">
+                            <p class="text-[10px] sm:text-[11px] leading-3 uppercase font-mono font-bold text-left">A selection of very important footnotes pertaining to the world's first can of milk which absolutely must be read to understand the ultra-retortation of milk.</p>
+                            <p className="text-[10px] sm:text-[11px] leading-3  font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[125ms]">
                                 <sup>[1]</sup> Cow Juice will soon release a 19.2oz tallboy version of this, the same Ultra-Retorted Milk. These smallboys to be available only for a limited time.
                             </p>
-                            <p className="text-[10px] leading-3 sm:text-xs sm:leading-normal font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[250ms]">
+                            <p className="text-[10px] sm:text-[11px] leading-3 font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[250ms]">
                                 <sup>[2]</sup> Cow Juice's Ultra-Retorted Milk is in no way intended for the weak-boned individuals who can't stomach the thought of drinking the purest protein on planet earth.
                             </p>
-                            <p className="text-[10px] leading-3 sm:text-xs sm:leading-normal font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[375ms]">
+                            <p className="text-[10px] sm:text-[11px] leading-3 font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[375ms]">
                                 <sup>[3]</sup> Cow Juice Inc. has secured only the highest-quality milk for the production of this Ultra-Retorted Cow Juice. Our milk supply comes entirely from Upper Midwestern dairy cows, raised by hard-working, dedicated, and all-around amazing American Dairy Farmers, whom Cow Juice Inc. is immensely proud to support.
                             </p>
-                            <p className="text-[10px] leading-3 sm:text-xs sm:leading-normal font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[500ms]">
+                            <p className="text-[10px] sm:text-[11px] leading-3 font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md p-0 sm:p-1 animate-flip-down animate-delay-[500ms]">
                                 <sup>[4]</sup> Ultra-Retortation™ is Cow Juice Inc.'s proprietary pasteurization process that makes this can of milk last longer than your houseplants and taste the like caramelized Cow Juice you never knew planet milk needed.
                             </p>
                             {/* ─── Nutrition accordion ─────────────────────────────────────── */}
@@ -203,7 +203,7 @@ const ProductDetails = () => {
                                     <button onClick={increment} disabled={true} className="font-mono text-xs  px-3 border-[0.5px] border-black rounded-lg font-bold">
                                         +
                                     </button>
-                                    <span class="absolute left-32 hidden sm:block rotate-[-6deg] border-[0.5px] border-black rounded-sm bg-cowjuice-red text-white font-bold uppercase px-[2px]">While we'd love to sell you 20 cases ...</span>
+                                    <span class="absolute left-32 hidden lg:block rotate-[-6deg] border-[0.5px] border-black rounded-sm bg-cowjuice-red text-white font-bold uppercase px-[2px]">While we'd love to sell you 20 cases ...</span>
                                     <span class="absolute right-4 rotate-[2deg] border-[0.5px] border-black rounded-sm bg-cowjuice-red text-white font-bold uppercase px-[2px]">Limited to 1-case / beta tester</span>
                                 </div>
                                 

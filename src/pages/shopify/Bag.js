@@ -101,7 +101,7 @@ const Bag = () => {
 
   /* ───────────────────────────── RENDER ─────────────────────────────────────── */
   return (
-    <div className="inset-0 flex flex-1 min-h-screen max-w-3xl mx-auto px-6 pb-6 pt-24 w-full h-full overflow-hidden">
+    <div className="inset-0 flex flex-1 min-h-screen max-w-3xl mx-auto px-6 pb-6 pt-6 w-full h-full overflow-hidden">
       <div className="flex flex-col items-center justify-start space-y-6 w-full animate-fade">
         {/* 👜 header */}
         <p className="font-mono w-full text-left text-xs uppercase font-bold animate-flip-down">

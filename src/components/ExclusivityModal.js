@@ -1,6 +1,8 @@
 // PasswordModal.jsx
 import React, { useState } from 'react';
 
+import generateBetaAccessCode from '../functions/utils/generateBetaAccessCode';
+
 /**
  * Full-screen modal that blocks the UI until a correct password is entered.
  * Props
@@ -8,7 +10,7 @@ import React, { useState } from 'react';
  * correctPassword – string   // temporary hard-coded secret
  * onUnlock        – fn       // called once the user is authorised
  */
-const ExclusivityModal = ({ correctPassword = 'cowjuice', onUnlock }) => {
+const ExclusivityModal = ({ onUnlock }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [status,   setStatus]   = useState('idle'); // idle | error | success
@@ -17,6 +19,9 @@ const ExclusivityModal = ({ correctPassword = 'cowjuice', onUnlock }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+
+    const correctPassword = generateBetaAccessCode(username);
+    console.log(correctPassword);
     setTimeout(() => {
       if (password === correctPassword) {
         setStatus('success');                    // 1️⃣ visual change
@@ -31,7 +36,7 @@ const ExclusivityModal = ({ correctPassword = 'cowjuice', onUnlock }) => {
   };
 
   // helpers for styling
-  const btnBase   = 'flex w-full items-center justify-center font-mono text-xs uppercase font-bold py-2 px-2 rounded-sm border-[0.5px] transition-colors duration-300';
+  const btnBase   = 'flex w-full items-center justify-center font-mono text-xs uppercase font-bold py-2 sm:py-4 px-2 rounded-sm border-[0.5px] transition-colors duration-300';
   const btnIdle   = 'bg-black text-white hover:bg-neutral-700';
   const btnError  = 'bg-black text-white shake';
   const btnSuccess= 'bg-cowjuice-gold text-white';
@@ -58,7 +63,7 @@ const ExclusivityModal = ({ correctPassword = 'cowjuice', onUnlock }) => {
             placeholder="TikTok Username"
             value={username}
             onChange={(e) => { setUsername(e.target.value); setStatus('idle'); }}
-            className="border border-black/50 rounded-sm px-2 py-2 text-xs font-mono focus:outline-none"
+            className="border border-black/50 rounded-sm px-2 py-2 sm:py-4 text-xs font-mono focus:outline-none"
           />
 
           <input
@@ -66,7 +71,7 @@ const ExclusivityModal = ({ correctPassword = 'cowjuice', onUnlock }) => {
             placeholder="Super Secret Access Code"
             value={password}
             onChange={(e) => { setPassword(e.target.value); setStatus('idle'); }}
-            className="border border-black/50 rounded-sm px-2 py-2 text-xs font-mono focus:outline-none"
+            className="border border-black/50 rounded-sm px-2 py-2 sm:py-4 text-xs font-mono focus:outline-none"
           />
 
           {/* Error / success messages */}

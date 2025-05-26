@@ -1,45 +1,71 @@
-import React, { useRef, useState, useLayoutEffect } from 'react';
+// components/Ticker.js
+import React, { useRef, useState, useEffect } from 'react';
 
-/* ————————————————————————————————————————————————————————
-   Single-line ticker that auto-sizes its speed
-   ———————————————————————————————————————————————————————— */
-const Ticker = () => {
-  const track = useRef(null);
-  const [page] = useState(window.location.pathname);
-  const [dur, setDur] = useState(30);          // fallback
+const Ticker = ({ pxPerSec = 60 }) => {
+  const trackRef = useRef(null);      // wrapper that slides
+  const textRef  = useRef(null);      // <span> of a single copy
+  const [dur, setDur] = useState(null);   // null = not ready yet
 
-  useLayoutEffect(() => {
-    if (!track.current) return;
-    const W         = track.current.getBoundingClientRect().width / 2; // width of one copy
-    const pxPerSec  = 60;                                              // tweak to taste
+  /* ——— helper that (re)computes duration ——— */
+  const calcDuration = () => {
+    if (!textRef.current) return;
+    const W = textRef.current.scrollWidth;   // ← reliable width of one copy
     setDur(W / pxPerSec);
+  };
+
+  /* ——— run once, then on resize / font-load / orientation ——— */
+  useEffect(() => {
+    calcDuration();                 // first attempt
+
+    const ro = new ResizeObserver(calcDuration);
+    if (textRef.current) ro.observe(textRef.current);
+
+    window.addEventListener('resize',            calcDuration);
+    window.addEventListener('orientationchange', calcDuration);
+
+    // Wait for web-fonts
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(calcDuration);
+    }
+
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize',            calcDuration);
+      window.removeEventListener('orientationchange', calcDuration);
+    };
   }, []);
 
   /* Your existing delay logic, unchanged  */
+  const [page]           = useState(window.location.pathname);
   const getDelayClass = (pathname) => {
     switch (pathname) {
-      case '/':                  return 'animate-delay-[4000ms]'; //'animate-delay-[8500ms]' for actual HomeNew
-      // case '/':                  return 'animate-delay-[10500ms]';
+      // case '/':                  return 'animate-delay-[4000ms]'; //'animate-delay-[8500ms]' for actual HomeNew
+      case '/':                  return 'animate-delay-[500ms]';
       case '/order':             return 'animate-delay-[8500ms]';
       case '/contact':           return 'animate-delay-[500ms]';
       
       default:                   return '';
     }
   };
-
   const delay = getDelayClass(page);
 
+
   return (
-    <div class={`flex z-30 w-full h-5 py-5 items-center justify-center overflow-hidden border-b-[0.5px] border-black bg-white animate-flip-up ${delay}`}>
+    <div
+      className={`w-full py-4 flex items-center overflow-hidden
+                  border-b-[0.5px] border-black bg-white
+                  animate-flip-up ${delay}`}
+    >
       <div
-        ref={track}
-        class="flex items-center justify-center whitespace-nowrap animate-ticker"
+        ref={trackRef}
+        className={`flex whitespace-nowrap animate-ticker`}
         style={{
-          animationDuration: `${dur}s`,
-          animationDelay:    `${delay}ms`,
+          animationPlayState: dur ? 'running' : 'paused', // wait for proper dur
+          animationDuration : dur ? `${dur}s` : undefined,
+          animationDelay    : `${delay}ms`,
         }}
       >
-        <TickerText />
+        <TickerText ref={textRef} />
         <TickerText />
       </div>
     </div>
@@ -48,13 +74,21 @@ const Ticker = () => {
 
 export default Ticker;
 
-/* ——— ticker payload ——— */
-const TickerText = () => (
-  <span className="px-8 text-[11px] leading-3 sm:text-xs sm:leading-normal font-mono uppercase text-black">
-    Breaking News from&nbsp;
-    <span className="text-cowjuice-gold border border-cowjuice-gold font-bold rounded-sm px-[2px]">Moo-land</span>:&nbsp;
-    Cow Juice Inc. pioneers an <span className="border-[0.5px] border-cowjuice-red text-cowjuice-red rounded-sm px-[2px] font-bold">ultra-retorted™</span> revolution: the world’s first can of milk.
-    • Critics exclaim: "The most <span className="border-[0.5px] border-cowjuice-red text-cowjuice-red rounded-sm px-[2px] font-bold">retorted</span> milk in history!"
-    • Join the retort revolution: Follow <a href="https://www.tiktok.com/@juiceofacow/video/7445486726266490142" target="blank" class="border-[0.5px] border-cowjuice-gold text-cowjuice-gold rounded-sm px-[2px] font-bold lowercase">@juiceofacow</a> on TikTok →
+/* ——— the scrolling payload ——— */
+const TickerText = React.forwardRef((props, ref) => (
+  <span ref={ref} class="px-8 text-[11px] leading-3 sm:text-xs sm:leading-normal font-mono uppercase">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Breaking News from <span className="text-cowjuice-gold border border-cowjuice-gold font-bold rounded-sm px-[2px]">Moo-land</span>:
+    Cow Juice pioneers the <span className="border-[0.5px] border-cowjuice-red text-cowjuice-red rounded-sm px-[2px] font-bold">ultra-retort™</span> revolution – the world’s first can of milk.
+    {/* • Critics exclaim: “The most <span className="border-[0.5px] border-cowjuice-red text-cowjuice-red rounded-sm px-[2px] font-bold">retorted</span> milk in history!” */}
+    &nbsp;• Follow&nbsp;
+    <a
+      href="https://www.tiktok.com/@juiceofacow"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="border-[0.5px] border-cowjuice-gold rounded-sm px-[2px] font-bold lowercase text-cowjuice-gold"
+    >
+      @juiceofacow
+    </a>
+    &nbsp;on TikTok →
   </span>
-);
+));

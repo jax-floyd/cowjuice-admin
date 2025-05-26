@@ -9,21 +9,17 @@ import Ticker         from "./components/Ticker";
 import Header         from "./components/Header";
 import Footer         from "./components/Footer";
 
-import Interstitial   from "./pages/Interstitial";
 import Transitory     from "./pages/Transitory";
 
-import Retort         from "./components/Retort";
+import Revolution     from "./components/Revolution";
+import CowJuice       from "./components/CowJuice";
 
 import Scroller       from "./pages/Scroller";
 import Error          from "./pages/Error";
-import Home           from "./pages/Home";
-// import Preorder       from "./pages/Preorder";
-// import Thanks         from "./pages/Thanks";
-// import Welcome        from "./pages/Welcome";
+
 import HomeNew          from "./pages/HomeNew";
-// import Products       from "./pages/Products";
-// import ProductDetails from "./pages/ProductDetails";
-// import Bag            from "./pages/Bag";
+
+import Retorted         from "./pages/Retorted";
 import Press          from "./pages/Press";
 import Questions      from "./pages/Questions";
 import Contact        from "./pages/Contact";
@@ -32,7 +28,7 @@ import QR             from "./pages/QR";
 
 /* Checkout */
 import ContactEntry        from "./pages/checkouts/ContactEntry";
-import Payment from "./pages/checkouts/Payment";
+import Payment             from "./pages/checkouts/Payment";
 
 // import Status         from "./pages/orders/Status";
 
@@ -65,7 +61,7 @@ const App = () => (
                 </div>
               }
             />
-            <Route
+            {/* <Route
               path="/"
               element={
                 <div class="flex flex-col min-h-screen p-0">
@@ -75,36 +71,51 @@ const App = () => (
                   <Footer />
                 </div>
               }
-            />
+            /> */}
 
             {/* ---------- storefront ---------- */}
-            {/* <Route
+            <Route
               path="/"
               element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                <div class="flex flex-col min-h-screen p-0">
+                  <Ticker />
                   <Header />
+                  <CowJuice />
                   <HomeNew />
-                  <Retort />
+                  <Retorted />
+                  <Revolution />
                   <Footer />
                 </div>
               }
-            /> */}
+            />
 
             {/* ---------- static ---------- */}
-            {/* <Route
+            <Route
+              path="/ultra-retorted-milk"
+              element={
+                <div class="flex flex-col min-h-screen p-0">
+                  <Ticker />
+                  <Header />
+                  <Retorted />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route
               path="/press"
               element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                <div class="flex flex-col min-h-screen p-0">
+                  <Ticker />
                   <Header />
                   <Press />
                   <Footer />
                 </div>
               }
-            /> */}
+            />
             <Route
               path="/questions"
               element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                <div class="flex flex-col min-h-screen p-0">
                   <Ticker />
                   <Header />
                   <Questions />
@@ -133,10 +144,10 @@ const App = () => (
             />
 
             {/* ---------- checkout, payment handling ---------- */}
-            {/* <Route 
+            <Route 
               path={`/checkouts/:checkoutId/contact-entry/:consumptionCharacterization`}
               element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                <div class="flex flex-col min-h-screen p-0">
                   <Header />
                   <ContactEntry />
                   <Footer />
@@ -146,19 +157,19 @@ const App = () => (
             <Route 
               path="/checkouts/:checkoutId/payment/:paymentId"
               element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                <div class="flex flex-col min-h-screen p-0">
                   <Header />
                   <Payment />
                   <Footer />
                 </div>
               }
-            /> */}
+            />
 
             {/* ---------- order, post-payment handling ---------- */}
-            {/* <Route
+            <Route
               path="/orders/:orderId/confirmation"
               element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                <div class="flex flex-col min-h-screen p-0">
                   <Header />
                   <Confirmation />
                   <Footer />
@@ -168,19 +179,19 @@ const App = () => (
             <Route 
               path="/orders/status/:confirmationNumber?"
               element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                <div class="flex flex-col min-h-screen p-0">
                   <Header />
                   <Status />
                   <Footer />
                 </div>
               }
-            /> */}
+            />
 
             {/* ---------- the beginning of the shopify transition, perhaps ---------- */}
-            {/* <Route 
+            <Route 
               path="/shopify/products"
               element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                <div class="flex flex-col min-h-screen p-0">
                   <Header />
                   <Products />
                   <Footer />
@@ -190,7 +201,7 @@ const App = () => (
             <Route 
               path="/shopify/products/:productId"
               element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                <div class="flex flex-col min-h-screen p-0">
                   <Header />
                   <ProductDetails />
                   <Footer />
@@ -200,19 +211,19 @@ const App = () => (
             <Route 
               path="/shopify/bag"
               element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                <div class="flex flex-col min-h-screen p-0">
                   <Header />
                   <Bag />
                   <Footer />
                 </div>
               }
-            /> */}
+            />
 
             {/* ---------- internal Cow Juice Inc. control portal ---------- */}
-            {/* <Route 
+            <Route 
               path="/beta/private/cow-juice-mans-super-secret-internal-control-panel/login"
               element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                <div class="flex flex-col min-h-screen p-0">
                   <Header />
                   <Login />
                   <Footer />
@@ -222,13 +233,13 @@ const App = () => (
             <Route 
               path="/beta/private/cow-juice-mans-super-secret-internal-control-panel/portal"
               element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
+                <div class="flex flex-col min-h-screen p-0">
                   <Header />
                   <Panel />
                   <Footer />
                 </div>
               }
-            /> */}
+            />
 
           </Routes>
         </div>
