@@ -1,29 +1,35 @@
-// App.js
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { MasterContextProvider }   from "./contexts/MasterContext";
 import { AnalyticsContextProvider } from "./contexts/AnalyticsContext";
 
+/* Master Components */
 import Ticker         from "./components/Ticker";
 import Header         from "./components/Header";
 import Footer         from "./components/Footer";
 
-import Transitory     from "./pages/Transitory";
+// import Transitory     from "./pages/Transitory";
 
-import Revolution     from "./components/Revolution";
+/* Components */
+import Revolution     from "./pages/Revolution";
 import CowJuice       from "./components/CowJuice";
 
+/* Helpers */
 import Scroller       from "./pages/Scroller";
 import Error          from "./pages/Error";
 
-import HomeNew          from "./pages/HomeNew";
+import HomeNew        from "./pages/HomeNew";
 
-import Retorted         from "./pages/Retorted";
+/* Static */
+import Retorted       from "./pages/Retorted";
 import Press          from "./pages/Press";
 import Questions      from "./pages/Questions";
 import Contact        from "./pages/Contact";
 import QR             from "./pages/QR";
+
+/* Legal */
+import Terms          from "./pages/legal/Terms";   
 
 
 /* Checkout */
@@ -39,6 +45,8 @@ import Bag             from "./pages/shopify/Bag";
 /* Orders i.e., post-payment, order-placement handling */
 import Confirmation from "./pages/orders/Confirmation";
 import Status       from "./pages/orders/Status";
+
+import Reviews      from "./pages/Reviews";
 
 /* Internal Cow Juice Inc. Control Panel */
 import Login from "./pages/portal/Login";
@@ -83,6 +91,7 @@ const App = () => (
                   <CowJuice />
                   <HomeNew />
                   <Retorted />
+                  <Questions />
                   <Revolution />
                   <Footer />
                 </div>
@@ -97,6 +106,17 @@ const App = () => (
                   <Ticker />
                   <Header />
                   <Retorted />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route
+              path="/the-revolution-of-cow-juice"
+              element={
+                <div class="flex flex-col min-h-screen p-0">
+                  <Ticker />
+                  <Header />
+                  <Revolution />
                   <Footer />
                 </div>
               }
@@ -187,7 +207,7 @@ const App = () => (
               }
             />
 
-            {/* ---------- the beginning of the shopify transition, perhaps ---------- */}
+            {/* ---------- shopify reliant pages (i.e., our custom built shopify store) ---------- */}
             <Route 
               path="/shopify/products"
               element={
@@ -236,6 +256,30 @@ const App = () => (
                 <div class="flex flex-col min-h-screen p-0">
                   <Header />
                   <Panel />
+                  <Footer />
+                </div>
+              }
+            />
+
+            <Route 
+              path="/beta/reviews"
+              element={
+                <div class="flex flex-col min-h-screen p-0">
+                  <Ticker />
+                  <Header />
+                  <Reviews />
+                  <Footer />
+                </div>
+              }
+            />
+
+            <Route 
+              path="/legal/terms-and-conditions"
+              element={
+                <div class="flex flex-col min-h-screen p-0">
+                  <Ticker />
+                  <Header />
+                  <Terms />
                   <Footer />
                 </div>
               }

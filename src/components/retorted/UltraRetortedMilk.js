@@ -72,7 +72,7 @@ const UltraRetortedMilk = ({ onUnlock }) => {
             </div>
             
             <p className="font-mono text-[10px] leading-3 uppercase text-left">
-              Below are the three (3) most commonly asked questions about the <span class="text-cowjuice-red border-[0.5px] border-cowjuice-red rounded-sm px-[2px]">Retortation</span> of dairy. The answers will help to satisfy your concerns, thought of course not nearly to the extent as would buying the actual Cow Juice.
+              Below are the three (3) most commonly asked questions about the <span class="text-cowjuice-red border-[0.5px] border-cowjuice-red rounded-sm px-[2px]">Retortation</span> of dairy. The answers will help to satisfy your concerns, though of course not nearly to the extent as would buying the actual Cow Juice.
             </p>
           </div>
           {/* FAQ list */}
@@ -116,7 +116,7 @@ const UltraRetortedMilk = ({ onUnlock }) => {
               </svg>
             ) : (
               <>
-                {status === 'success' ? 'Welcome!' : 'Buy Ultra-Retorted Milk'}
+                {status === 'success' ? 'Welcome!' : 'Join the Private Beta Program'}
               </>
             )}
           </button>
@@ -132,7 +132,7 @@ const UltraRetortedMilk = ({ onUnlock }) => {
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
             ) : (
-              <>Read all the FAQs</>
+              <>Read the FAQs</>
             )}
           </button>
           {/* Footnotes */}

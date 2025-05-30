@@ -101,7 +101,7 @@ const Status = () => {
         <p className="font-mono w-full text-left text-xs uppercase font-bold animate-flip-down">
           Check the status of your Cow Juice order.
         </p>
-        <p className="font-mono w-full text-left text-xs animate-flip-up">
+        <p className="font-mono uppercase w-full text-left text-xs animate-flip-up">
           Enter the email or confirmation number associated with your purchase(s) of the world's first can of milk.
         </p>
 
@@ -146,7 +146,7 @@ const Status = () => {
                   />
                 </svg>
               )}
-              <span>Find my Cow Juice</span>
+              <span class="uppercase">Find my Cow Juice</span>
             </button>
           </div>
         </div>

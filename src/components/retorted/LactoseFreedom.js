@@ -160,7 +160,7 @@ const LactoseFreedom = ({ onUnlock }) => {
                 />
               </svg>
             ) : (
-              <p class="inline-flex"><span class="text-cowjuice-red border-[0.5px] border-cowjuice-red font-light rounded-sm px-[2px]">Embrace</span>&nbsp;<span class="text-cowjuice-blue border-[0.5px] border-cowjuice-blue font-light rounded-sm px-[2px]">Liberty</span><div class="flex sm:hidden px-2"><AmericanFlag /></div></p>
+              <p class="inline-flex"><span class="text-cowjuice-red border-[0.5px] border-cowjuice-red font-light rounded-sm px-[2px]">Embrace</span>&nbsp;<span class="text-cowjuice-blue border-[0.5px] border-cowjuice-blue font-light rounded-sm px-[2px]">Liberty</span><div class="flex sm:hidden px-2"><AmericanFlag /></div>&nbsp;| Join the Beta</p>
             )}
           </button>
           <button
@@ -169,7 +169,7 @@ const LactoseFreedom = ({ onUnlock }) => {
               .filter(Boolean)
               .join(' ')}
           >
-              Read all the FAQs
+              Read the FAQs
           </button>
         </div>
       </form>

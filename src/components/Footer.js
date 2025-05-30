@@ -84,7 +84,7 @@ const Footer = () => {
                     </div>
 
                     {/* ── Center: Nav links ──────────────────────────── */}
-                    <nav className="flex  flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 items-end font-bold uppercase">
+                    <nav className="flex sm:hidden flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 items-end font-bold uppercase">
                         {[
                         { name: 'Home', href: '/', delay: 'animate-delay-[250ms] sm:animate-delay-[750ms]' },
                         { name: 'Press', href: '/press', delay: 'animate-delay-[375ms] sm:animate-delay-[875ms]' },
@@ -92,7 +92,8 @@ const Footer = () => {
                         { name: 'Retort', href: '/ultra-retorted-milk', delay: 'animate-delay-[625ms] sm:animate-delay-[1125ms]' },
                         { name: 'FAQ', href: '/questions', delay: 'animate-delay-[750ms] sm:animate-delay-[1350ms]' },
                         { name: 'Orders', href: '/orders/status', delay: 'animate-delay-[800ms] sm:animate-delay-[1500ms]' },
-                        { name: 'Contact', href: '/contact', delay: 'animate-delay-[1000ms] sm:animate-delay-[1650ms]' },
+                        { name: 'Reviews', href: '/beta/reviews', delay: 'animate-delay-[1000ms] sm:animate-delay-[1650ms]' },
+                        { name: 'Contact', href: '/contact', delay: 'animate-delay-[1250ms] sm:animate-delay-[1775ms]' },
                         ].map((link) => (
                         <a
                             key={link.name}
@@ -107,7 +108,7 @@ const Footer = () => {
                     {/* ── Right: Legal blurb ─────────────────────────── */}
                     <div className="flex w-full sm:w-1/4 flex-col items-end text-right sm:items-end leading-tight space-y-2">
                         <span className={anim("text-[11px] sm:text-[10px] font-mono uppercase font-bold animate-fade-left sm:animate-fade-down animate-delay-[1000ms] sm:animate-delay-[1000ms]")}>
-                            Ultra‑Retort™, Retortation™, and Cow Juice™ are trademarks of Cow Juice Inc. Dare to rip these and you will be juiced.
+                            Ultra‑Retort™, Retortation™, and Cow Juice™ are trademarks of Cow Juice Inc. Dare to rip them and you will be juiced.
                         </span>
                         <span className={anim("text-[11px] sm:text-[10px] font-mono text-white uppercase font-bold animate-fade-left sm:animate-fade-down animate-delay-[1125ms] sm:animate-delay-[1125ms]")}>
                             One Question Remains: Got Cow Juice?
@@ -161,7 +162,7 @@ const Footer = () => {
             {/* ── Footer Bottom Links ─────────────────────────────────── */}
             <div className={anim("flex w-full flex-col sm:flex-row items-center justify-start sm:justify-between mx-auto max-w-6xl border-t-[0.5px] border-white pt-6 mt-6 text-center uppercase font-light text-[11px] sm:text-[10px] font-mono space-x-0 space-y-4 sm:space-x-4 sm:space-y-0 animate-fade animate-delay-[2200ms]")}>
                 <div class={anim("flex w-full flex-row items-center justify-center sm:justify-start space-x-2 animate-flip-down animate-delay-[2200ms]")}>
-                    <a href="/terms" className="cursor-pointer px-[2px] rounded-sm hover:text-black hover:bg-white transition-all duration-300">
+                    <a href="/legal/terms-and-conditions" className="cursor-pointer px-[2px] rounded-sm hover:text-black hover:bg-white transition-all duration-300">
                         Terms
                     </a>
                     <span>|</span>

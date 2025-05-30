@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+import { useLocation } from 'react-router-dom';
+
 /* Import the modals for each card */
 import UltraRetortedMilk from '../components/retorted/UltraRetortedMilk'; 
 import LactoseFreedom from '../components/retorted/LactoseFreedom';
@@ -12,6 +14,8 @@ import ProteinRevolution from '../components/retorted/ProteinRevolution';
  */
 
 const Retorted = () => {
+
+    const location = useLocation();
 
     const retortedRef = useRef(null);
     const [visible, setVisible] = useState(false);   // ← fire once
@@ -86,7 +90,8 @@ const Retorted = () => {
             ) : (
                 <></>
             )}
-            <div ref={retortedRef} className={anim("inset-0 bg-cowjuice-gold/10 flex flex-1 flex-row items-start justify-center h-screen pt-12 px-6 pb-6 w-full border-b-[0.5px] border-black overflow-hidden transition-all duration-1000")}>
+
+            <div ref={retortedRef} className={anim(`inset-0 bg-cowjuice-gold/10 flex flex-1 flex-row items-start justify-center min-h-screen pt-12 px-6 pb-6 w-full  ${window.location.pathname == '/' ? 'border-y-[0.5px]' : 'border-b-[0.5px]'} border-black overflow-hidden transition-all duration-1000`)}>
                 <div className="flex flex-1  flex-col items-start justify-between max-w-6xl mx-auto w-full h-full space-y-16">
                     <div class="flex w-full flex-1 h-full justify-between items-between flex-col space-y-4">
                         <div className="flex relative w-full">
@@ -131,7 +136,7 @@ const Retorted = () => {
                                 <button onClick={() => setModal('caramelized_incarnation')} class={anim("flex flex-col w-full sm:w-1/2 rotate-[3deg] py-4 px-2 bg-white border-[0.5px] border-black rounded-lg animate-fade animate-delay-[600ms] hover:bg-zinc-100 transition-colors duration-300 cursor-pointer")}>
                                     {/* Page intro */}
                                     <div className="w-full flex flex-col items-start justify-center font-mono  uppercase rounded-sm border-black dark:bg-white dark:border-white dark:text-black animate-flip-down space-y-1">
-                                        <span class="font-bold text-[12px] leading-3">The <span class="text-cowjuice-bronze border-[0.5px] border-cowjuice-bronze rounded-sm px-[2px]">Caramelized</span> Incarnation of Moo Juice™</span>
+                                        <span class="font-bold text-[12px] leading-3">The <span class="text-cowjuice-bronze border-[0.5px] border-cowjuice-bronze rounded-sm px-[2px]">Caramelized</span> Incarnation of Moo Nectar™</span>
                                         <p class="text-left text-[10px] leading-3">Retortation has imparted into these glorious cans of Cow Juice a degree of caramelization heretofor thought unimaginable in the minds of dairy industry experts and milk enthusiasts alike. Ultra-Retorted Milk bears the flavor-sophistication reminiscent of what one might plausibly expect if milk were to board a red-eye to Paris, plop its juicy-self down in a cafe on the River Seine, and emerge the Francophilian nightmare the American Dairy Cow has feared all along.<sup>[2]</sup></p>
                                     </div>
                                 </button>
@@ -150,7 +155,7 @@ const Retorted = () => {
                     </div>
                     <div class="flex w-full items-center justify-end">
                         <div class="flex w-full sm:w-1/2 border-[0.5px] rounded-sm border-black py-4 px-4 h-full flex-col items-center justify-center sm:items-start space-y-2 animate-fade animate-delay-[1050ms]">
-                            <p class="text-xs font-mono uppercase">We hereby humbly submit, with the evidence of the reasons above, that Cow Juice and Ultra-Retorted Milk will not just change the world, not just change this cosmic sphere commonly known as planet milk, but will in fact alter the fundamental nature and character of the galaxy itself - by, naturally, ripping a whole in the space-time continuum as large as the Cow itself - and thereby rename this galaxy we call home: <span class="text-cowjuice-bronze border-[0.5px] border-cowjuice-bronze px-[2px] rounded-sm font-bold">The cow juicy way</span>.<span class="inline-flex ml-2 h-2.5 w-2.5 bg-cowjuice-bronze"></span></p>
+                            <p class="text-xs font-mono uppercase">We hereby submit, with the evidence of the reasons above, that Cow Juice and Ultra-Retorted Milk will not just change the world, not just change this cosmic sphere commonly known as planet milk, but will in fact alter the fundamental nature and character of the galaxy itself<sup>[3]</sup> with the principal result that it henceforth be known: <span class="text-cowjuice-bronze border-[0.5px] border-cowjuice-bronze px-[2px] rounded-sm font-bold">The cow juicy way</span>.<span class="inline-flex ml-2 h-2.5 w-2.5 bg-cowjuice-bronze"></span></p>
                         </div>
                     </div>
                     
@@ -158,7 +163,6 @@ const Retorted = () => {
                     <div class="flex flex-1 w-full sm:w-1/2 border-t-[0.5px] border-black pt-4 h-full flex-col items-center justify-center sm:items-start space-y-2 animate-fade animate-delay-[1050ms]">
                         <p class="text-[10px] font-mono uppercase opacity-60 leading-3"><sup>[1]</sup> One may be inspired to recall the words of another great American: "Free at last, free at last, thank god almightly milk is free at last!"</p>
                         <p class="text-[10px] font-mono uppercase opacity-60 leading-3"><sup>[2]</sup> Lest anyone doubt: Cow Juice is proudly made in America, with the juice of American Dairy Cows.</p>
-                        <p class="text-[10px] font-mono uppercase opacity-60 leading-3"><sup>[3]</sup> Cow Juice boasts the most natural 1.1 grams of protein per fluid oz on earth, free of any and all additives, stabilizers, emulsifiers, and other unpronounceable ingredients.</p>
                     </div>
                 </div>
             </div>

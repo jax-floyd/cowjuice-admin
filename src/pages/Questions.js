@@ -1,12 +1,34 @@
-import React from "react";
-
-import faq_mark from '../assets/faq_mark.svg';
+import React, { useState, useEffect, useRef } from "react";
 
 /**
  * FAQ – Frequently Asked Questions about Cow Juice’s Ultra‑Retorted Milk™
  * Matches the zany, typographic, animated UI used across the site.
  */
 const Questions = () => {
+
+    const questionsRef = useRef(null);
+    const [visible, setVisible] = useState(false);   // ← fire once
+
+    /* When 30 % of container is visible, flip `visible` to true */
+    useEffect(() => {
+        const el = questionsRef.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) {
+                setVisible(true);
+                observer.disconnect();          // run only once
+            }
+        },
+        { threshold: 0.30 }                 // tweak as you like
+        );
+
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+
+    const anim = (cls) => (visible ? cls : 'opacity-0');   // or 'animate-none'
 
     const questions = [
         {
@@ -87,32 +109,32 @@ const Questions = () => {
     ];
     
     return (
-        <div className="inset-0 flex flex-row items-start justify-center flex-1 min-h-screen pt-12 px-6 pb-6 w-full h-full overflow-hidden">
+        <div ref={questionsRef} className="inset-0 flex flex-row items-start justify-center flex-1 min-h-screen pt-12 px-6 pb-6 w-full h-full overflow-hidden">
             <div className="flex flex-1 max-w-6xl mx-auto w-full h-full">
                 {/* ── 3‑col grid on lg+, stacked on sm ─────────────────────────────── */}
-                <div className="flex flex-col-reverse sm:grid gap-8 sm:grid-cols-3 h-full items-start justify-center animate-fade">
+                <div className={anim("flex flex-col-reverse sm:grid gap-8 sm:grid-cols-3 h-full items-start justify-center animate-fade")}>
                     {/* ─── Right‑hand Footnotes panel (md+) ─────────────────────────── */}
-                    <div className="flex flex-col flex-1 w-full h-full border-[0.5px] border-black rounded-sm items-start justify-between space-y-2 p-2 sm:p-4 animate-fade-up sm:animate-fade-left">
+                    <div className={anim("flex flex-col flex-1 w-full h-full border-[0.5px] border-black rounded-sm items-start justify-between space-y-2 p-2 sm:p-4 animate-fade-up sm:animate-fade-left")}>
                         <div className="flex flex-1 flex-col items-start w-full space-y-1 opacity-60">
-                            <p className="text-[10px] leading-3 font-mono uppercase font-bold text-left animate-flip-down animate-delay-[250ms]">
+                            <p className={anim("text-[10px] leading-3 font-mono uppercase font-bold text-left animate-flip-down animate-delay-[250ms]")}>
                                 A necessary novella of footnotes and legalese, because Ultra‑Retortation™ is too glorious for a single asterisk.
                             </p>
-                            <p className="p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[375ms]">
+                            <p className={anim("p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[375ms]")}>
                                 <sup>[1]</sup> Ultra‑Retorted Milk™ ships happily unrefrigerated but lives its best life chilled — like your ex, but sweeter.
                             </p>
-                            <p className="p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[500ms]">
+                            <p className={anim("p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[500ms]")}>
                                 <sup>[2]</sup> Lactose‑Freedom™ achieved via the almighty lactase enzyme. Your stomach may now rejoice in polyphonic harmony.
                             </p>
-                            <p className="p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[625ms]">
+                            <p className={anim("p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[625ms]")}>
                                 <sup>[3]</sup> Aluminum cans are infinitely recyclable; please don’t turn them into pencil holders unless you recycle the pencil holder later.
                             </p>
-                            <p className="p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[750ms]">
+                            <p className={anim("p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[750ms]")}>
                                 <sup>[4]</sup> Contains: Milk (obviously). Not suitable for those who think almond “milk” counts as real milk.
                             </p>
-                            <p className="p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[750ms]">
+                            <p className={anim("p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[750ms]")}>
                                 <sup>[5]</sup> In the words of a great American: "Free at last, Free at last, Thank God almightly Cow Juice is lactose-free at last!"
                             </p>
-                            <p className="p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[750ms]">
+                            <p className={anim("p-1 text-[10px] leading-3 uppercase font-mono text-left w-full inline border-[0.5px] border-transparent hover:bg-neutral-100 hover:border-black transition-colors duration-300 cursor-default rounded-md animate-flip-down animate-delay-[750ms]")}>
                                 <sup>[6]</sup> In the words of another: "Give me liberty — or give me lactose."
                             </p>
                         </div>
@@ -122,7 +144,7 @@ const Questions = () => {
                     </div>
 
                     {/* ─── Main FAQ content (spans 2 cols on lg+) ────────────────────── */}
-                    <div className="flex flex-col col-span-2 justify-start items-center space-y-4 w-full animate-fade">
+                    <div className={anim("flex flex-col col-span-2 justify-start items-center space-y-4 w-full animate-fade")}>
                         {/* On-brand H1 Equiv. */}
                         <div class="flex w-full justify-start">
                             <svg class="flex w-full sm:w-3/4" id="Layer_2" data-name="Layer 2" viewBox="0 0 136.43 116.29">
@@ -137,7 +159,7 @@ const Questions = () => {
                         </div>
 
                         {/* Page intro */}
-                        <p className="w-full font-mono text-xs font-bold uppercase rounded-sm border-black dark:bg-white dark:border-white dark:text-black animate-flip-down">
+                        <p className={anim("w-full font-mono text-xs font-bold uppercase rounded-sm border-black dark:bg-white dark:border-white dark:text-black animate-flip-down")}>
                             Everything you'll ever need to know about the juice of a cow — and a good bit you won't.
                         </p>
 
@@ -146,14 +168,14 @@ const Questions = () => {
                             {questions.map((item, idx) => (
                                 <details
                                     key={idx}
-                                    className={`group border-[0.5px] border-black rounded-sm w-full animate-flip-down animate-delay-[${item.delay}]`}
+                                    className={anim(`group border-[0.5px] border-black rounded-sm w-full animate-flip-down animate-delay-[${item.delay}]`)}
                                 >
                                     <summary className="cursor-pointer font-mono text-xs uppercase font-bold flex flex-1 w-full h-full px-2 py-4 justify-between items-center">
                                         <p class="flex w-full items-start">{item.q}</p>
                                         <span className="transition-transform duration-300 group-open:rotate-45">＋</span>
                                     </summary>
                                     <div class="flex w-full border-t-[0.5px] border-black px-2 " />
-                                    <p className="mt-2 font-mono text-[11px] px-2 pb-2 leading-3 sm:text-xs sm:leading-normal uppercase animate-flip-down">
+                                    <p className={anim("mt-2 font-mono text-[11px] px-2 pb-2 leading-3 sm:text-xs sm:leading-normal uppercase animate-flip-down")}>
                                         {item.a}
                                     </p>
                                 </details>

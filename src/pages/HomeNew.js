@@ -79,15 +79,13 @@ const HomeNew = () => {
     const anim = (cls) => (visible ? cls : 'opacity-0');   // or 'animate-none'
 
     return (
-      <div ref={homeRef} className={anim("inset-0 flex flex-1 flex-col min-h-screen max-w-6xl mx-auto px-6 xl:px-0 pb-6 pt-6 border-b-[0.5px] border-black w-full h-full overflow-hidden")}>
-        <div className={anim("flex flex-1 flex-col sm:flex-row sm:space-x-16 items-start justify-start space-y-4 sm:space-y-0 w-full")}>
+      <div ref={homeRef} className={anim("inset-0 flex flex-1 flex-col w-full min-h-screen max-w-6xl mx-auto px-6 xl:px-0 pb-12 pt-6 overflow-hidden")}>
+        <div className={anim("flex flex-col sm:flex-row sm:space-x-16 items-start justify-start space-y-4 sm:space-y-0 w-full h-full")}>
               <div class="flex flex-row w-full h-full items-start justify-center space-x-2">
-                <div class="relative flex w-full items-center justify-start">
-                  <div class={anim(`absolute inset-0 bg-white animate-flip-down`)}>
+                <div class="flex w-full items-center justify-start">
+                  {/* <div class={anim(`absolute inset-0 bg-white animate-flip-down`)}>
                     <div class={anim(`absolute inset-0 bg-white ${!typingComplete ? 'opacity-100' : 'opacity-0'} transition-opacity duration-[2000ms]`)}>
-                      {/* <div class="absolute inset-0 bg-white border-[0.5px] border-black z-10" /> */}
                       <div class="flex w-1/2">
-                          {/* The actual logo's SVG */}
                           <svg class="w-full h-full text-cowjuice-black z-20" id="Layer_2" data-name="Layer 2" viewBox="0 0 119.06 300.64">
                               <g id="Layer_1-2" data-name="Layer 1">
                                   <g>
@@ -106,7 +104,7 @@ const HomeNew = () => {
                           </svg>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div 
                       className={anim(`relative flex-1 h-full w-full rounded-sm overflow-hidden ${!typingComplete ? 'opacity-0' : ' opacity-100 border-[0.5px] border-black'} transition-opacity duration-[2000ms] select-none`)}
@@ -157,15 +155,11 @@ const HomeNew = () => {
                           ))}
                       </div>
                   </div>
-                  
                 </div>
-                {/* <div class="hidden sm:flex w-full flex-row space-x-2 h-full">
-                  <img src={mockup_3} alt="Cow Juice Mockup" className="w-full h-full animate-fade-up animate-delay-[1650ms] mb-4 rounded-sm select-none" />
-                </div> */}
               </div>
               
-              <div class={anim("flex flex-col w-full h-full items-center justify-start space-y-4")}>
-                <div class={anim(`flex flex-col space-y-2 w-full animate-fade animate-delay-500`)}>
+              <div className={anim("flex flex-col w-full h-full items-center justify-start space-y-4")}>
+                <div class={anim(`flex flex-col border-[0.5px] border-black bg-white rounded-sm p-2 space-y-2 w-full animate-fade animate-delay-500`)}>
                     <p class="w-full font-mono uppercase font-bold text-xs text-left">
                       <Typewriter
                         options={{
@@ -185,48 +179,8 @@ const HomeNew = () => {
                       />
                     </p>
                     {readyForNextTyping && (
-                      <div class="flex flex-col w-auto items-start justify-start mt-2 space-y-2 bg-white text-[10px] sm:text-xs leading-3 sm:leading-normal uppercase font-mono">
-                        {/* <p class="flex flex-col space-y-1 text-left bg-white rounded-md border-[0.5px] border-black text-black p-1 animate-flip-down animate-delay-[375ms]">
-                          <Typewriter
-                            options={{
-                              delay: 30,
-                              cursor: '',
-                              autoStart: true,
-                            }}
-                            onInit={(typewriter) => {
-                              typewriter
-                                .pauseFor(750)
-                                .typeString("This milk is <span class='text-cowjuice-red border-[0.5px] border-cowjuice-red rounded-sm px-[2px]'>retorted</span>. ")
-                                .pauseFor(375)
-                                // .typeString("Retortation™ is a our proprietary pasteurization process which caramelizes milk to create a naturally sweeter, lactose-free can of cow juice.<sup>[1]</sup>")
-                                .callFunction(() => {
-                                  setFirstTypingComplete(true);
-                                })
-                                .start();
-                            }}
-                          />
-                        </p> */}
-                        {/* {firstTypingComplete && (
-                          <p class="flex flex-col space-y-1 text-left bg-white rounded-md border-[0.5px] border-black text-black p-1 animate-flip-down animate-delay-[375ms]">
-                            <Typewriter
-                              options={{
-                                delay: 30,
-                                cursor: '',
-                                autoStart: true,
-                              }}
-                              onInit={(typewriter) => {
-                                typewriter
-                                  .pauseFor(250)
-                                  .typeString("<span class='text-cowjuice-red border-[0.5px] border-cowjuice-red rounded-sm px-[2px]'>Ultra-Retortation™</span> Def. (1a): The revolutionary pasteurization process which caramelizes milk to create an ever-so-slightly sweeter, butterscotchy can of lactose-free cow juice.<sup>[1]</sup>")
-                                  .callFunction(() => {
-                                    setTypingComplete(true);
-                                  })
-                                  .start();
-                              }}
-                            />
-                          </p>
-                        )} */}
-                        <div class={anim("flex flex-col space-y-1 text-left bg-white rounded-md border-[0.5px] border-black text-black p-1 animate-flip-up animate-delay-[375ms]")}>
+                      <div class="flex flex-col w-auto items-start justify-start mt-2 space-y-2 text-[10px] sm:text-xs leading-3 sm:leading-normal uppercase font-mono">
+                        <div class={anim("flex flex-col space-y-1 text-left bg-transparent rounded-sm border-[0.5px] border-black text-black p-1 animate-flip-up animate-delay-[375ms]")}>
                           <p class="sm:text-[11px] leading-3 font-mono text-black font-bold ">Ultra-Retorted Milk™, Def. (1a):</p>
                           <p class="sm:text-[11px] leading-3">The revolutionary pasteurization process which caramelizes milk to create an ever-so-slightly sweeter, butterscotchy can of lactose-free cow juice.<sup>[1]</sup></p>
                         </div>
@@ -245,7 +199,7 @@ const HomeNew = () => {
                         <p class="font-bold text-xs font-mono uppercase">Order Cow Juice — Available in Private Beta<sup>[2]</sup></p>
                       </button>
                       <button
-                        onClick={() => window.location.href = '/questions'} 
+                        onClick={() => window.location.href = '/ultra-retorted-milk'} 
                         class={anim("flex w-full p-2 sm:p-4 rounded-sm bg-white text-black hover:bg-neutral-200 border-[0.5px] border-black animate-flip-down animate-delay-[250ms] transition-colors duration-500")}
                       >
                         <p class="font-bold text-xs font-mono uppercase">Explore <span class="text-cowjuice-red border-cowjuice-red border-[0.5px] rounded-sm px-[2px]">retortation™</span></p>

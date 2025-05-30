@@ -6,7 +6,6 @@ import { useMasterContext } from '../contexts/MasterContext';
 const Header = () => {
   const navigate = useNavigate();
   const [page]           = useState(window.location.pathname);
-  const { bag }          = useMasterContext();
 
   /* Your existing delay logic, unchanged  */
   const getDelayClass = (pathname) => {
@@ -40,6 +39,23 @@ const Header = () => {
     setShowMenu(false);
     navigate(page);
   };
+
+  const internalLinks = [
+    { label: 'Home',                 path: '/' },
+    { label: 'Buy Cow Juice',        path: '/shopify/products' },
+    { label: 'Read the Reviews',    path: '/beta/reviews' },
+    { label: 'Ultra-Retorted Milk',  path: '/ultra-retorted-milk' },
+    { label: 'Retortation Press Release',    path: '/press' },
+    { label: 'The Revolution of Cow Juice',    path: '/the-revolution-of-cow-juice' },
+    { label: 'Frequently Asked Questions',                 path: '/questions' },
+    { label: 'Check Order Status',         path: '/orders/status' },
+    { label: 'Contact Cow Juice',    path: '/contact' },
+  ];
+
+  const externalLinks = [
+    { label: "Watch the cow get juiced →", href: "https://tiktok.com/@juiceofacow" },
+    { label: "Cows aren’t milked—they’re juiced →", href: "https://tiktok.com/@juiceofacow" },
+  ];
   
 
   return (
@@ -62,28 +78,16 @@ const Header = () => {
               <div class="flex w-full flex-col items-start justify-start ">
                 <p class="font-mono text-[10px] font-bold uppercase">[Navigate this site]</p>
               </div>
-              <div class="flex flex-col items-center justify-center space-y-0">
-                <button onClick={() => handlePageClick('/')} className="text-xs uppercase font-mono ">
-                  Home
-                </button>
-                <button onClick={() => handlePageClick('/shopify/products')} className="text-xs uppercase font-mono">
-                  Buy Cow Juice
-                </button>
-                <button onClick={() => handlePageClick('/ultra-retorted-milk')} className="text-xs uppercase font-mono">
-                  Ultra-Retorted Milk
-                </button>
-                <button onClick={() => handlePageClick('/press')} className="text-xs uppercase font-mono">
-                  Retortation Press Release
-                </button>
-                <button onClick={() => handlePageClick('/questions')} className="text-xs uppercase font-mono">
-                  Frequently Asked Questions
-                </button>
-                <button onClick={() => handlePageClick('/orders/status')} className="text-xs uppercase font-mono">
-                  Check Order Status
-                </button>
-                <button onClick={() => handlePageClick('/contact')} className="text-xs uppercase font-mono">
-                  Contact Cow Juice Inc.
-                </button>
+              <div class="flex flex-col items-center justify-center space-y-1">
+                {internalLinks.map(({ label, path }) => (
+                  <button
+                    key={path}
+                    onClick={() => handlePageClick(path)}
+                    className="text-xs uppercase font-mono"
+                  >
+                    {label}
+                  </button>
+                ))}
               </div>
             </div>
             <div class="flex w-full md:w-1/2 lg:w-1/3 border-b-[0.5px] border-black"/>
@@ -91,13 +95,19 @@ const Header = () => {
               <div class="flex w-full flex-col items-start justify-start ">
                 <p class="font-mono text-[10px] font-bold uppercase">[External links]</p>
               </div>
-              <div class="flex flex-col items-center justify-center space-y-0">
-                <a href="https://tiktok.com/@juiceofacow" target="_blank" rel="noopener noreferrer" class="text-xs uppercase font-mono">
-                  Watch the cow get juiced →
-                </a>
-                <a href="https://tiktok.com/@juiceofacow" target="_blank" rel="noopener noreferrer" class="text-xs uppercase font-mono">
-                  Proof that cows aren't milked — they're juiced →
-                </a>
+              <div class="flex flex-col items-center justify-center space-y-1">
+                
+                {externalLinks.map(({ label, href }) => (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs uppercase font-mono"
+                  >
+                    {label}
+                  </a>
+                ))}
 
               </div>
               
