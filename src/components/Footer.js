@@ -166,7 +166,7 @@ const Footer = () => {
                         Terms
                     </a>
                     <span>|</span>
-                    <a href="/privacy" className="cursor-pointer px-[2px] rounded-sm hover:text-black hover:bg-white transition-all duration-300">
+                    <a href="/legal/privacy-policy" className="cursor-pointer px-[2px] rounded-sm hover:text-black hover:bg-white transition-all duration-300">
                         Privacy
                     </a>
                     <span>|</span>

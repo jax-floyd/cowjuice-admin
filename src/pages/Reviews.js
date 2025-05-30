@@ -118,15 +118,15 @@ const Reviews = () => {
                         {reviews.map((review, i) => (
                         <motion.button
                             key={i}
-                            className="absolute flex flex-col items-start max-w-xs border-[0.5px] border-black p-1 rounded-lg bg-cowjuice-gold/10 hover:bg-cowjuice-gold/20 text-[10px] font-mono uppercase shadow-md select-none transition-colors duration-300"
+                            className="absolute flex flex-col items-start max-w-xs border-[0.5px] border-black p-1 rounded-lg bg-cowjuice-gold/10 hover:bg-cowjuice-white hover:z-20 text-[10px] font-mono uppercase shadow-md select-none transition-colors duration-300"
                             custom={i}
                             variants={floatVariants}
                             animate="animate"
+                            onClick={(e) => e.stopPropagation()} // Prevent click from bubbling up to the parent div
                             initial={{
                                 top: `${Math.random() * 90}%`,
                                 left: `${Math.random() * 90}%`
                             }}
-                            style={{ zIndex: 1 }}
                         >
                             <p className="text-left leading-3">"{review.text}"</p>
                             <p className="text-left text-[10px] opacity-60 mt-1">{formatTimestamp(review.timestamp)}</p>

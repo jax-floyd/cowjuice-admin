@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
 import triggerPostToSearchOrders from '../functions/shopify/triggerPostToSearchOrders';
 
 import review from '../assets/review.svg'; // Assuming you have a review icon
@@ -87,21 +89,27 @@ const ReviewInputModal = ({ onUnlock }) => {
       {/* Notice of Closure Options */}
       <p class="absolute top-6 left-6 text-[10px] uppercase opacity-60 text-black font-mono">[Click anywhere to close & read the reviews]</p>
 
-      {/* Top Feedback Input */}
-      <div className="flex flex-col items-center w-full max-w-xl mx-auto space-y-2">
-        <p class="font-mono text-[10px] opacity-60 uppercase w-full text-left">Help us populate the great wall of Cow Juice reviews:</p>
-        <input
-          className="w-full border-[0.5px] border-black px-4 py-3 sm:py-4 rounded-xl bg-white focus:outline-none font-mono text-xs h-auto uppercase animate-flip-up"
-          autoFocus
-          placeholder="'Cow Juice tasted like ...'"
-          value={review}
-          onClick={(e) => e.stopPropagation()}
-          onChange={(e) => setReview(e.target.value)}
-        />
-      </div>
-
+    
       {/* Bottom Button + Footnote + Validation Form */}
-      <div className="flex flex-col items-center w-full max-w-xl mx-auto space-y-3">
+      <motion.div 
+        layout
+        class="flex flex-col items-center w-full max-w-xl mx-auto space-y-3"
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+      >
+        {/* Top Feedback Input */}
+        <div 
+          class="flex flex-col items-center w-full max-w-xl mx-auto space-y-2"
+        >
+          <p class="font-mono text-[10px] opacity-60 uppercase w-full text-left">Help us populate the great wall of Cow Juice reviews:</p>
+          <input
+            className="w-full border-[0.5px] border-black px-4 py-3 sm:py-4 rounded-xl bg-white focus:outline-none font-mono text-xs h-auto uppercase animate-flip-up"
+            autoFocus
+            placeholder="'Cow Juice tasted like ...'"
+            value={review}
+            onClick={(e) => e.stopPropagation()}
+            onChange={(e) => setReview(e.target.value)}
+          />
+        </div>
         {review !== '' && (
           <div className="flex flex-col w-full space-y-2 animate-flip-up animate-delay-[200ms]">
             <input
@@ -183,7 +191,7 @@ const ReviewInputModal = ({ onUnlock }) => {
         {status === 'error' && (
           <p onClick={(e) => e.stopPropagation()} className="text-[10px] text-red-500 font-mono uppercase animate-flip-up">No order found. Please try again.</p>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -30,7 +30,8 @@ import QR             from "./pages/QR";
 
 /* Legal */
 import Terms          from "./pages/legal/Terms";   
-
+import Privacy        from "./pages/legal/Privacy";
+import Cookies        from "./pages/legal/Cookies";
 
 /* Checkout */
 import ContactEntry        from "./pages/checkouts/ContactEntry";
@@ -280,6 +281,29 @@ const App = () => (
                   <Ticker />
                   <Header />
                   <Terms />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route 
+              path="/legal/privacy-policy"
+              element={
+                <div class="flex flex-col min-h-screen p-0">
+                  <Ticker />
+                  <Header />
+                  <Privacy />
+                  <Footer />
+                </div>
+              }
+            />
+
+            <Route 
+              path="/legal/cookies"
+              element={
+                <div class="flex flex-col min-h-screen p-0">
+                  <Ticker />
+                  <Header />
+                  <Cookies />
                   <Footer />
                 </div>
               }
