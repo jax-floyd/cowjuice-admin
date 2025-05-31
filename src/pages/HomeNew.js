@@ -170,7 +170,7 @@ const HomeNew = () => {
                         onInit={(typewriter) => {
                           typewriter
                             .pauseFor(750)
-                            .typeString("The world's first can of <span class='text-cowjuice-red border-[0.5px] border-cowjuice-red rounded-sm px-[2px]'>Ultra-Retorted™</span> Milk.")
+                            .typeString("The world's first can of <span class='text-cowjuice-bronze border-[0.5px] border-cowjuice-bronze rounded-sm px-[2px]'>Ultra-Retorted™</span> Milk.")
                             .callFunction(() => {
                               setReadyForNextTyping(true);
                             })
@@ -202,7 +202,7 @@ const HomeNew = () => {
                         onClick={() => window.location.href = '/ultra-retorted-milk'} 
                         class={anim("flex w-full p-2 sm:p-4 rounded-sm bg-white text-black hover:bg-neutral-200 border-[0.5px] border-black animate-flip-down animate-delay-[250ms] transition-colors duration-500")}
                       >
-                        <p class="font-bold text-xs font-mono uppercase">Explore <span class="text-cowjuice-red border-cowjuice-red border-[0.5px] rounded-sm px-[2px]">retortation™</span></p>
+                        <p class="font-bold text-xs font-mono uppercase">Explore <span class="text-cowjuice-bronze border-cowjuice-bronze border-[0.5px] rounded-sm px-[2px]">retortation™</span></p>
                       </button>
                     </div>
 

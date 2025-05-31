@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import AmericanFlag from '../icons/AmericanFlag';
 
@@ -24,7 +25,7 @@ const LactoseFreedom = ({ onUnlock }) => {
     {
       delay: '250ms',
       q: (
-        <>What is <span className="text-black">Lactose-Freedom™</span>?</>
+        <>What is&nbsp;<span className="text-black">Lactose-Freedom™</span>?</>
       ),
       a: (
         <>
@@ -58,7 +59,9 @@ const LactoseFreedom = ({ onUnlock }) => {
   const btnSuccess = 'bg-cowjuice-gold text-white';
 
   return (
-    <div
+    <motion.div
+      layout
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
       className={`fixed inset-0 -top-4 z-50 flex items-center bg-black/20 backdrop-blur-sm justify-center ${
         status === 'success'
           ? 'animate-fade-out animate-delay-[750ms] animate-duration-300'
@@ -108,25 +111,21 @@ const LactoseFreedom = ({ onUnlock }) => {
 
         {/* FAQ List */}
         <div className="flex flex-col w-full space-y-2">
-          {questions.map((item, idx) => (
-            <details
-              key={idx}
-              className={
-                `group border-[0.5px] border-black rounded-sm w-full animate-flip-down animate-delay-[${item.delay}]`
-              }
-            >
-              <summary className="cursor-pointer font-mono text-xs uppercase font-bold flex justify-between px-2 py-2 sm:py-4">
-                <div className="flex-1">{item.q}</div>
-                <span className="transition-transform duration-300 group-open:rotate-45">
-                  ＋
-                </span>
-              </summary>
-              <div className="border-t-[0.5px] border-black mt-1" />
-              <div className="mt-2 font-mono text-[11px] px-2 pb-2 leading-3 uppercase">
-                {item.a}
-              </div>
-            </details>
-          ))}
+            {questions.map((item, idx) => (
+                <details
+                    key={idx}
+                    className={`group border-[0.5px] border-black rounded-sm w-full animate-flip-down animate-delay-[${item.delay}]`}
+                >
+                    <summary className="cursor-pointer font-mono text-xs uppercase font-bold flex flex-1 w-full h-full px-2 py-2 sm:py-4 justify-between items-center">
+                        <p class="flex w-full items-start">{item.q}</p>
+                        <span className="transition-transform duration-300 group-open:rotate-45">＋</span>
+                    </summary>
+                    <div class="flex w-full border-t-[0.5px] border-black px-2 " />
+                    <p className="mt-2 font-mono text-[11px] sm:text-[10px] px-2 pb-2 leading-3 uppercase animate-flip-down">
+                        {item.a}
+                    </p>
+                </details>
+            ))}
         </div>
 
         {/* Footer Buttons */}
@@ -173,7 +172,7 @@ const LactoseFreedom = ({ onUnlock }) => {
           </button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

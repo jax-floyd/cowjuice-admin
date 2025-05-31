@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import Typewriter from 'typewriter-effect';
+import { motion } from 'framer-motion';
 
 import rack_1 from '../../assets/rack_1.png';
 import mockup_2 from '../../assets/250ml_mockup_2.png';
@@ -130,7 +131,7 @@ const ContactEntry = () => {
   const handleTouchEnd = (e) => {
       const delta = e.changedTouches[0].clientX - touchStartX.current;
       if (Math.abs(delta) > SWIPE_TOLERANCE) {
-          delta < 0 ? next() : prev();               // left swipe → next, right → prev
+          delta < 0 ? next() : prev();              // left swipe → next, right → prev
       }
       /* restart autoplay */
       intervalRef.current = setInterval(next, 5000);
@@ -145,6 +146,7 @@ const ContactEntry = () => {
 
   /* ───────── Private-beta gate ───────── */
   const [unlocked, setUnlocked] = useState(false);
+  
 
   return (
     <>
@@ -163,13 +165,16 @@ const ContactEntry = () => {
 
       <div className="inset-0 flex flex-row items-start justify-center flex-1 min-h-screen pt-6  px-6 pb-6 w-full h-full overflow-hidden">
         <div class="flex flex-1 max-w-6xl mx-auto w-full relative h-full">
-          <div className="flex relative flex-col space-y-6 lg:grid lg:grid-cols-5 lg:gap-8 lg:space-y-0">
+          <div
+            className="flex relative flex-col space-y-6 lg:grid lg:grid-cols-5 lg:gap-8 lg:space-y-0"
+          >
             <div className="flex flex-col w-full items-start justify-start lg:col-span-3 space-y-2">
               <p className="font-mono text-xs uppercase font-bold animate-flip-down animate-delay-200">
                 Cow Juice is three clicks away.<sup>[1]</sup>
               </p>
 
-              <div 
+              <div
+                  
                   className="relative flex-1 w-full rounded-sm animate-fade-down overflow-hidden"
                   onTouchStart={handleTouchStart}
                   onTouchEnd={handleTouchEnd}

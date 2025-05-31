@@ -95,10 +95,15 @@ const Reviews = () => {
         const date = new Date(dateString);
         const options = { year: 'numeric', month: 'short', day: 'numeric' };
         return date.toLocaleDateString('en-US', options);
-    }
+    };
+
+    const [selectedReview, setSelectedReview] = useState(null);
+    const [selectedReviewIndex, setSelectedReviewIndex] = useState(null);
+
 
     return (
         <>
+            
             {modal && (
                 <>
                     {/* dim + blur the page beneath */}
@@ -116,21 +121,24 @@ const Reviews = () => {
                     {/* Floating Reviews; absolutely positioned; build UI separate and apart from their presence */}
                     <div className="absolute inset-0 z-0 animate-fade">
                         {reviews.map((review, i) => (
-                        <motion.button
-                            key={i}
-                            className="absolute flex flex-col items-start max-w-xs border-[0.5px] border-black p-1 rounded-lg bg-cowjuice-gold/10 hover:bg-cowjuice-white hover:z-20 text-[10px] font-mono uppercase shadow-md select-none transition-colors duration-300"
-                            custom={i}
-                            variants={floatVariants}
-                            animate="animate"
-                            onClick={(e) => e.stopPropagation()} // Prevent click from bubbling up to the parent div
-                            initial={{
-                                top: `${Math.random() * 90}%`,
-                                left: `${Math.random() * 90}%`
-                            }}
-                        >
-                            <p className="text-left leading-3">"{review.text}"</p>
-                            <p className="text-left text-[10px] opacity-60 mt-1">{formatTimestamp(review.timestamp)}</p>
-                        </motion.button>
+                            <motion.button
+                                key={i}
+                                className="absolute flex flex-col items-start max-w-xs border-[0.5px] border-black p-1 rounded-lg bg-cowjuice-gold/10 hover:bg-cowjuice-white hover:z-20 text-[10px] font-mono uppercase shadow-md select-none transition-colors duration-300"
+                                custom={i}
+                                variants={floatVariants}
+                                animate="animate"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setSelectedReview(review);
+                                }}
+                                initial={{
+                                    top: `${Math.random() * 90}%`,
+                                    left: `${Math.random() * 90}%`
+                                }}
+                            >
+                                <p className="text-left leading-3">"{review.text}"</p>
+                                <p className="text-left text-[10px] opacity-60 mt-1">{formatTimestamp(review.timestamp)}</p>
+                            </motion.button>
                         ))}
                     </div>
                 </div>
