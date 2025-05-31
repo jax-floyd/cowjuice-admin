@@ -175,6 +175,7 @@ const App = () => (
                 </div>
               }
             />
+            
             <Route 
               path="/checkouts/:checkoutId/payment/:paymentId"
               element={

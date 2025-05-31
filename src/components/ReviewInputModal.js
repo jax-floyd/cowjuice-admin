@@ -189,7 +189,7 @@ const ReviewInputModal = ({ onUnlock }) => {
         </p>
 
         {status === 'error' && (
-          <p onClick={(e) => e.stopPropagation()} className="text-[10px] text-red-500 font-mono uppercase animate-flip-up">No order found. Please try again.</p>
+          <p onClick={(e) => e.stopPropagation()} className="text-[10px] text-cowjuice-red font-mono uppercase animate-flip-up">No order found. Please try again.</p>
         )}
       </motion.div>
     </div>

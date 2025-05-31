@@ -18,7 +18,6 @@ const ContactEntry = () => {
   const { state } = useLocation();
 
   const product = state?.product;
-  console.log(product);
   const price = product?.variants[0].price * 100;
   const checkoutId = window.location.pathname.split('/')[2];
 

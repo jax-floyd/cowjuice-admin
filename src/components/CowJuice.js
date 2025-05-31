@@ -10,7 +10,7 @@ import bull_silhouette_simple from '../assets/bull_silhouette_simple.svg'; // Im
 import bull_fill from '../assets/bull_fill.svg'; // Import the Bull silhouette if needed
 
 /* Import the modals for each card */
-import UltraRetortedMilk from '../components/retorted/UltraRetortedMilk';
+import BuyNowModal from '../components/BuyNowModal';
 
 /**
  * Cow Juice Component – the card that introduced Cow Juice’s Ultra‑Retorted Milk™
@@ -92,6 +92,15 @@ const CowJuice = () => {
 
     return (
         <>
+            {modal && (
+                <>
+                    <div className="fixed inset-0 z-40 animate-fade animate-delay-[0ms]" />
+                    <BuyNowModal
+                        onUnlock={() => setModal(null)}
+                        class="z-50"          
+                    />
+                </>
+            )}
             <div ref={cowjuiceRef} className={anim("inset-0 bg-cowjuice-gold/10 relative z-20 flex flex-1 flex-row items-start justify-center pt-12 px-6 pb-6 w-full border-b-[0.5px] border-black overflow-hidden transition-all duration-1000")}>
                 <div className="flex flex-1  flex-col items-start justify-between max-w-6xl mx-auto w-full h-full space-y-16">
                     <div class="flex w-full flex-1 h-full justify-between items-between flex-col space-y-4 pb-12">
@@ -171,17 +180,30 @@ const CowJuice = () => {
                                         )}
                                     </div>
                                     {typingComplete && (
-                                        <button 
-                                            class="flex w-full border-[0.5px] hover:bg-zinc-100 active:bg-cowjuice-gold/50 border-black rounded-md px-2 py-2 animate-flip-down" 
-                                            onMouseEnter={(e) => e.stopPropagation()}
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                navigate('/shopify/products');
-                                            }}
-                                            
-                                        >
-                                            <p class="text-xs font-mono uppercase text-black">Buy Cow Juice</p>
-                                        </button>
+                                        <div class="flex w-full flex-row items-center justify-center space-x-2">
+                                            <button 
+                                                class="flex w-full border-[0.5px] hover:bg-zinc-100 active:bg-cowjuice-gold/50 border-black rounded-md px-2 py-2 animate-flip-down" 
+                                                onMouseEnter={(e) => e.stopPropagation()}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    navigate('/shopify/products');
+                                                }}
+                                                
+                                            >
+                                                <p class="text-xs font-mono uppercase text-black">Shop Milk</p>
+                                            </button>
+                                            <button 
+                                                class="flex w-full border-[0.5px] hover:bg-zinc-100 active:bg-cowjuice-gold/50 border-black rounded-md px-2 py-2 animate-flip-down animate-delay-150" 
+                                                // onMouseEnter={(e) => e.stopPropagation()}
+                                                onClick={() => {
+                                                    // e.stopPropagation();
+                                                    setModal(!modal);
+                                                }}
+                                                
+                                            >
+                                                <p class="text-xs font-mono uppercase text-black">Buy Now</p>
+                                            </button>
+                                        </div>
                                     )}
                                     
                                 </div>
