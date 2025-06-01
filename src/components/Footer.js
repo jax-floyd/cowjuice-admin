@@ -90,14 +90,14 @@ const Footer = () => {
                     {/* ── Center: Nav links ──────────────────────────── */}
                     <nav className="flex sm:hidden flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 items-end font-bold uppercase">
                         {[
-                        { name: 'Home', href: '/', delay: 'animate-delay-[250ms] sm:animate-delay-[750ms]' },
-                        { name: 'Press', href: '/press', delay: 'animate-delay-[375ms] sm:animate-delay-[875ms]' },
-                        { name: 'Shop', href: '/shopify/products', delay: 'animate-delay-[500ms] sm:animate-delay-[1000ms]' },
-                        { name: 'Retort', href: '/ultra-retorted-milk', delay: 'animate-delay-[625ms] sm:animate-delay-[1125ms]' },
-                        { name: 'FAQ', href: '/questions', delay: 'animate-delay-[750ms] sm:animate-delay-[1350ms]' },
-                        { name: 'Orders', href: '/orders/status', delay: 'animate-delay-[800ms] sm:animate-delay-[1500ms]' },
-                        { name: 'Reviews', href: '/beta/reviews', delay: 'animate-delay-[1000ms] sm:animate-delay-[1650ms]' },
-                        { name: 'Contact', href: '/contact', delay: 'animate-delay-[1250ms] sm:animate-delay-[1775ms]' },
+                            { name: 'Home', href: '/', delay: 'animate-delay-[250ms] sm:animate-delay-[750ms]' },
+                            { name: 'Press', href: '/press', delay: 'animate-delay-[375ms] sm:animate-delay-[875ms]' },
+                            { name: 'Shop', href: '/shopify/products', delay: 'animate-delay-[500ms] sm:animate-delay-[1000ms]' },
+                            { name: 'Retort', href: '/ultra-retorted-milk', delay: 'animate-delay-[625ms] sm:animate-delay-[1125ms]' },
+                            { name: 'FAQ', href: '/questions', delay: 'animate-delay-[750ms] sm:animate-delay-[1350ms]' },
+                            { name: 'Orders', href: '/orders/status', delay: 'animate-delay-[800ms] sm:animate-delay-[1500ms]' },
+                            { name: 'Reviews', href: '/beta/reviews', delay: 'animate-delay-[1000ms] sm:animate-delay-[1650ms]' },
+                            { name: 'Contact', href: '/contact', delay: 'animate-delay-[1250ms] sm:animate-delay-[1775ms]' },
                         ].map((link) => (
                         <a
                             key={link.name}
@@ -193,4 +193,5 @@ const Footer = () => {
         </footer>
     );
 };
+
 export default Footer;

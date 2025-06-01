@@ -58,7 +58,6 @@ const ExclusivityModal = ({ onUnlock }) => {
           </div>
 
           <input
-            autoFocus
             type="username"
             placeholder="TikTok Username"
             value={username}

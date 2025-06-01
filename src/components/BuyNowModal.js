@@ -174,6 +174,8 @@ const BuyNowModal = ({ onUnlock }) => {
         };
     };
 
+    console.log(step)
+
     return (
         <>
         {/* {!unlocked && (
@@ -200,34 +202,36 @@ const BuyNowModal = ({ onUnlock }) => {
             <p class="absolute top-6 left-6 text-[10px] uppercase opacity-60 text-black font-mono">[Click to big round X to close]</p>
 
             {/* Mockup Carousel */}
-            <div class="absolute inset-0 top-16 px-6">
-                <motion.div
-                    layout
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="w-full rounded-xl border-[0.5px] border-black/10 shadow-sm max-w-xl mx-auto animate-fade-down overflow-hidden"
-                    onClick={(e) => e.stopPropagation()} // Prevent click from closing modal
-                >
-                    <div
-                        className="flex w-full transition-transform duration-500 animate-fade animate-delay-300 ease-in-out"
+            {(step === 1 || step === 2) && (
+                <div class="absolute inset-0 top-16 px-6">
+                    <motion.div
+                        layout
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="w-full rounded-xl border-[0.5px] border-black/10 shadow-sm max-w-xl mx-auto animate-fade-down overflow-hidden"
+                        onClick={(e) => e.stopPropagation()} // Prevent click from closing modal
                     >
-                        <img
-                            src={rack_1}
-                            alt={`Cow Juice mock‑up 1`}
-                            className="flex-shrink-0 w-full object-cover"
-                        />
-                    </div>
+                        <div
+                            className="flex w-full transition-transform duration-500 animate-fade animate-delay-300 ease-in-out"
+                        >
+                            <img
+                                src={rack_1}
+                                alt={`Cow Juice mock‑up 1`}
+                                className="flex-shrink-0 w-full object-cover"
+                            />
+                        </div>
 
 
-                    <div className="absolute top-2 inset-y-0 right-2 flex justify-center gap-1">
-                        <p class="flex w-full text-[10px] text-black font-mono uppercase opacity-60">"... Moo."™</p>
-                    </div>
+                        <div className="absolute top-2 inset-y-0 right-2 flex justify-center gap-1">
+                            <p class="flex w-full text-[10px] text-black font-mono uppercase opacity-60">"... Moo."™</p>
+                        </div>
 
-                    <div className="absolute bottom-2 inset-x-0 left-2 flex justify-center gap-1">
-                        <p class="flex w-full text-[10px] text-black font-mono uppercase opacity-60">[#DrinkTheTruth]</p>
-                    </div>
-                </motion.div>
-            </div>
-                
+                        <div className="absolute bottom-2 inset-x-0 left-2 flex justify-center gap-1">
+                            <p class="flex w-full text-[10px] text-black font-mono uppercase opacity-60">[#DrinkTheTruth]</p>
+                        </div>
+                    </motion.div>
+                </div>
+            )}
+            
             {/* Bottom Button + Footnote + Validation Form */}
             <motion.div 
                 layout
