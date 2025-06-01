@@ -78,7 +78,7 @@ const BuyNowModal = ({ onUnlock }) => {
     const [step, setStep] = useState(1); // 1: email input, 2: review input
 
     // helpers for styling
-    const btnBase    = `flex w-full items-center justify-start font-mono text-xs uppercase font-bold py-3 sm:py-4 px-4 rounded-xl border-[0.5px] transition-colors duration-300`;
+    const btnBase    = `flex w-full items-center justify-start font-mono text-xs uppercase font-bold rounded-xl border-[0.5px] transition-colors duration-300`;
     const btnIdle    = `${((formData.email === '') || (step === 2 && formData.address1 === '')) ? 'bg-white text-black border-[0.5px] border-black' : 'bg-black disabled:bg-black/70 text-white border-[0.5px] border-black'}`;
     const btnError   = 'bg-black text-white shake';
     const btnSuccess = 'bg-cowjuice-gold text-white';
@@ -101,6 +101,8 @@ const BuyNowModal = ({ onUnlock }) => {
     const estimatedTax = price * 0.00; // no tax on food — right ... ?
     const shipping = product?.id === 9976043864353 ? 0 : 499 // flat rate shipping unless 12-pack when we comp, ever so generously
     const amount = price + estimatedTax + shipping;
+
+    const total = amount; // no tax on food — right ... ?
 
     const [clientSecret, setClientSecret] = useState(null);
     const [paymentIntent, setPaymentIntent] = useState(null);
@@ -130,23 +132,17 @@ const BuyNowModal = ({ onUnlock }) => {
             colorBackground: '#FFF', // White background
             colorText: '#000/50', // Text color
             fontFamily: 'Arial, sans-serif', // Custom font family
-            borderRadius: '0.5rem', // Custom border radius
-            borderColor: '#000', // Custom border color
-            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)', // Custom shadow
+            // Class rounded
+            borderRadius: '0.75rem', // Custom border radius
         },
-        disableLink: true, // Disable links in the payment form
     };
-      
     
     const options = {
         clientSecret,
         appearance,
+        paymentMethodOrder: ['card'], // or any valid combination you want
     };
     
-    const total = amount + shipping + estimatedTax;
-
-    
-
     const handleProceedToPayment = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -180,67 +176,57 @@ const BuyNowModal = ({ onUnlock }) => {
 
     return (
         <>
-        {!unlocked && (
+        {/* {!unlocked && (
             <>
-            {/* dim + blur the page beneath */}
-            <div className="fixed inset-0 z-60 animate-fade animate-delay-[750ms]" />
-            {/* modal itself has higher z-index */}
-            <ExclusivityModal
-                onUnlock={() => setUnlocked(true)}
-                class="z-50"          // give the modal a higher z if needed
-            />
+                <div className="fixed inset-0 z-100 animate-fade animate-delay-[750ms]" />
+
+                <ExclusivityModal
+                    onUnlock={() => setUnlocked(true)}
+                    class="z-100"          // give the modal a higher z if needed
+                />
             </>
-        )}
-        <div 
+        )} */}
+        <div class={`fixed inset-0 z-50 flex flex-col justify-end space-y-2 px-6 pt-8 pb-6 bg-white backdrop-blur-sm ${status === 'success' ? 'animate-fade-out animate-delay-[750ms] animate-duration-300' : 'animate-fade animate-delay-[0ms]'}`}>
             
-            className={`fixed inset-0 z-50 flex flex-col justify-end space-y-2 px-6 pt-8 pb-6 bg-white backdrop-blur-sm ${status === 'success' ? 'animate-fade-out animate-delay-[750ms] animate-duration-300' : 'animate-fade animate-delay-[0ms]'}`}
-            >
+            
             {/* Close Button */}
-            <button
-                onClick={() => onUnlock(null)}
-                className="absolute top-6 right-6 text-xs text-black font-mono"
-            >
+            <button onClick={() => onUnlock(null)} class="absolute top-6 right-6 text-xs text-black font-mono">
                 <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5 text-black">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
             </button>
-
-            {/* Review SVG */}
-            {/* <div className="flex">
-                <img src={review} className="w-1/4 mx-auto h-full" />
-            </div> */}
 
             {/* Notice of Closure Options */}
             <p class="absolute top-6 left-6 text-[10px] uppercase opacity-60 text-black font-mono">[Click to big round X to close]</p>
 
-                {/* Mockup Carousel */}
-                <div class="absolute inset-0 top-16 px-4">
-                    <motion.div
-                        layout
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className="w-full rounded-xl border-[0.5px] border-black/10 shadow-sm max-w-xl mx-auto animate-fade-down overflow-hidden"
-                        onClick={(e) => e.stopPropagation()} // Prevent click from closing modal
+            {/* Mockup Carousel */}
+            <div class="absolute inset-0 top-16 px-6">
+                <motion.div
+                    layout
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    className="w-full rounded-xl border-[0.5px] border-black/10 shadow-sm max-w-xl mx-auto animate-fade-down overflow-hidden"
+                    onClick={(e) => e.stopPropagation()} // Prevent click from closing modal
+                >
+                    <div
+                        className="flex w-full transition-transform duration-500 animate-fade animate-delay-300 ease-in-out"
                     >
-                        <div
-                            className="flex w-full transition-transform duration-500 animate-fade animate-delay-300 ease-in-out"
-                        >
-                            <img
-                                src={rack_1}
-                                alt={`Cow Juice mock‑up 1`}
-                                className="flex-shrink-0 w-full object-cover"
-                            />
-                        </div>
+                        <img
+                            src={rack_1}
+                            alt={`Cow Juice mock‑up 1`}
+                            className="flex-shrink-0 w-full object-cover"
+                        />
+                    </div>
 
 
-                        <div className="absolute top-2 inset-y-0 right-2 flex justify-center gap-1">
-                            <p class="flex w-full text-[10px] text-black font-mono uppercase opacity-60">"... Moo."™</p>
-                        </div>
+                    <div className="absolute top-2 inset-y-0 right-2 flex justify-center gap-1">
+                        <p class="flex w-full text-[10px] text-black font-mono uppercase opacity-60">"... Moo."™</p>
+                    </div>
 
-                        <div className="absolute bottom-2 inset-x-0 left-2 flex justify-center gap-1">
-                            <p class="flex w-full text-[10px] text-black font-mono uppercase opacity-60">[#DrinkTheTruth]</p>
-                        </div>
-                    </motion.div>
-                </div>
+                    <div className="absolute bottom-2 inset-x-0 left-2 flex justify-center gap-1">
+                        <p class="flex w-full text-[10px] text-black font-mono uppercase opacity-60">[#DrinkTheTruth]</p>
+                    </div>
+                </motion.div>
+            </div>
                 
             {/* Bottom Button + Footnote + Validation Form */}
             <motion.div 
@@ -254,12 +240,15 @@ const BuyNowModal = ({ onUnlock }) => {
                     <>
                         {/* Top Feedback Input */}
                         <div class="flex flex-col items-center w-full max-w-xl mx-auto space-y-2">
-                            <p class="font-mono text-[10px] opacity-60 uppercase w-full text-left">Three clicks and the cow juice is yours:</p>
+                            <p class="font-mono text-[10px] opacity-60 uppercase w-full text-left">Cow Juice is three clicks away:</p>
                             <input
                                 name='email'
                                 type="email"
+                                autoComplete="off"
+                                autoCorrect="off"
+                                autoCapitalize="off"
+                                spellCheck={false}
                                 className="w-full border-[0.5px] border-black px-4 py-3 sm:py-4 rounded-xl bg-white focus:outline-none font-mono text-xs h-auto uppercase animate-flip-up"
-                                autoFocus
                                 placeholder="Email"
                                 value={formData.email}
                                 onClick={(e) => e.stopPropagation()}
@@ -271,6 +260,10 @@ const BuyNowModal = ({ onUnlock }) => {
                                 <input
                                     name="firstName"
                                     type="text"
+                                    autoComplete="off"
+                                    autoCorrect="off"
+                                    autoCapitalize="off"
+                                    spellCheck={false}
                                     placeholder="First Name"
                                     value={formData.firstName}
                                     onChange={handleChange}
@@ -280,6 +273,10 @@ const BuyNowModal = ({ onUnlock }) => {
                                 <input
                                     name="lastName"
                                     type="text"
+                                    autoComplete="off"
+                                    autoCorrect="off"
+                                    autoCapitalize="off"
+                                    spellCheck={false}
                                     placeholder="Last Name"
                                     value={formData.lastName}
                                     onChange={handleChange}
@@ -390,16 +387,15 @@ const BuyNowModal = ({ onUnlock }) => {
                 {step === 3 && (
                     <>
                         {/* Buy Now Subtotal display, with shipping message */}
-                        {/* <div className="flex flex-col w-full border-[0.5px] border-black p-2 rounded-sm bg-neutral-100 text-xs font-mono animate-fade-up animate-delay-[400ms] space-y-1">
+                        <div className="flex flex-col w-full border-[0.5px] border-black p-2 rounded-xl bg-cowjuice-white/70 text-xs font-mono animate-fade-up animate-delay-[400ms] space-y-1">
                             <span className="font-bold uppercase">Order Summary</span>
-                            <div className="flex justify-between"><span>Item(s):</span><span>${(amount / 100).toFixed(2)}</span></div>
-                            <div className="pl-2 text-[11px] text-black/80">[1]. {product?.title}</div>
-                            <div className="flex justify-between"><span>Shipping & handling:</span><span class="italic">${(shipping / 100).toFixed(2)}</span></div>
-                            <div className="flex justify-between"><span>Total before tax:</span><span>${(amount / 100).toFixed(2)}</span></div>
-                            <div className="flex justify-between"><span>Estimated tax:</span><span>${(estimatedTax / 100).toFixed(2)}</span></div>
-                            <div className="flex justify-between font-bold border-t pt-1"><span>Order total:</span><span>${(total / 100).toFixed(2)}</span></div>
-                            <p className="text-[10px] text-black/60 pt-1">Shipping costs and applicable taxes will be finalized at checkout.</p>
-                        </div> */}
+
+                            <div className="flex justify-between uppercase"><span>Shipping:</span><span class="italic">${(shipping / 100).toFixed(2)}</span></div>
+                            <div className="flex justify-between uppercase"><span>Total before tax:</span><span>${(amount / 100).toFixed(2)}</span></div>
+                            <div className="flex justify-between uppercase"><span>Estimated tax:</span><span>${(estimatedTax / 100).toFixed(2)}</span></div>
+                            <div className="flex justify-between font-bold border-t-[0.5px] border-black pt-1 uppercase"><span>Order total:</span><span>${(total / 100).toFixed(2)}</span></div>
+                            <p className="text-[10px] opacity-60 uppercase leading-3 pt-1">Shipping costs and applicable taxes will be finalized at checkout.</p>
+                        </div>
         
                         {error && <p className="text-red-500 text-sm">{error}</p>}
         
@@ -438,29 +434,28 @@ const BuyNowModal = ({ onUnlock }) => {
                 {(step === 1 || step === 2) && (
                     <>
                         <button
-                        onClick={(e) => {
-                            // e.stopPropagation();
-                            if (step === 1) {
-                                setStep(2);
-                            } else if (step === 2) {
-                                // We create the payment intent.
-                                handleProceedToPayment(e);
-                            } else if (step === 3) {
-                                // Go back functionality
-                                setStep(2);
-                            } else {
-                                // Default case, just in case
-                                setStep(1);
-                            };
-                        }}
-
-                        disabled={loading || formData.email === '' || (formData.firstName === '' && formData.lastName === '')}
-                        className={getButtonClass()}
-                    >
+                            onClick={(e) => {
+                                // e.stopPropagation();
+                                if (step === 1) {
+                                    setStep(2);
+                                } else if (step === 2) {
+                                    // We create the payment intent.
+                                    handleProceedToPayment(e);
+                                } else if (step === 3) {
+                                    // Go back functionality
+                                    setStep(2);
+                                } else {
+                                    // Default case, just in case
+                                    setStep(1);
+                                };
+                            }}
+                            disabled={loading || formData.email === '' || (formData.firstName === '' && formData.lastName === '')}
+                            className={getButtonClass()}
+                        >
                     {formData.email === '' ? (
-                        <p className="font-mono text-xs uppercase font-bold animate-fade">Buy Cow Juice<sup> [1]</sup></p>
+                        <p className="font-mono text-xs uppercase font-bold animate-fade py-3 sm:py-4 px-4">Buy Cow Juice<sup> [1]</sup></p>
                     ) : (
-                        <div className="text-">
+                        <div className="flex w-full h-full py-3 sm:py-4 px-4">
                         {loading ? (
                             <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 animate-spin">
                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -469,11 +464,11 @@ const BuyNowModal = ({ onUnlock }) => {
                         ) : (
                             <>
                             {status === 'success' ? (
-                                <p className="font-mono text-xs uppercase font-bold animate-fade">{step === 1 ? 'Proceedeing to shipping!' : 'Proceeding to payment!'}<sup> [2]</sup></p>
+                                <p className="w-full flex font-mono text-xs uppercase font-bold animate-fade">{step === 1 ? 'Proceedeing to shipping!' : 'Proceeding to payment!'}<sup> [2]</sup></p>
                             ) : status === 'error' ? (
-                                <p className="font-mono text-xs uppercase font-bold animate-fade">Error proceeding to shipping</p>
+                                <p className="w-full flex font-mono text-xs uppercase font-bold animate-fade">Error proceeding to shipping</p>
                             ) : (
-                                <p className="font-mono text-xs uppercase font-bold animate-fade">{step === 1 ? 'Proceed to shipping' : step === 2 ? 'Proceed to payment' : 'Back'}</p>
+                                <p className="w-full flex font-mono text-xs uppercase font-bold animate-fade">{step === 1 ? 'Proceed to shipping' : step === 2 ? 'Proceed to payment' : 'Back'}</p>
                             )}
                             </>
                         )}

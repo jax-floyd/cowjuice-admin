@@ -103,7 +103,6 @@ const ReviewInputModal = ({ onUnlock }) => {
           <p class="font-mono text-[10px] opacity-60 uppercase w-full text-left">Help us populate the great wall of Cow Juice reviews:</p>
           <input
             className="w-full border-[0.5px] border-black px-4 py-3 sm:py-4 rounded-xl bg-white focus:outline-none font-mono text-xs h-auto uppercase animate-flip-up"
-            autoFocus
             placeholder="'Cow Juice tasted like ...'"
             value={review}
             onClick={(e) => e.stopPropagation()}

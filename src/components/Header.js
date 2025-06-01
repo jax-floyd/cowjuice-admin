@@ -41,20 +41,20 @@ const Header = () => {
   };
 
   const internalLinks = [
-    { label: 'Home',                 path: '/' },
-    { label: 'Buy Cow Juice',        path: '/shopify/products' },
-    { label: 'Read the Reviews',    path: '/beta/reviews' },
-    { label: 'Ultra-Retorted Milk',  path: '/ultra-retorted-milk' },
-    { label: 'Retortation Press Release',    path: '/press' },
-    { label: 'The Revolution of Cow Juice',    path: '/the-revolution-of-cow-juice' },
-    { label: 'Frequently Asked Questions',                 path: '/questions' },
-    { label: 'Check Order Status',         path: '/orders/status' },
-    { label: 'Contact Cow Juice',    path: '/contact' },
+    { label: 'Home',                          path: '/',                            live: true },
+    { label: 'Buy Cow Juice',                 path: '/shopify/products',            live: true },
+    { label: 'Read the Reviews',              path: '/beta/reviews',                live: true },
+    { label: 'Ultra-Retorted Milk',           path: '/ultra-retorted-milk',         live: true },
+    { label: 'Retortation Press Release',     path: '/press',                       live: true },
+    { label: 'The Revolution of Cow Juice',   path: '/the-revolution-of-cow-juice', live: true },
+    { label: 'Frequently Asked Questions',    path: '/questions',                   live: true }, 
+    { label: 'Check Order Status',            path: '/orders/status',               live: true },
+    { label: 'Contact Cow Juice',             path: '/contact',                     live: true },
   ];
 
   const externalLinks = [
-    { label: "Watch the cow get juiced →", href: "https://tiktok.com/@juiceofacow" },
-    { label: "Cows aren’t milked—they’re juiced →", href: "https://tiktok.com/@juiceofacow" },
+    { label: "Watch the cow get juiced →", href: "https://tiktok.com/@juiceofacow", live: true },
+    { label: "Cows aren’t milked—they’re juiced →", href: "https://tiktok.com/@juiceofacow", live: true },
   ];
   
 
@@ -79,11 +79,11 @@ const Header = () => {
                 <p class="font-mono text-[10px] font-bold uppercase">[Navigate this site]</p>
               </div>
               <div class="flex flex-col items-center justify-center space-y-1">
-                {internalLinks.map(({ label, path }) => (
+                {internalLinks.map(({ label, path, live }) => (
                   <button
                     key={path}
                     onClick={() => handlePageClick(path)}
-                    className="text-xs uppercase font-mono"
+                    className={`text-xs uppercase font-mono ${live ? 'opacity-100' : 'opacity-60 pointer-events-none'}`}
                   >
                     {label}
                   </button>
@@ -97,13 +97,13 @@ const Header = () => {
               </div>
               <div class="flex flex-col items-center justify-center space-y-1">
                 
-                {externalLinks.map(({ label, href }) => (
+                {externalLinks.map(({ label, href, live }) => (
                   <a
                     key={href}
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs uppercase font-mono"
+                    className={`text-xs uppercase font-mono ${live ? 'opacity-100' : 'opacity-60 pointer-events-none'}`}
                   >
                     {label}
                   </a>
@@ -115,10 +115,10 @@ const Header = () => {
             
           </nav>
           <button 
-            onClick={() => window.location.href = 'mailto:cowjuiceman@gotcowjuice.com?subject=Hi%20Cow%20Juice%20Man%20—%20I%20Have%20a%20Question%20about%20Cow%20Juice%20&body=Dear%20Cow%20Juice%20Man%2C%0A%0A'}
+            // onClick={() => window.location.href = 'mailto:cowjuiceman@gotcowjuice.com?subject=Hi%20Cow%20Juice%20Man%20—%20I%20Have%20a%20Question%20about%20Cow%20Juice%20&body=Dear%20Cow%20Juice%20Man%2C%0A%0A'}
             class="font-mono text-xs border-[0.5px] border-cowjuice-gold text-cowjuice-gold px-[2px] mt-2 uppercase font-bold rounded-sm animate-pulse"
           >
-            Site newly released | Help us debug
+            Site newly released <span class="">| Help us debug</span>
           </button>
         </div>
       )}

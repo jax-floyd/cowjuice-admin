@@ -147,25 +147,25 @@ const OrderConfirmation = () => {
                 <div className="flex flex-col w-full space-y-2 animate-fade-up">
                     <button
                         onClick={() => window.open(`/orders/status/'${order.confirmation_number}`)}
-                        className="flex w-full p-2 text-xs font-mono font- border-[0.5px] border-black rounded-sm animate-fade-down animate-delay-100"
+                        className="flex w-full p-2 text-xs font-mono font-bold uppercase border-[0.5px] border-black rounded-sm animate-fade-down animate-delay-100"
                     >
                         Check order status ->
                     </button>
                     <button
                         onClick={() => navigate('/shopify/products')}
-                        className="flex w-full bg-black text-white p-2 text-xs font-mono font-bold border-[0.5px] border-black rounded-smm animate-fade-right animate-delay-200"
+                        className="flex w-full bg-black text-white p-2 text-xs uppercase font-mono font-bold border-[0.5px] border-black rounded-smm animate-fade-right animate-delay-200"
                     >
                         Keep shopping
                     </button>
                     <button
                         onClick={handleShare}
-                        className="flex w-full p-2 text-xs font-mono font- border-[0.5px] border-black rounded-sm animate-fade-left animate-delay-300"
+                        className="flex w-full p-2 text-xs font-mono font-bold uppercase border-[0.5px] border-black rounded-sm animate-fade-left animate-delay-300"
                     >
                         Share the world’s first can of milk
                     </button>
                     <a
                         href={`sms:+19178631395?&body=${encodeURIComponent("Hey Cow Juice Man — just ordered the world's first can of milk! 🐄🥛 [P.S., Please don't abuse this # as it is Cow Juice Man's personal cell!]" )}`}
-                        class="flex w-full bg-black text-white p-2 text-xs font-mono font-bold border-[0.5px] border-black rounded-sm animate-fade-up animate-delay-500"
+                        class="flex w-full bg-black text-white p-2 uppercase text-xs font-mono font-bold border-[0.5px] border-black rounded-sm animate-fade-up animate-delay-500"
                     >
                         Reach out to Cow Juice Man
                     </a>

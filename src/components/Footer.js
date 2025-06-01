@@ -30,8 +30,12 @@ const Footer = () => {
 
     const anim = (cls) => (visible ? cls : 'opacity-0');   // or 'animate-none'
 
+
+    // Define the 'black bg pages which require a mt callout
+    const blacks = ['/', '/the-revolution-of-cow-juice']
+
     return (
-        <footer ref={footerRef} className={`${location.pathname = '/' && 'mt-6'} flex flex-col space-x-2 sm:flex-col sm:space-y-16 justify-start sm:items-center w-full bg-black text-white px-6 space-y-8 py-16 sm:py-0 sm:pb-16`}>
+        <footer ref={footerRef} className={`${blacks.includes(location.pathname) && 'mt-6'} flex flex-col space-x-2 sm:flex-col sm:space-y-16 justify-start sm:items-center w-full bg-black text-white px-6 space-y-8 py-16 sm:py-0 sm:pb-16`}>
             <div class="flex flex-row sm:flex-col space-x-2 sm:flexcol sm:space-y-0 justify-start sm:items-center w-full max-w-6xl mx-auto bg-transparent text-white">
                 {/* h-32 classed div with transparency to allow for better display of sm:> COW JUICE animation */}
                 <div class="sm flex flex-1 h-full items-center">

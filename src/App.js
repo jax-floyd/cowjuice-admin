@@ -9,7 +9,7 @@ import Ticker         from "./components/Ticker";
 import Header         from "./components/Header";
 import Footer         from "./components/Footer";
 
-// import Transitory     from "./pages/Transitory";
+import Transitory     from "./pages/Transitory";
 
 /* Components */
 import Revolution     from "./pages/Revolution";

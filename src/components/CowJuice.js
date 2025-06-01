@@ -169,7 +169,7 @@ const CowJuice = () => {
                                                         .pauseFor(500)
                                                         .typeString("Critics exlaim: ")
                                                         .pauseFor(400)
-                                                        .typeString(`"The most revolutionary dairy product to hit the market since they juiced the cow: `)
+                                                        .typeString(`"The most revolutionary product to hit the market since they juiced the cow: `)
                                                         .pauseFor(600)
                                                         .typeString(`<span class='text-cowjuice-bronze font-bold border-[0.5px] border-cowjuice-bronze px-[2px]'>Ultra-Retorted Milk™</span>!"`)
                                                         .callFunction(() => setTypingComplete(true))
