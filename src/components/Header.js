@@ -41,22 +41,28 @@ const Header = () => {
   };
 
   const internalLinks = [
-    { label: 'Home',                          path: '/',                            live: true },
-    { label: 'Buy Cow Juice',                 path: '/shopify/products',            live: true },
-    { label: 'Read the Reviews',              path: '/beta/reviews',                live: true },
-    { label: 'Ultra-Retorted Milk',           path: '/ultra-retorted-milk',         live: true },
-    { label: 'Retortation Press Release',     path: '/press',                       live: true },
-    { label: 'The Revolution of Cow Juice',   path: '/the-revolution-of-cow-juice', live: true },
-    { label: 'Frequently Asked Questions',    path: '/questions',                   live: true }, 
-    { label: 'Check Order Status',            path: '/orders/status',               live: true },
-    { label: 'Contact Cow Juice',             path: '/contact',                     live: true },
+    { label: 'Home',                          path: 'https://gotcowjuice.com',                            live: true },
+    { label: 'Buy Cow Juice',                 path: 'https://gotcowjuice.com/shopify/products',            live: true },
+    { label: 'Read the Reviews',              path: 'https://gotcowjuice.com/beta/reviews',                live: true },
+    { label: 'Ultra-Retorted Milk',           path: 'https://gotcowjuice.com/ultra-retorted-milk',         live: true },
+    { label: 'Retortation Press Release',     path: 'https://gotcowjuice.com/press',                       live: true },
+    { label: 'The Revolution of Cow Juice',   path: 'https://gotcowjuice.com/the-revolution-of-cow-juice', live: true },
+    { label: 'Frequently Asked Questions',    path: 'https://gotcowjuice.com/questions',                   live: true }, 
+    { label: 'Check Order Status',            path: 'https://gotcowjuice.com/orders/status',               live: true },
+    { label: 'Contact Cow Juice',             path: 'https://gotcowjuice.com/contact',                     live: true },
+  ];
+
+  const adminLinks = [
+    { label: 'Login →',                         path: '/login',                       live: false },
+    { label: 'Admin Dashboard →',               path: '/',                            live: true },
+    { label: 'Fulfill →',                       path: '/fulfill',                     live: true },
+    { label: 'Beta Management →',               path: '/beta/manage',                 live: true },
   ];
 
   const externalLinks = [
     { label: "Watch the cow get juiced →", href: "https://tiktok.com/@juiceofacow", live: true },
     { label: "Cows aren’t milked—they’re juiced →", href: "https://tiktok.com/@juiceofacow", live: true },
   ];
-  
 
   return (
     <>
@@ -76,9 +82,26 @@ const Header = () => {
           <nav className="flex flex-col w-full items-end space-y-4 ">
             <div class="flex flex-col flex-1 w-full md:w-1/2 lg:w-1/3 space-y-2">
               <div class="flex w-full flex-col items-start justify-start ">
-                <p class="font-mono text-[10px] font-bold uppercase">[Navigate this site]</p>
+                <p class="font-mono text-[10px] font-bold uppercase">[Navigate Admin Actions]</p>
               </div>
-              <div class="flex flex-col items-center justify-center space-y-1">
+              <div class="flex flex-col sm:grid sm:grid-cols-2 sm:gap-4 items-center justify-center space-y-1 sm:space-y-0">
+                {adminLinks.map(({ label, path, live }) => (
+                  <button
+                    key={path}
+                    onClick={() => handlePageClick(path)}
+                    className={`text-xs uppercase font-mono ${live ? 'opacity-100' : 'opacity-60 pointer-events-none'}`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div class="flex w-full md:w-1/2 lg:w-1/3 border-b-[0.5px] border-black"/>
+            <div class="flex flex-col flex-1 w-full md:w-1/2 lg:w-1/3 space-y-2">
+              <div class="flex w-full flex-col items-start justify-start ">
+                <p class="font-mono text-[10px] font-bold uppercase">[Navigate gotcowjuice.com]</p>
+              </div>
+              <div class="flex flex-col items-center justify-center space-y-1 sm:space-y-0">
                 {internalLinks.map(({ label, path, live }) => (
                   <button
                     key={path}
@@ -108,11 +131,8 @@ const Header = () => {
                     {label}
                   </a>
                 ))}
-
               </div>
-              
             </div>
-            
           </nav>
           <button 
             // onClick={() => window.location.href = 'mailto:cowjuiceman@gotcowjuice.com?subject=Hi%20Cow%20Juice%20Man%20—%20I%20Have%20a%20Question%20about%20Cow%20Juice%20&body=Dear%20Cow%20Juice%20Man%2C%0A%0A'}

@@ -9,49 +9,16 @@ import Ticker         from "./components/Ticker";
 import Header         from "./components/Header";
 import Footer         from "./components/Footer";
 
-import Transitory     from "./pages/Transitory";
-
-/* Components */
-import Revolution     from "./pages/Revolution";
-import CowJuice       from "./components/CowJuice";
-
 /* Helpers */
 import Scroller       from "./pages/Scroller";
 import Error          from "./pages/Error";
 
-import HomeNew        from "./pages/HomeNew";
-
-/* Static */
-import Retorted       from "./pages/Retorted";
-import Press          from "./pages/Press";
-import Questions      from "./pages/Questions";
-import Contact        from "./pages/Contact";
-import QR             from "./pages/QR";
-
-/* Legal */
-import Terms          from "./pages/legal/Terms";   
-import Privacy        from "./pages/legal/Privacy";
-import Cookies        from "./pages/legal/Cookies";
-
-/* Checkout */
-import ContactEntry        from "./pages/checkouts/ContactEntry";
-import Payment             from "./pages/checkouts/Payment";
-
-// import Status         from "./pages/orders/Status";
-
-import Products        from "./pages/shopify/Products";
-import ProductDetails  from "./pages/shopify/ProductDetails";
-import Bag             from "./pages/shopify/Bag";
-
-/* Orders i.e., post-payment, order-placement handling */
-import Confirmation from "./pages/orders/Confirmation";
-import Status       from "./pages/orders/Status";
-
-import Reviews      from "./pages/Reviews";
 
 /* Internal Cow Juice Inc. Control Panel */
-import Login from "./pages/portal/Login";
-import Panel from "./pages/portal/Panel";
+import Dashboard      from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Fulfill from "./pages/Fulfill";
+import Beta from "./pages/Beta";
 
 const App = () => (
   <Router>
@@ -70,242 +37,52 @@ const App = () => (
                 </div>
               }
             />
-            {/* <Route
-              path="/"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Ticker />
-                  <Header />
-                  <Transitory />
-                  <Footer />
-                </div>
-              }
-            /> */}
-
-            {/* ---------- storefront ---------- */}
-            <Route
-              path="/"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Ticker />
-                  <Header />
-                  <CowJuice />
-                  <HomeNew />
-                  <Retorted />
-                  <Questions />
-                  <Revolution />
-                  <Footer />
-                </div>
-              }
-            />
-
-            {/* ---------- static ---------- */}
-            <Route
-              path="/ultra-retorted-milk"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Ticker />
-                  <Header />
-                  <Retorted />
-                  <Footer />
-                </div>
-              }
-            />
-            <Route
-              path="/the-revolution-of-cow-juice"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Ticker />
-                  <Header />
-                  <Revolution />
-                  <Footer />
-                </div>
-              }
-            />
-            <Route
-              path="/press"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Ticker />
-                  <Header />
-                  <Press />
-                  <Footer />
-                </div>
-              }
-            />
-            <Route
-              path="/questions"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Ticker />
-                  <Header />
-                  <Questions />
-                  <Footer />
-                </div>
-              }
-            />
-            <Route
-              path="/contact"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Ticker />
-                  <Header />
-                  <Contact />
-                  <Footer />
-                </div>
-              }
-            />
-            <Route
-              path="/qr"
-              element={
-                <div class="flex flex-col min-h-screen p-0 space-y-4">
-                  <QR />
-                </div>
-              }
-            />
-
-            {/* ---------- checkout, payment handling ---------- */}
-            <Route 
-              path={`/checkouts/:checkoutId/contact-entry/:consumptionCharacterization`}
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Header />
-                  <ContactEntry />
-                  <Footer />
-                </div>
-              }
-            />
             
+            {/* ---------- internal Cow Juice Inc. control portal; we will add auth ---------- */}
             <Route 
-              path="/checkouts/:checkoutId/payment/:paymentId"
+              path="/"
               element={
                 <div class="flex flex-col min-h-screen p-0">
+                  <Ticker />
                   <Header />
-                  <Payment />
+                  <Dashboard />
                   <Footer />
-                </div>
-              }
-            />
-
-            {/* ---------- order, post-payment handling ---------- */}
-            <Route
-              path="/orders/:orderId/confirmation"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Header />
-                  <Confirmation />
-                  <Footer />
+                  <Ticker />
                 </div>
               }
             />
             <Route 
-              path="/orders/status/:confirmationNumber?"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Header />
-                  <Status />
-                  <Footer />
-                </div>
-              }
-            />
-
-            {/* ---------- shopify reliant pages (i.e., our custom built shopify store) ---------- */}
-            <Route 
-              path="/shopify/products"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Header />
-                  <Products />
-                  <Footer />
-                </div>
-              }
-            />
-            <Route 
-              path="/shopify/products/:productId"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Header />
-                  <ProductDetails />
-                  <Footer />
-                </div>
-              }
-            />
-            <Route 
-              path="/shopify/bag"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Header />
-                  <Bag />
-                  <Footer />
-                </div>
-              }
-            />
-
-            {/* ---------- internal Cow Juice Inc. control portal ---------- */}
-            <Route 
-              path="/beta/private/cow-juice-mans-super-secret-internal-control-panel/login"
+              path="/login"
               element={
                 <div class="flex flex-col min-h-screen p-0">
                   <Header />
                   <Login />
                   <Footer />
+                  <Ticker />
                 </div>
               }
             />
             <Route 
-              path="/beta/private/cow-juice-mans-super-secret-internal-control-panel/portal"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
-                  <Header />
-                  <Panel />
-                  <Footer />
-                </div>
-              }
-            />
-
-            <Route 
-              path="/beta/reviews"
+              path="/fulfill"
               element={
                 <div class="flex flex-col min-h-screen p-0">
                   <Ticker />
                   <Header />
-                  <Reviews />
+                  <Fulfill />
                   <Footer />
-                </div>
-              }
-            />
-
-            <Route 
-              path="/legal/terms-and-conditions"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
                   <Ticker />
-                  <Header />
-                  <Terms />
-                  <Footer />
                 </div>
               }
             />
             <Route 
-              path="/legal/privacy-policy"
+              path="/beta/manage"
               element={
                 <div class="flex flex-col min-h-screen p-0">
                   <Ticker />
                   <Header />
-                  <Privacy />
+                  <Beta />
                   <Footer />
-                </div>
-              }
-            />
-
-            <Route 
-              path="/legal/cookies"
-              element={
-                <div class="flex flex-col min-h-screen p-0">
                   <Ticker />
-                  <Header />
-                  <Cookies />
-                  <Footer />
                 </div>
               }
             />

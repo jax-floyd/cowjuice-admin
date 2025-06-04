@@ -77,18 +77,15 @@ export default Ticker;
 /* ——— the scrolling payload ——— */
 const TickerText = React.forwardRef((props, ref) => (
   <span ref={ref} class="px-8 text-[11px] leading-3 sm:text-xs sm:leading-normal font-mono uppercase">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Breaking News from <span className="text-cowjuice-gold border border-cowjuice-gold font-bold rounded-sm px-[2px]">Moo-land</span>:
-    Cow Juice pioneers the <span className="border-[0.5px] border-cowjuice-red text-cowjuice-red rounded-sm px-[2px] font-bold">ultra-retort™</span> revolution – the world’s first can of milk.
-    {/* • Critics exclaim: “The most <span className="border-[0.5px] border-cowjuice-red text-cowjuice-red rounded-sm px-[2px] font-bold">retorted</span> milk in history!” */}
-    &nbsp;• Follow&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Don't ever get it twisted: This is the <span className="text-black border border-black font-bold rounded-sm px-[2px]">Cow Juice Super Secret Admin Portal</span>
+    &nbsp;• Need to visit gotcowjuice.com?&nbsp;
     <a
-      href="https://www.tiktok.com/@juiceofacow"
+      href="https://gotcowjuice.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="border-[0.5px] border-cowjuice-gold rounded-sm px-[2px] font-bold lowercase text-cowjuice-gold"
+      className="border-[0.5px] border-black rounded-sm px-[2px] font-bold uppercase text-black"
     >
-      @juiceofacow
+      Go to Site →
     </a>
-    &nbsp;on TikTok →
   </span>
 ));
