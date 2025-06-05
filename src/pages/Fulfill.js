@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 
 import OrderModal from "../components/OrderModal";
 
 import triggerPostToFetchOrders from "../functions/shopify/triggerPostToFetchOrders";
 
-const Portal = () => {
+const Fulfill = () => {
   const portalRef = useRef(null);
   const [visible, setVisible] = useState(false);
   const [orders, setOrders] = useState([]);
@@ -58,12 +58,12 @@ const Portal = () => {
   }, []);
 
   const [activeTab, setActiveTab] = useState("unfulfilled");
-  const tabs = {
+  // A simplifcation for now
+  const tabs = useMemo(() => ({
+    all: orders,
     unfulfilled: orders.filter(order => !order.fulfillment_status),
-    fulfilled_but_unshipped: orders.filter(order => order.fulfillment_status === "fulfilled" && !order.shipping_address),
-    shipped: orders.filter(order => order.fulfillment_status === "fulfilled" && order.shipping_address),
-    completed: orders.filter(order => order.fulfillment_status === "fulfilled" && order.shipping_address && order.financial_status === "paid"),
-  };
+    fulfilled: orders.filter(order => order.fulfillment_status === "fulfilled"),
+  }), [orders]);
   const btnBase = `flex w-full items-center justify-center font-mono text-[10px] sm:text-xs uppercase font-bold py-2 px-3 rounded-lg border-[0.5px] transition-colors duration-300`;
   const btnIdle = 'bg-white text-black border-black hover:bg-black hover:text-white';
   const btnActive = 'bg-cowjuice-gold text-white border-cowjuice-gold';
@@ -102,29 +102,24 @@ const Portal = () => {
                 <div className="flex flex-col items-end justify-center w-full space-y-1 pt-2">
                   <div className="flex flex-col w-full space-y-1">
                     <button
+                      onClick={() => setActiveTab("all")}
+                      className={`${btnBase} ${activeTab === "all" ? btnActive : btnIdle}`}
+                    >
+                      All Orders [{tabs.all.length}]
+                    </button>
+                    <button
                       onClick={() => setActiveTab("unfulfilled")}
                       className={`${btnBase} ${activeTab === "unfulfilled" ? btnActive : btnIdle}`}
                     >
-                      Unfulfilled Orders
+                      Unfulfilled Orders [{tabs.unfulfilled.length}]
                     </button>
                     <button
-                      onClick={() => setActiveTab("fulfilled_but_unshipped")}
-                      className={`${btnBase} ${activeTab === "fulfilled_but_unshipped" ? btnActive : btnIdle}`}
+                      onClick={() => setActiveTab("fulfilled")}
+                      className={`${btnBase} ${activeTab === "fulfilled" ? btnActive : btnIdle}`}
                     >
-                      Ready to Ship
+                      Fulfilled Orders [{tabs.fulfilled.length}]
                     </button>
-                    <button
-                      onClick={() => setActiveTab("in_transit")}
-                      className={`${btnBase} ${activeTab === "in_transit" ? btnActive : btnIdle}`}
-                    >
-                      In Transit
-                    </button>
-                    <button
-                      onClick={() => setActiveTab("completed")}
-                      className={`${btnBase} ${activeTab === "completed" ? btnActive : btnIdle}`}
-                    >
-                      Completed
-                    </button>
+
                   </div>
                 </div>
               </div>
@@ -149,41 +144,57 @@ const Portal = () => {
               )}
 
               <div className="flex flex-col w-full space-y-2">
-                {(!loading && orders.length === 0) ? (
-                  <p className="font-mono text-xs uppercase text-gray-400">
-                    No orders yet.
-                  </p>
-                ) : (
-                  orders.map((order) => {
-                    const name = order.customer?.first_name || "Unknown";
-                    const last = order.customer?.last_name || "";
-                    const email = order.email;
-                    const createdAt = new Date(order.created_at).toLocaleString();
-                    const shipping = order.shipping_address;
-                    const lineItems = order.line_items?.map((item) => `${item.quantity}× ${item.title}`).join(", ");
-                    const total = parseFloat(order.total_price).toFixed(2);
-                    const status = order.fulfillment_status ? order.fulfillment_status : "UNFULFILLED";
+                {(!loading && tabs && tabs[activeTab] && tabs[activeTab].length === 0) ? (
+                    <p className="font-mono text-xs uppercase text-gray-400">
+                      No {activeTab.replaceAll('_', ' ')} orders.
+                    </p>
+                  ) : (
+                    tabs[activeTab].map((order) => {
+                      const name = order.customer?.first_name || "Unknown";
+                      const last = order.customer?.last_name || "";
+                      const email = order.email;
+                      const createdAt = new Date(order.created_at).toLocaleString();
+                      const shipping = order.shipping_address;
+                      const lineItems = order.line_items?.map((item) => `${item.quantity}× ${item.title}`).join(", ");
+                      const total = parseFloat(order.total_price).toFixed(2);
+                      const status = order.fulfillment_status ? order.fulfillment_status : "UNFULFILLED";
 
-                    return (
-                      <div
-                        key={order.id}
-                        onClick={() => setModal(order)}
-                        className="group border-[0.5px] border-black rounded-sm w-full p-3 hover:bg-cowjuice-gold/10 transition animate-fade-down cursor-pointer"
-                      >
-                        <div className="font-mono text-[11px] uppercase leading-tight space-y-1">
-                          <div className="font-bold text-xs">Order {order.name}</div>
-                          <div>Customer: {name} {last}</div>
-                          <div>Email: {email}</div>
-                          <div>Address: {shipping?.address1}, {shipping?.city}, {shipping?.zip}</div>
-                          <div className="text-[10px] mt-1">Items: {lineItems}</div>
-                          <div className="text-[10px] mt-1">Total: ${total}</div>
-                          <div className="text-[10px] mt-1">Placed: {createdAt}</div>
-                          <div className="text-[10px] mt-1">Status: {status}</div>
+                      console.log("Order:", status);
+                      return (
+                        <div
+                          key={order.id}
+                          onClick={() => setModal(order)}
+                          className="group border-[0.5px] border-black rounded-sm w-full p-3 hover:bg-cowjuice-gold/10 transition animate-fade-down cursor-pointer"
+                        >
+                          <div className="font-mono text-[11px] uppercase leading-tight space-y-1">
+                            <div className="flex items-center justify-between">
+                              <div className="font-bold text-xs">Order {order.name}</div>
+                              <button
+                                href={`https://cowjuice.myshopify.com/admin/orders/${order.id}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  window.open(`https://admin.shopify.com/store/cow-juice/orders/${order.id}`, '_blank');
+                                }}
+                                className="uppercase leading-3 text-[10px] font-bol border-[0.5px] border-cowjuice-gold rounded-md px-2 py-[1px] text-cowjuice-gold hover:bg-white transition-colors duration-300"
+                              >
+                                View Order in Shopify &gt;&gt;
+                              </button>
+                            </div>
+                            <div>Customer: {name} {last}</div>
+                            <div>Email: {email}</div>
+                            <div>Address: {shipping?.address1}, {shipping?.city}, {shipping?.zip}</div>
+                            <div className="text-[10px] mt-1">Items: {lineItems}</div>
+                            <div className="text-[10px] mt-1">Total: ${total}</div>
+                            <div className="text-[10px] mt-1">Placed: {createdAt}</div>
+                            <div className="text-[10px] mt-1">Status: <span className={`${status === "UNFULFILLED" ? "border-[0.5px] border-black text-black font-bold" : "bg-white text-cowjuice-gold border-[0.5px] border-cowjuice-gold font-bold"} px-1 rounded-sm`}>{status}</span></div>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })
-                )}
+                      );
+                    })
+                  )}
+
               </div>
             </div>
           </div>
@@ -193,4 +204,4 @@ const Portal = () => {
   );
 };
 
-export default Portal;
+export default Fulfill;

@@ -4,6 +4,7 @@ const triggerPostToDispositionBetaAccessRequest = async (id, newStatus) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'cow-juice-api-key': process.env.REACT_APP_COWJUICE_API_KEY, // Include the API key for authentication
       },
       body: JSON.stringify({ id, status: newStatus }),
     });

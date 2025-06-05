@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 import triggerGetBetaTesters from "../functions/beta/triggerGetBetaTesters";
 import triggerPostToDispositionBetaAccessRequest from "../functions/beta/triggerPostToDispositionBetaAccessRequest";
@@ -34,7 +35,6 @@ const Beta = () => {
   const fetchTesters = async () => {
     try {
       const data = await triggerGetBetaTesters();
-      console.log("Fetched beta testers:", data);
       setTesters(data);
       setLoading(false);
       setRefreshCountdown(30);
@@ -171,6 +171,10 @@ const Beta = () => {
     );
   };
 
+  const awaitingCount = testers.filter(t => t.status === "awaiting").length;
+  const approvedCount = testers.filter(t => t.status === "approved").length;
+  const rejectedCount = testers.filter(t => t.status === "rejected").length;
+
   return (
     <div
       ref={portalRef}
@@ -179,7 +183,11 @@ const Beta = () => {
       <div className="flex flex-1 max-w-6xl mx-auto w-full h-full">
         <div className={anim("flex flex-col-reverse sm:grid gap-8 sm:grid-cols-3 h-full items-start justify-center animate-fade")}>
           {/* Left Panel */}
-          <div className={anim("flex flex-col flex-1 w-full h-full border-[0.5px] border-black rounded-sm items-start justify-between space-y-2 p-2 sm:p-4 animate-fade-up sm:animate-fade-left")}>
+          <motion.div 
+            layout 
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className={anim("flex flex-col flex-1 w-full h-full border-[0.5px] border-black rounded-sm items-start justify-between space-y-2 p-2 sm:p-4 animate-fade-up sm:animate-fade-left")}
+          >
             <div className="flex flex-1 flex-col items-start w-full space-y-1">
               <p className="text-[10px] font-mono uppercase leading-3 font-bold">
                 Regulate access to the Cow Juice Private Beta Testing Program.
@@ -194,15 +202,15 @@ const Beta = () => {
                 </button>
               </div>
               <div className="flex flex-col w-full pt-4 space-y-1">
-                <button onClick={() => setActiveTab("awaiting")} className={getButtonClass(activeTab === "awaiting" ? 'success' : '')}>Awaiting</button>
-                <button onClick={() => setActiveTab("approved")} className={getButtonClass(activeTab === "approve" ? 'success' : '')}>Approved</button>
-                <button onClick={() => setActiveTab("rejected")} className={getButtonClass(activeTab === "reject" ? 'success' : '')}>Rejected</button>
+                <button onClick={() => setActiveTab("awaiting")} className={getButtonClass(activeTab === "awaiting" ? 'success' : '')}>Awaiting [{awaitingCount}]</button>
+                <button onClick={() => setActiveTab("approved")} className={getButtonClass(activeTab === "approved" ? 'success' : '')}>Approved [{approvedCount}]</button>
+                <button onClick={() => setActiveTab("rejected")} className={getButtonClass(activeTab === "rejected" ? 'success' : '')}>Rejected [{rejectedCount}]</button>
               </div>
             </div>
             <p className="flex w-full font-mono py-2 text-[10px] leading-3 uppercase opacity-60 border-t-[0.5px] border-black">
               Internal use only. Violators will be prosecuted according to the universal code of bovine justice.
             </p>
-          </div>
+          </motion.div>
 
           {/* Main Panel */}
           <div className={anim("flex flex-col col-span-2 justify-start items-center space-y-4 w-full animate-fade")}> 
