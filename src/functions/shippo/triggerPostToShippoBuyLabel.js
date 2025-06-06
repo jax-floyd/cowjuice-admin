@@ -1,8 +1,8 @@
-// functions/easyship/triggerPostToBuyLabel.js
+// functions/easyship/triggerPostToShippoBuyLabel.js
 
-const triggerPostToBuyLabel = async ({ shipmentId, rateId }) => {
+const triggerPostToShippoBuyLabel = async ({ shipmentId, rateId }) => {
   try {
-    const response = await fetch('https://api.gotcowjuice.com:2000/admin/buy-label', {
+    const response = await fetch('https://api.gotcowjuice.com:2000/admin/shippo/buy-label', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
@@ -25,4 +25,4 @@ const triggerPostToBuyLabel = async ({ shipmentId, rateId }) => {
   }
 };
 
-export default triggerPostToBuyLabel;
+export default triggerPostToShippoBuyLabel;

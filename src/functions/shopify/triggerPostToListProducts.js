@@ -1,5 +1,4 @@
 const triggerPostToListProducts = async (email = null, confirmationNumber = null) => {
-    console.log('triggered post to list products');
     try {
 
         const response = await fetch('https://api.gotcowjuice.com:2000/list-products', {

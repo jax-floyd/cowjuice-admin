@@ -1,5 +1,4 @@
 const triggerPostToFetchOrders = async () => {
-    console.log('triggered post to fetch orders');
     try {
 
         const response = await fetch('https://api.gotcowjuice.com:2000/admin/fetch-orders', {

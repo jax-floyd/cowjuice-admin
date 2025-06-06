@@ -1,46 +1,55 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import triggerPostToBuyLabel from '../functions/easyship/triggerPostToBuyLabel';
 
-const BuyLabelModal = ({ rate, onClose, onSuccess }) => {
+import triggerPostToEasypostBuyLabel from '../functions/easypost/triggerPostToEasypostBuyLabel';
+import triggerPostToShippoBuyLabel from '../functions/shippo/triggerPostToShippoBuyLabel';
+
+const BuyLabelModal = ({ rate, carrierSource, onClose, onSuccess }) => {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
   const [manualTracking, setManualTracking] = useState('');
   const [manualLabelUrl, setManualLabelUrl] = useState('');
   const [showConflictRecovery, setShowConflictRecovery] = useState(false);
 
+  console.log(carrierSource, 'carrierSource in BuyLabelModal');
   const handleBuyLabel = async () => {
     setStatus('loading');
     setError(null);
     setShowConflictRecovery(false);
 
     try {
-        const { ok, status, data } = await triggerPostToBuyLabel({
+      const buyFn =
+        carrierSource === 'shippo'
+          ? triggerPostToShippoBuyLabel
+          : triggerPostToEasypostBuyLabel;
+
+      const { ok, status, data } = await buyFn({
         shipmentId: rate.shipment_id,
         rateId: rate.id,
-        });
+      });
 
-        if (!ok) {
+      if (!ok) {
         if (status === 409) {
-            setShowConflictRecovery(true);
-            throw new Error(data?.error || 'Label already purchased');
+          setShowConflictRecovery(true);
+          throw new Error(data?.error || 'Label already purchased');
         }
         throw new Error(data?.error || 'Failed to buy label');
-        }
+      }
 
-        if (!data.label_url || !data.tracking_number) {
+      if (!data.label_url || !data.tracking_number) {
         throw new Error('Label was purchased but missing data.');
-        }
+      }
 
-        setStatus('success');
-        onSuccess?.(data);
-        setTimeout(() => onClose(), 1000);
+      setStatus('success');
+      onSuccess?.(data);
+      setTimeout(() => onClose(), 1000);
     } catch (err) {
-        console.error('Label purchase error:', err);
-        setError(err.message || 'Unknown error');
-        setStatus('error');
+      console.error('Label purchase error:', err);
+      setError(err.message || 'Unknown error');
+      setStatus('error');
     }
-    };
+  };
+
 
   const handleManualSubmit = () => {
     if (!manualTracking) return;

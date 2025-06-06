@@ -94,7 +94,11 @@ const Fulfill = () => {
             )}
           >
             {/* ─── Left Side Footnote Panel ─── */}
-            <div className={anim("flex flex-col flex-1 w-full h-full border-[0.5px] border-black rounded-sm items-start justify-between space-y-2 p-2 sm:p-4 animate-fade-up sm:animate-fade-left")}>
+            <div className={anim("flex flex-col flex-1 w-full h-full border-[0.5px] border-black rounded-sm items-start justify-between space-y-4 p-2 sm:p-4 animate-fade-up sm:animate-fade-left")}>
+              {/* ─── Fulfillment Summary Section ─── */}
+              <div className="pt-2 w-full space-y-4">
+                
+                
               <div className="flex flex-1 flex-col items-start w-full space-y-1">
                 <p className="text-[10px] font-mono uppercase leading-3 font-bold">
                   View and manage Cow Juice orders by fulfillment status.
@@ -102,27 +106,64 @@ const Fulfill = () => {
                 <div className="flex flex-col items-end justify-center w-full space-y-1 pt-2">
                   <div className="flex flex-col w-full space-y-1">
                     <button
-                      onClick={() => setActiveTab("all")}
-                      className={`${btnBase} ${activeTab === "all" ? btnActive : btnIdle}`}
-                    >
-                      All Orders [{tabs.all.length}]
-                    </button>
-                    <button
-                      onClick={() => setActiveTab("unfulfilled")}
-                      className={`${btnBase} ${activeTab === "unfulfilled" ? btnActive : btnIdle}`}
-                    >
-                      Unfulfilled Orders [{tabs.unfulfilled.length}]
-                    </button>
-                    <button
-                      onClick={() => setActiveTab("fulfilled")}
-                      className={`${btnBase} ${activeTab === "fulfilled" ? btnActive : btnIdle}`}
-                    >
-                      Fulfilled Orders [{tabs.fulfilled.length}]
-                    </button>
-
+                        onClick={() => setActiveTab("all")}
+                        className={`${btnBase} ${activeTab === "all" ? btnActive : btnIdle}`}
+                      >
+                        All Orders [{tabs.all.length}]
+                      </button>
+                      <button
+                        onClick={() => setActiveTab("unfulfilled")}
+                        className={`${btnBase} ${activeTab === "unfulfilled" ? btnActive : btnIdle}`}
+                      >
+                        Unfulfilled Orders [{tabs.unfulfilled.length}]
+                      </button>
+                      <button
+                        onClick={() => setActiveTab("fulfilled")}
+                        className={`${btnBase} ${activeTab === "fulfilled" ? btnActive : btnIdle}`}
+                      >
+                        Fulfilled Orders [{tabs.fulfilled.length}]
+                      </button>
+                    </div>
                   </div>
+                  <button
+                    // onClick={() => setActiveTab("archived")}
+                    className={`${btnBase} ${activeTab === "archived" ? btnActive : btnIdle}`}
+                  >
+                    Archived Orders [{tabs.archived?.length}]
+                  </button>
+                </div>
+                <div 
+                  onClick={() => setActiveTab("unfulfilled")}
+                  class="flex flex-col space-y-1 py-4 px-2 border-[0.5px] border-black rounded-xl bg-cowjuice-gold/10 animate-pulse hover:cowjuice-red transition-colors duration-300 w-full cursor-pointer"
+                >
+                  <p className="font-mono text-[10px] uppercase leading-3 font-bold">
+                    Fulfillment To-Do Summary
+                  </p>
+                  {(() => {
+                    const unfulfilledOrders = tabs.unfulfilled;
+                    let sixPacks = 0, eightPacks = 0, twelvePacks = 0;
+
+                    unfulfilledOrders.forEach(order => {
+                      order.line_items?.forEach(item => {
+                        const name = item.name?.toLowerCase() || "";
+                        const qty = item.quantity;
+                        if (name.includes("12")) twelvePacks += qty;
+                        else if (name.includes("8")) eightPacks += qty;
+                        else sixPacks += qty;
+                      });
+                    });
+
+                    return (
+                      <div className="font-mono uppercase text-[10px] leading-tight space-y-[1px]">
+                        <p>6-Packs to Fulfill: {sixPacks}</p>
+                        <p>8-Packs to Fulfill: {eightPacks}</p>
+                        <p>12-Packs to Fulfill: {twelvePacks}</p>
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
+              
               <p className="font-mono py-2 text-[10px] leading-3 uppercase opacity-60 border-t-[0.5px] border-black">
                 Internal use only. Powered by Cow Juice fulfillment ops.
               </p>
@@ -159,7 +200,6 @@ const Fulfill = () => {
                       const total = parseFloat(order.total_price).toFixed(2);
                       const status = order.fulfillment_status ? order.fulfillment_status : "UNFULFILLED";
 
-                      console.log("Order:", status);
                       return (
                         <div
                           key={order.id}
@@ -183,7 +223,10 @@ const Fulfill = () => {
                               </button>
                             </div>
                             <div>Customer: {name} {last}</div>
-                            <div>Email: {email}</div>
+                            <div class="flex flex-row space-x-2">
+                              <div>Email: {email}</div>
+                              <div>Phone: {shipping?.phone}</div>
+                            </div>
                             <div>Address: {shipping?.address1}, {shipping?.city}, {shipping?.zip}</div>
                             <div className="text-[10px] mt-1">Items: {lineItems}</div>
                             <div className="text-[10px] mt-1">Total: ${total}</div>

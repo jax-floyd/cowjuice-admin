@@ -1,5 +1,4 @@
 const triggerPostToFulfillOrder = async ({ orderId, trackingNumber, trackingCompany, lineItems }) => {
-  console.log('Triggering POST to fulfill Shopify order...');
   try {
     const response = await fetch('https://api.gotcowjuice.com:2000/admin/fulfill-order', {
       method: 'POST',

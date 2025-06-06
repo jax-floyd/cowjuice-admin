@@ -1,6 +1,6 @@
 const triggerGetBetaTesters = async () => {
   try {
-    const response = await fetch('https://api.gotcowjuice.com:2000/get-beta-testers?', {
+    const response = await fetch('https://api.gotcowjuice.com:2000/get-beta-testers?limit=500', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

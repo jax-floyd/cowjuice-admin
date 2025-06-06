@@ -1,8 +1,8 @@
-const triggerPostToGetRates = async (body) => {
+const triggerPostToShippoGetRates = async (body) => {
   console.log('triggered post to fetch rates');
 
   try {
-    const response = await fetch('https://api.gotcowjuice.com:2000/admin/get-rates', {
+    const response = await fetch('https://api.gotcowjuice.com:2000/admin/shippo/get-rates', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
@@ -23,4 +23,4 @@ const triggerPostToGetRates = async (body) => {
   }
 };
 
-export default triggerPostToGetRates;
+export default triggerPostToShippoGetRates;
